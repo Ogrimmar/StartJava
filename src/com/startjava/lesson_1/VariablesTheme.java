@@ -73,7 +73,7 @@ public class VariablesTheme {
         num2 = temp;
         System.out.printf("Значения переменных 'num1' и 'num2' после перестановки: num1 = %d, num2 = %d\n", num1, num2);
         System.out.println();
-        
+
         System.out.printf("Исходные значения переменных 'num1' и 'num2': num1 = %d, num2 = %d\n", num1, num2);
         num1 +=num2;
         num2 = num1 - num2;
@@ -81,7 +81,7 @@ public class VariablesTheme {
         System.out.printf("Конечные значения переменных 'num1' и 'num2' после арифметических операций: num1 = %d, num2 = %d\n", 
                 num1, num2);
         System.out.println();
-        
+
         System.out.printf("Исходные значения переменных 'num1' и 'num2': num1 = %d, num2 = %d\n", num1, num2);
         num1 ^= num2;
         num2 ^= num1;
@@ -90,7 +90,7 @@ public class VariablesTheme {
                 num1, num2);
         System.out.println();
         System.out.println("6. Вывод символов и их кодов.");
-        
+
         char dollarSign = '$';
         char asterisk = '*';
         char commercialA = '@';
@@ -126,14 +126,14 @@ public class VariablesTheme {
         int units = srcNumber % 10;
         System.out.printf("Число srcNumber = %d содержит\n  %d сотен\n  %d десятков\n  %d единиц\n", srcNumber, hundreds, tens, 
                 units);
-        
+
         int digitsMultiplication = (hundreds % 10) * (tens % 10) * units;
         int digitsSum = (hundreds % 10) + (tens % 10) + units;
         System.out.printf("Сумма его цифр = %d\n", digitsSum);
         System.out.printf("Произведение его цифр = %d\n", digitsMultiplication);
         System.out.println();
         System.out.println("9. Вывод времени.");
-        
+
         int timeInSeconds = 86399;
         int hours = (timeInSeconds / 3600) % 24;
         int minutes = (timeInSeconds / 60) % 60;
