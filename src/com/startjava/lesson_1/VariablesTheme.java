@@ -116,7 +116,7 @@ public class VariablesTheme {
         System.out.println("  " + slash + underscore + leftParenthesis + " " + rightParenthesis + backlslash);
         System.out.println(" " + slash + "      " + backlslash + " ");
         System.out.println("" + slash + underscore + underscore + underscore +  underscore + slash + backlslash + underscore + 
-                underscore  + backlslash);
+                underscore + backlslash);
         System.out.println();
         System.out.println("8. Вывод количества сотен, десятков и единиц числа.");
 
