@@ -73,9 +73,9 @@ public class GuessNumber {
         int playerAttempt = player.getCurrSize();
 
         String s = (playerGeneratedNumber == generatedNumber) ? "Игрок %s угадал число %d с %d попытки.\n" : 
-            (playerGeneratedNumber > generatedNumber) ? "Игрок %s загадал число %d с попытки %d, которое больше того, что " + 
-            "загадал компьютер.\n" : (playerGeneratedNumber < generatedNumber) ? "Игрок %s загадал число %d с попытки %d, " + 
-            "которое меньше того, что загадал компьютер.\n" : null;
+                (playerGeneratedNumber > generatedNumber) ? "Игрок %s загадал число %d с попытки %d, которое больше того, что " + 
+                "загадал компьютер.\n" : (playerGeneratedNumber < generatedNumber) ? "Игрок %s загадал число %d с попытки %d, " + 
+                "которое меньше того, что загадал компьютер.\n" : null;
 
         System.out.printf(s, player.getName(), player.getNumber(playerAttempt - 1), playerAttempt);
         

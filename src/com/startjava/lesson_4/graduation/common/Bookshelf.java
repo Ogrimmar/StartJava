@@ -6,22 +6,22 @@ public class Bookshelf {
 
     private static final int MAX_AMOUNT = 10;
     private Book[] books = new Book[MAX_AMOUNT];
-    private int currentAmount;
+    private int currAmount;
 
     public Bookshelf() {
-        this.currentAmount = 0;
+        this.currAmount = 0;
     }
 
     public int getAmountOfBooks() {
-        return currentAmount;
+        return curAmount;
     }
 
     public int getFreeShelves() {
-        return MAX_AMOUNT - currentAmount;
+        return MAX_AMOUNT - currAmount;
     }
 
     public boolean addBook(Book book) {
-        if (currentAmount < MAX_AMOUNT) {
+        if (currAmount < MAX_AMOUNT) {
             books[currentAmount++] = book;
 
             return true;
@@ -41,11 +41,11 @@ public class Bookshelf {
     }
 
     public boolean discardBook(String _title) {
-        for (int i = 0; i <= currentAmount; i++) {
+        for (int i = 0; i <= currAmount; i++) {
             if (books[i].getTitle().equals(_title)) {
-                System.arraycopy(books, i + 1, books, i, currentAmount - 1);
-                currentAmount--;
-                books[currentAmount] = null;
+                System.arraycopy(books, i + 1, books, i, currAmount - 1);
+                currAmount--;
+                books[currAmount] = null;
 
                 return true;
             }
@@ -55,12 +55,12 @@ public class Bookshelf {
     }
 
     public Book[] getAllBooks() {
-        return Arrays.copyOf(books, currentAmount);
+        return Arrays.copyOf(books, currAmount);
     }
 
     public void freeBookshelf() {
-        Arrays.fill(books, 0, currentAmount, null);
+        Arrays.fill(books, 0, currAmount, null);
 
-        currentAmount = 0;
+        currAmount = 0;
     }
 }

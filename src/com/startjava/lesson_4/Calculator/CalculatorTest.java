@@ -10,36 +10,36 @@ public class CalculatorTest {
         System.out.println("1. Модифицируйте программу “Калькулятор”.");
         
         int num1;
-        char operationSymbol;
+        char arithOperSymbol;
         int num2;
-        double result = 0.0D;
+        double res = 0.0;
         Calculator calc = new Calculator();
 
         do {
             String[] mathExpression = CalculatorTest.enterMathExp();
 
             num1 = Integer.parseInt(mathExpression[0]);
-            operationSymbol = (mathExpression[1].toCharArray())[0];
+            arithOperSymbol = (mathExpression[1].toCharArray())[0];
             num2 = Integer.parseInt(mathExpression[2]);
 
-            result = calc.calculate(num1, operationSymbol, num2);
+            result = calc.calculate(num1, arithOperSymbol, num2);
             
             if (result < Double.MIN_VALUE) {
-                if (result - Math.floor(result) == 0.0D) {
-                    System.out.printf("%d " + operationSymbol + " %d = %f\n", num1, num2, result);
+                if (result - Math.floor(res) == 0.0) {
+                    System.out.printf("%d " + arithOperSymbol + " %d = %f\n", num1, num2, res);
                 } else {
-                    System.out.printf("%d " + operationSymbol + " %d = %.3f\n", num1, num2, result);
+                    System.out.printf("%d " + arithOperSymbol + " %d = %.3f\n", num1, num2, res);
                 }
             }
-        } while (result < Double.MIN_VALUE);
+        } while (res < Double.MIN_VALUE);
     }
 
     private static String[] enterMathExp() {
-        String[] mathExpression = new String[3];
+        String[] mathExpr = new String[3];
 
         System.out.print("Введите математическое выражение: ");
-        mathExpression = (scanner.nextLine()).split(" ");
+        mathExpr = (scanner.nextLine()).split(" ");
 
-        return mathExpression;
+        return mathExpr;
     }
 }

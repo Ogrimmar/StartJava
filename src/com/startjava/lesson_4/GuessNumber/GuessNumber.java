@@ -57,16 +57,16 @@ public class GuessNumber {
         int playerAttempt = player.getCurrSize();
 
         if (player.getNumber(playerAttempt - 1) == generatedNumber) {
-              System.out.println("Игрок " + player.getName() + " угадал число " + player.getNumber(playerAttempt - 1) + 
-                      " с " + playerAttempt + " попытки.");
+            System.out.println("Игрок " + player.getName() + " угадал число " + player.getNumber(playerAttempt - 1) + 
+                    " с " + playerAttempt + " попытки.");
 
             return true;
         } else if (player.getNumber(playerAttempt - 1) < generatedNumber) {
             System.out.println("Число " + player.getNumber(playerAttempt - 1) + ", загаданное " + player.getName() + 
-                ", меньше того, что загадал компьютер.");
+                    ", меньше того, что загадал компьютер.");
         } else {
-              System.out.println("Число " + player.getNumber(playerAttempt - 1) + ", загаданное " + player.getName() + 
-                  ", больше того, что загадал компьютер.");
+            System.out.println("Число " + player.getNumber(playerAttempt - 1) + ", загаданное " + player.getName() + 
+                    ", больше того, что загадал компьютер.");
         }
 
         if (playerAttempt == ATTEMPTS) {

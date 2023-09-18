@@ -29,7 +29,8 @@ public class BookshelfTest {
         if (bookshelf.getAmountOfBooks() == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу." + "\n");
         } else {
-            System.out.println("В шкафу книг - " + bookshelf.getAmountOfBooks() + ", свободно полок - " + bookshelf.getFreeShelves() + "\n");
+            System.out.println("В шкафу книг - " + bookshelf.getAmountOfBooks() + ", свободно полок - " + 
+                    bookshelf.getFreeShelves() + "\n");
 
             Book[] books = bookshelf.getAllBooks();
             for (Book book : books) {
@@ -43,11 +44,11 @@ public class BookshelfTest {
 
     public static void displayMenu() {
         System.out.println("""
-            1. Добавить книгу в шкаф.
-            2. Найти книгу в шкафу.
-            3. Убрать книгу из шкафа.
-            4. Освободить книжный шкаф.
-            5. Выйти из меню управления книжного шкафа.
+                1. Добавить книгу в шкаф.
+                2. Найти книгу в шкафу.
+                3. Убрать книгу из шкафа.
+                4. Освободить книжный шкаф.
+                5. Выйти из меню управления книжного шкафа.
         """);
     }
 

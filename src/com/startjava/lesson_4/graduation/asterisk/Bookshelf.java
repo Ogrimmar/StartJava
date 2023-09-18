@@ -7,20 +7,20 @@ public class Bookshelf {
     private static final int MAX_AMOUNT = 10;
     private static final int DEFAULT_LENGTH = 1;
     private Book[] books = new Book[MAX_AMOUNT];
-    private int currentAmount;
+    private int currAmount;
     private int bookshelfLength;
 
     public Bookshelf() {
-        currentAmount = 0;
+        currAmount = 0;
         bookshelfLength = DEFAULT_LENGTH;
     }
 
     public int getAmountOfBooks() {
-        return currentAmount;
+        return currAmount;
     }
 
     public int getFreeShelves() {
-        return MAX_AMOUNT - currentAmount;
+        return MAX_AMOUNT - currAmount;
     }
 
     public int getBookshelfLength() {
@@ -28,8 +28,8 @@ public class Bookshelf {
     }
 
     public boolean addBook(Book book) {
-        if (currentAmount < MAX_AMOUNT) {
-            books[currentAmount++] = book;
+        if (currAmount < MAX_AMOUNT) {
+            books[currAmount++] = book;
             
             if (book.getLength() > bookshelfLength) {
                 bookshelfLength = book.getLength();
@@ -54,15 +54,15 @@ public class Bookshelf {
     }
 
     public boolean discardBook(String _title) {
-        for (int i = 0; i <= currentAmount; i++) {
+        for (int i = 0; i <= currAmount; i++) {
             if (books[i].getTitle().equals(_title)) {
                 int length = books[i].getLength();
 
-                System.arraycopy(books, i + 1, books, i, currentAmount - 1);
+                System.arraycopy(books, i + 1, books, i, currAmount - 1);
 
-                currentAmount--;
+                currAmount--;
 
-                books[currentAmount] = null;
+                books[currAmount] = null;
 
                 if (bookshelfLength == length) {
                     bookshelfLength = findMaxLength(bookshelfLength);
@@ -76,19 +76,19 @@ public class Bookshelf {
     }
 
     public Book[] getAllBooks() {
-        return Arrays.copyOf(books, currentAmount);
+        return Arrays.copyOf(books, currAmount);
     }
 
     public void freeBookshelf() {
-        Arrays.fill(books, 0, currentAmount, null);
+        Arrays.fill(books, 0, currAmount, null);
 
-        currentAmount = 0;
+        currAmount = 0;
     }
 
     private int findMaxLength(int bookshelfLength) {
         int maxLength = books[0].getLength();
 
-        for (int i = 1 ; i <= currentAmount; i++) {
+        for (int i = 1 ; i <= currAmount; i++) {
             if (maxLength < books[i].getLength()) {
                 maxLength = books[i].getLength();
             }

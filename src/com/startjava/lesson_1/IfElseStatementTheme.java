@@ -19,8 +19,8 @@ public class IfElseStatementTheme {
             System.out.println("Вы женщина.");
         }
 
-        double height = 1.80D;
-        if (height < 1.80D) {
+        double height = 1.80;
+        if (height < 1.80) {
             System.out.println("Вы ниже 1.80 метров");
         } else {
             System.out.println("Вы не ниже 1.80 метров.");
@@ -73,16 +73,22 @@ public class IfElseStatementTheme {
         
         int num3 = 123;
         int num4 = 223;
-        System.out.printf("Исходные целые трёхзначные числа: %d, %d.\n", num3, num4);
+        System.out.printf("num3 = %d, num4 = %d.\n", num3, num4);
 
-        if ((num3 / 100) == (num4 / 100)) {
-            System.out.printf("У трёхзначных целых чисел %d и %d совпадают третьи разряды.\n", num1, num2); 
-        } else if (((num3 / 10) % 10) == ((num4 / 10) % 10)) {
-            System.out.printf("У трёхзначных целых чисел %d и %d совпадают вторые разряды.\n", num1, num2);
-        } else if ((num3 % 10) == (num4 % 10)) {
-            System.out.printf("У трёхзначных целых чисел %d и %d совпадают первые разряды.\n", num1, num2);
+        int num3Hundreds = num3 / 100;
+        int num4Hundreds = num4 / 100;
+        int num3Tens = (num3 / 10) % 10;
+        int num4Tens = (num4 / 10) % 10;
+        int num3Units = num3 % 10;
+        int num4Units = num4 % 10;
+        if (num3Hundreds == num4Hundreds) {
+            System.out.printf("У трёхзначных целых чисел %d и %d совпадают третьи разряды.\n", num3, num4); 
+        } else if (num3Tens == num4Tens) {
+            System.out.printf("У трёхзначных целых чисел %d и %d совпадают вторые разряды.\n", num3, num4);
+        } else if (num3Units == num4Units) {
+            System.out.printf("У трёхзначных целых чисел %d и %d совпадают первые разряды.\n", num3, num4);
         } else {
-            System.out.printf("У трёхзначных целых чисел %d и %d никакие цифры не совпадают.\n", num1, num2);
+            System.out.printf("У трёхзначных целых чисел %d и %d никакие цифры не совпадают.\n", num3, num4);
         }
         System.out.println();
         
