@@ -35,7 +35,6 @@ public class IfElseStatementTheme {
             System.out.println("Ваше имя не начинается с буквы 'M' или буквы 'I'.");
         }
         System.out.println();
-
         System.out.println("2. Поиск max и min числа.");
         
         int num1 = -100;
@@ -48,7 +47,6 @@ public class IfElseStatementTheme {
             System.out.printf("Максимальное число - это %d, а минимальное - %d.\n", num2, num1);
         }
         System.out.println();
-
         System.out.println("3. Проверка числа.");
         
         int num = 123_456;
@@ -68,7 +66,6 @@ public class IfElseStatementTheme {
             }
         }
         System.out.println();
-
         System.out.println("4. Поиск одинаковых цифр в числах.");
         
         int num3 = 123;
@@ -91,7 +88,6 @@ public class IfElseStatementTheme {
             System.out.printf("У трёхзначных целых чисел %d и %d никакие цифры не совпадают.\n", num3, num4);
         }
         System.out.println();
-        
         System.out.println("5. Определение символа по его коду.");
         char symbol = '\u0057';
 
@@ -105,7 +101,6 @@ public class IfElseStatementTheme {
             System.out.printf("Символ %c не является ни цифрой, ни заглавной латинской буквой, ни строчной латинской буквой.\n", symbol);
         }
         System.out.println();
-
         System.out.println("6. Подсчёт суммы вклада и начисленных банком %.");
         
         int deposit = 301_000;
@@ -127,12 +122,9 @@ public class IfElseStatementTheme {
             System.out.printf("Итоговая сумма с начисленными процентами: %d\n", deposit);
         }
         System.out.println();
-
         System.out.println("7. Определение оценки по предметам.");
-        
         int histRes = 59;
         int infoRes = 91;
-
         byte histMark, infoMark;
         if (histRes <= 60) {
             histMark = 2;
@@ -161,9 +153,7 @@ public class IfElseStatementTheme {
         System.out.printf("Средняя оценка за два предмета - %.2f\n", avgMark);
         System.out.printf("Средний процент за два предмета - %.2f%c\n", avgPercent, '%');
         System.out.println();
-
         System.out.println("8. Расчёт прибыли за год.");
-        
         int hirePrice = 5_000;
         int goodsSales = 13_000;
         int costEffectiveness = 4_000;
@@ -182,7 +172,6 @@ public class IfElseStatementTheme {
             System.out.println("Прибыль составила 0 рублей.");
         }
         System.out.println();
-
         System.out.println("9. Подсчёт количества банкнот.");
         int totalSum = 567;
         int currentSum = totalSum;

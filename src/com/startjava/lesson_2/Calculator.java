@@ -7,44 +7,44 @@ public class Calculator {
     private static final Scanner scanner = new Scanner(System.in);
     
     public String calculate(int num1, char arithOperSymbol, int num2) {
-        int result = 0;
+        int res = 0;
 
         switch (arithOperSymbol) {
             case '+': 
-                result = num1 + num2;
+                res = num1 + num2;
                 break;
             case '-': 
-                result = num1 - num2;
+                res = num1 - num2;
                 break;
             case '*':
-                result = num1 * num2;
+                res = num1 * num2;
                 break;
             case '^': 
-                result = 1;
+                res = 1;
 
                 for (int i = 0; i < num2; i++) {
-                    result *= num1;
+                    res *= num1;
                 }
 
-                result = 0;
+                res = 0;
 
                 break;
             case '/':
                 if (num2 != 0) {
-                    result = num1 / num2;
+                    res = num1 / num2;
                 } else {
-                    result = Integer.MIN_VALUE;
+                    res = Integer.MIN_VALUE;
                 }
 
                 break;
             case '%':
-                result = num1 % num2;
+                res = num1 % num2;
                 break;
             default:
                 System.out.println("Арифметическая операция не поддерживается.");
         }
         
-        System.out.printf("Результат: %d\n", result);
+        System.out.printf("Результат: %d\n", res);
         System.out.println();
         
         String answer = null;

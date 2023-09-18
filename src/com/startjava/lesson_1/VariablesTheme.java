@@ -22,9 +22,9 @@ public class VariablesTheme {
         System.out.printf("Объём физической памяти на ноутбуке: %.2f GB\n", physMem);
         System.out.printf("Модель процессора на ноутбуке: Intel %c5\n", iSymbol);
         System.out.printf("Отключён ли Firewall на ноутбуке? %b\n", isFirewallOff);
-        System.out.println("\n");
-
+        System.out.println();
         System.out.println("2. Расчёт стоимости товара со скидкой.");
+
         int penPrice = 100;
         int bookPrice = 200;
         int totalSum = penPrice + bookPrice;
@@ -35,20 +35,19 @@ public class VariablesTheme {
         System.out.printf("Сумма скидки: %.1f\n", discountSum);
         System.out.printf("Стоимость товаров со скидкой: %.1f рублей\n", discountPrice);
         System.out.println();
-
         System.out.println("3. Вывод слова JAVA.");
+
         System.out.println("   J    a  v     v  a");
         System.out.println("   J   a a  v   v  a a");
         System.out.println("J  J  aaaaa  V V  aaaaa");
         System.out.println(" JJ  a     a  V  a     a");
         System.out.println();
-
         System.out.println("4. Вывод min и max значений целых числовых типов.");
+
         byte maxByte = 127;
         short maxShort = 32_767;
         int maxInt = 2_147_483_647;
         long maxLong = 9_223_372_036_854_775_807L;
-
         System.out.printf("maxByte: %d\n", maxByte);
         System.out.printf("++maxByte: %d\n", ++maxByte);
         System.out.printf("--maxByte: %d\n", --maxByte);
@@ -62,8 +61,8 @@ public class VariablesTheme {
         System.out.printf("++maxLong: %d\n", ++maxLong);
         System.out.printf("--maxLong: %d\n", --maxLong);
         System.out.println();
-
         System.out.println("5. Перестановка значений переменных.");
+
         int num1 = 2;
         int num2 = 5;
 
@@ -89,7 +88,6 @@ public class VariablesTheme {
         System.out.printf("Конечные значения переменных 'num1' и 'num2' после побитовых операций: num1 = %d, num2 = %d\n", 
                 num1, num2);
         System.out.println();
-
         System.out.println("6. Вывод символов и их кодов.");
         char dollarSign = '$';
         char asterisk = '*';
@@ -103,8 +101,8 @@ public class VariablesTheme {
         System.out.printf("Код символа %c - %d\n", pipeline, (int) pipeline);
         System.out.printf("Код символа %c - %d\n", tilda, (int) tilda);
         System.out.println();
-
         System.out.println("7. Вывод в консоль ASCII-арт Дюка.");
+
         char slash = '/';
         char backlslash = '\\';
         char leftParenthesis = '(';
@@ -118,8 +116,8 @@ public class VariablesTheme {
         System.out.println("" + slash + underscore + underscore + underscore +  underscore + slash + backlslash + underscore + 
                 underscore  + backlslash);
         System.out.println();
-
         System.out.println("8. Вывод количества сотен, десятков и единиц числа.");
+
         int srcNumber = 123;
         int hundreds = srcNumber / 100;
         int tens = srcNumber / 10;
@@ -132,8 +130,8 @@ public class VariablesTheme {
         System.out.printf("Сумма его цифр = %d\n", digitsSum);
         System.out.printf("Произведение его цифр = %d\n", digitsMultiplication);
         System.out.println();
-
         System.out.println("9. Вывод времени.");
+        
         int timeInSeconds = 86399;
         int hours = (timeInSeconds / 3600) % 24;
         int minutes = (timeInSeconds / 60) % 60;

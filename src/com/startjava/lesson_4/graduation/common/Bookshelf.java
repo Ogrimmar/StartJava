@@ -22,7 +22,7 @@ public class Bookshelf {
 
     public boolean addBook(Book book) {
         if (currAmount < MAX_AMOUNT) {
-            books[currentAmount++] = book;
+            books[currAmount++] = book;
 
             return true;
         } else {

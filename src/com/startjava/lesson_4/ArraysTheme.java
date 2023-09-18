@@ -6,22 +6,27 @@ public class ArraysTheme {
 
     public static void main(String[] args) {
         System.out.println("1. Реверс значений.");
+
         completeFirstTask();
         System.out.println();
 
         System.out.println("2. Произведение элементов массива.");
+
         completeSecondTask();
         System.out.println();
 
         System.out.println("3. Удаление элементов массива.");
+
         completeThirdTask();
         System.out.println();
 
         System.out.println("4. Вывод алфавита лесенкой.");
+
         completeFourthTask();
         System.out.println();
 
         System.out.println("5. Заполнение массива уникальными числами.");
+
         completeFifthTask();
         System.out.println();
     }
@@ -54,7 +59,7 @@ public class ArraysTheme {
             }
         }
         
-        String s = (multiplication > 0) ? "1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 = %d\n" : "-1%d";
+        String s = (multiplication > 0) ? "1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 = %d\n" : "-1%d\n";
         System.out.printf(s, multiplication);
     }
 

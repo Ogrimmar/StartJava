@@ -24,7 +24,6 @@ public class GuessNumberTest {
 
         GuessNumber game = new GuessNumber(firstPlayerName, secondPlayerName);
         String answer = game.startGame(generatedNumber);
-
         while (answer.equals("yes")) {
             generatedNumber = generateNumber();
             answer = game.startGame(generatedNumber);
