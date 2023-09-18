@@ -124,49 +124,49 @@ public class IfElseStatementTheme {
 
         System.out.println("7. Определение оценки по предметам.");
         
-        int historyResult = 59;
-        int informaticsResult = 91;
-        byte historyMark;
-        byte informaticsMark;
-        if (historyResult <= 60) {
-            historyMark = 2;
-        } else if (historyResult > 60 && historyResult <= 73) {
-            historyMark = 3;
-        } else if (historyResult > 73 && historyResult <= 91) {
-            historyMark = 4;
-        } else {
-            historyMark = 5;
-        }
-        System.out.printf("История - %d.\n", historyMark);
+        int histRes = 59;
+        int infoRes = 91;
 
-        if (informaticsResult <= 60) {
-            informaticsMark = 2;
-        } else if (informaticsResult > 60 && informaticsResult <= 73) {
-            informaticsMark = 3;
-        } else if (informaticsResult > 73 && informaticsResult <= 91) {
-            informaticsMark = 4;
+        byte histMark, infoMark;
+        if (histRes <= 60) {
+            histMark = 2;
+        } else if (histRes > 60 && histRes <= 73) {
+            histMark = 3;
+        } else if (histRes > 73 && histRes <= 91) {
+            histMark = 4;
         } else {
-            informaticsMark = 5;
+            histMark = 5;
         }
-        System.out.printf("Информатика - %d.\n", informaticsMark);
+        System.out.printf("История - %d.\n", histMark);
 
-        double averagePercent = (double) ((historyResult + informaticsResult) / 2);
-        double averageMark = (double) ((historyMark + informaticsMark) / 2);
-        System.out.printf("Средняя оценка за два предмета - %.2f\n", averageMark);
-        System.out.printf("Средний процент за два предмета - %.2f%c\n", averagePercent, '%');
+        if (infoRes <= 60) {
+            infoMark = 2;
+        } else if (infoRes > 60 && infoRes <= 73) {
+            infoMark = 3;
+        } else if (infoRes > 73 && infoRes <= 91) {
+            infoMark = 4;
+        } else {
+            infoMark = 5;
+        }
+        System.out.printf("Информатика - %d.\n", infoMark);
+
+        double avgPercent = (double) ((histRes + infoRes) / 2);
+        double avgMark = (double) ((histMark + infoMark) / 2);
+        System.out.printf("Средняя оценка за два предмета - %.2f\n", avgMark);
+        System.out.printf("Средний процент за два предмета - %.2f%c\n", avgPercent, '%');
         System.out.println();
 
         System.out.println("8. Расчёт прибыли за год.");
         
         int hirePrice = 5_000;
-        int salesOfGoods = 13_000;
+        int goodsSales = 13_000;
         int costEffectiveness = 4_000;
         int profitPerMonth = 0;
-        for (int i = 0; i <= 11; i++) {
+        for (int i = 0; i < 12; i++) {
             if (profitPerMonth >= hirePrice) {
-                profitPerMonth = salesOfGoods - hirePrice - costEffectiveness;
+                profitPerMonth = goodsSales - hirePrice - costEffectiveness;
             } else {
-                profitPerMonth = salesOfGoods - costEffectiveness;
+                profitPerMonth = goodsSales - costEffectiveness;
             }
         }
 
@@ -180,10 +180,10 @@ public class IfElseStatementTheme {
         System.out.println("9. Подсчёт количества банкнот.");
         int totalSum = 567;
         int currentSum = totalSum;
-        byte numberOfHundredBanknotes = 10;
-        byte numberOfFiveBanknotes = 5;
-        byte numberOfSingleBanknotes = 50;
-        int numberOfBanknotes = numberOfHundredBanknotes + numberOfSingleBanknotes + numberOfFiveBanknotes;
+        int hundredBanknotesAmount = 10;
+        int fiveBanknotesAmount = 5;
+        int singleBanknotesAmount = 50;
+        int banknotesAmount = hundredBanknotesAmount + fiveBanknotesAmount + singleBanknotesAmount;
 
         int necessaryHundredBanknotes = (totalSum / 100);
         int necessaryFiveBanknotes = (totalSum - 100 * necessaryHundredBanknotes) / 5;
@@ -191,43 +191,43 @@ public class IfElseStatementTheme {
         int necessaryBanknotes = necessaryHundredBanknotes + necessaryFiveBanknotes + necessarySingleBanknotes;
         System.out.println("Имеются 3 номинала банкнот - 1, 5 и 100 долларов США.");
 
-        if (necessaryBanknotes > numberOfBanknotes) {
+        if (necessaryBanknotes > banknotesAmount) {
             System.out.printf("Нельзя выдать сумму %d из банкомата, поскольку не хватает банкнот.\n", totalSum);
         } else {
-            byte gotHundredBanknotes = 0;
-            byte gotFiveBanknotes = 0;
-            byte gotSingleBanknotes = 0;
+            int gotHundredBanknotes = 0;
+            int gotFiveBanknotes = 0;
+            int gotSingleBanknotes = 0;
             int gotSum = 0;
 
             if (currentSum > 0) {
-               while (numberOfHundredBanknotes > 0 && currentSum >= 100) {
+               while (hundredBanknotesAmount > 0 && currentSum >= 100) {
                     gotHundredBanknotes++;
-                    numberOfHundredBanknotes--;
+                    hundredBanknotesAmount--;
                     currentSum -=100;
                     gotSum += 100;
                 } 
 
                 System.out.println("Банкнот достоинством в 100$ США не хватает.");
 
-                while (numberOfFiveBanknotes > 0 && currentSum >= 5) {
+                while (fiveBanknotesAmount > 0 && currentSum >= 5) {
                     gotFiveBanknotes++;
-                    numberOfFiveBanknotes--;
+                    fiveBanknotesAmount--;
                     currentSum -= 5;
                     gotSum += 5;
                 } 
 
                 System.out.println("Банкнот достоинством в 5$ США не хватает.");
 
-                while (numberOfSingleBanknotes > 0 && currentSum >= 1) {
+                while (singleBanknotesAmount > 0 && currentSum >= 1) {
                     gotSingleBanknotes++;
-                    numberOfSingleBanknotes--;
+                    singleBanknotesAmount--;
                     currentSum -= 1;
-                    gotSum += 1;                
+                    gotSum += 1;
                 }
                 
                 if (gotSum == totalSum) {
-                    System.out.printf("На сумму %d выдано %d банкнот достоинством в 100$ США, %d банкнот достоинством в 5$ США и %d банкнот - в 1$ США."
-                            + "\n", gotSum, gotHundredBanknotes, gotFiveBanknotes, gotSingleBanknotes);
+                    System.out.printf("На сумму %d выдано %d банкнот достоинством в 100$ США, %d банкнот достоинством в 5$ США и" +  
+                            "%d банкнот - в 1$ США." + "\n", gotSum, gotHundredBanknotes, gotFiveBanknotes, gotSingleBanknotes);
                 }
             }     
         }

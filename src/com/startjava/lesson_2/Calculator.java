@@ -6,10 +6,10 @@ public class Calculator {
 
     private static final Scanner scanner = new Scanner(System.in);
     
-    public String calculate(int num1, char operationSymbol, int num2) {
+    public String calculate(int num1, char arithOperSymbol, int num2) {
         int result = 0;
 
-        switch (operationSymbol) {
+        switch (arithOperSymbol) {
             case '+': 
                 result = num1 + num2;
                 break;

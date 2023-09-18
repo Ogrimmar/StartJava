@@ -7,39 +7,39 @@ public class Calculator {
 
         int num1 = 91;
         int num2 = 3;
-        char operationSymbol = '+';
+        char arithOperSymbol = '+';
 
-        doMathOperation(num1, num2, operationSymbol);
+        doMathOperation(num1, num2, arithOperSymbol);
     }
 
-    private static void doMathOperation(int num1, int num2, char operationSymbol) {
-        boolean isSignWrong = true;
-        int result = 0;
+    private static void doMathOperation(int num1, int num2, char arithOperSymbol) {
+        boolean isArithOperWrong = true;
+        int res = 0;
 
-        if (operationSymbol == '+') {
-            result = num1 + num2;
-        } else if (operationSymbol == '-') {
-            result = num1 - num2;
-        } else if (operationSymbol == '^') {
-            result = 1;
+        if (arithOperSymbol == '+') {
+            res = num1 + num2;
+        } else if (arithOperSymbol == '-') {
+            res = num1 - num2;
+        } else if (arithOperSymbol == '^') {
+            res = 1;
 
             for (int i = 0; i < num2; i++) {
-                result *= num1;
+                res *= num1;
             }
-        } else if (operationSymbol == '/') {
+        } else if (arithOperSymbol == '/') {
             if (num2 != 0) {
-                result = num1 / num2;
+                res = num1 / num2;
             } else {
-                result = Integer.MIN_VALUE;
+                res = Integer.MIN_VALUE;
             }
-        } else if (operationSymbol == '%') {
-            result = num1 % num2;
+        } else if (arithOperSymbol == '%') {
+            res = num1 % num2;
         } else {
-            isSignWrong = false;
+            isArithOperWrong = false;
         }
             
-        if (isSignWrong || result != Integer.MIN_VALUE) {
-            System.out.println("" + num1 + " " + operationSymbol + " " + num2 + " = " + "" + result);
+        if (isArithOperWrong || res != Integer.MIN_VALUE) {
+            System.out.println("" + num1 + " " + arithOperSymbol + " " + num2 + " = " + "" + res);
         } else {
             System.out.println("Некорректно выбраны целые числа.");
         }

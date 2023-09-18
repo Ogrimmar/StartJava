@@ -17,12 +17,12 @@ public class CalculatorTest {
             int num1 = scanner.nextInt();
 
             System.out.print("Введите знак математической операции (+, -, *, ^, /, %): ");
-            char operationSymbol = scanner.next().charAt(0);
+            char arithOperSymbol = scanner.next().charAt(0);
 
             System.out.print("Введите второе число: ");
             int num2 = scanner.nextInt();
 
-            answer = calc.calculate(num1, operationSymbol, num2);
+            answer = calc.calculate(num1, arithOperSymbol, num2);
         } while (answer.equalsIgnoreCase("yes"));
     }
 }

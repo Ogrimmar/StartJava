@@ -9,20 +9,20 @@ public class CyclesTheme {
         final int rightEnd = 21;
         int number = leftEnd;
 
-        int sumOfEvenNumbers = 0;
-        int sumOfOddNumbers = 0;
+        int evenNumberSum = 0;
+        int oddNumbersSum = 0;
         do
         {
             if (number % 2 == 0) {
-                sumOfEvenNumbers += number;
+                evenNumberSum += number;
             } else {
-                sumOfOddNumbers += number;
+                oddNumbersSum += number;
             }
 
             number++;
         } while (number <= rightEnd);
 
-        System.out.printf("В промежутке [-10, 21] сумма чётных чисел = %d, а нечётных = %d.", sumOfEvenNumbers, sumOfOddNumbers);
+        System.out.printf("В промежутке [-10, 21] сумма чётных чисел = %d, а нечётных = %d.", evenNumbersSum, oddNumbersSum);
         System.out.println();
 
         System.out.println("2. Вывод чисел в интервале (min и max) в порядке убывания.");
@@ -88,16 +88,16 @@ public class CyclesTheme {
         int num = 1234;
 
         int digit;
-        int digitSum = 0;
+        int digitsSum = 0;
         while (num != 0) {
             digit = num % 10;
-            digitSum += digit;
+            digitsSum += digit;
             num /= 10;
             System.out.printf("%d", digit);
         }
         System.out.println();
 
-        System.out.printf("Сумма цифр числа равна %d.\n", digitSum);
+        System.out.printf("Сумма цифр числа равна %d.\n", digitsSum);
         
         System.out.println();
         
@@ -128,22 +128,20 @@ public class CyclesTheme {
         System.out.println("5. Проверка количества двоек на чётность / нечётность.");
         int num4 = 3242592;
         int num5 = num4;
-        int countOfTwo = 0;
+        int twosAmount = 0;
 
         while (num5 > 0) {
             if (num5 % 10 == 2) {
-                countOfTwo++;
+                twosAmount++;
             }
 
             num5 /= 10;
         }
 
-        if (countOfTwo % 2 == 0) {
-            System.out.println("Количество двоек чётно.");
-            System.out.printf("Число %d содержит %d (чётное) количество двоек.\n", num4, countOfTwo);
+        if (twosAmount % 2 == 0) {
+            System.out.printf("Количество двоек чётно: %d", num4, twosAmount);
         } else {
-            System.out.println("Количество двоек нечётно.");
-            System.out.printf("Число %d содержит %d (нечётное) количество двоек.\n", num4, countOfTwo);
+            System.out.println("Количество двоек нечётно: %d", num4, twosAmount);
         }
 
         System.out.println();
@@ -160,11 +158,11 @@ public class CyclesTheme {
         
         System.out.println();
         
-        int countOfSymbols = 5;
-        int numberOfLine = 1;
+        int symbolsAmount = 5;
+        int stringAmount = 1;
         int tempCounter = 0;
-        while (numberOfLine <= 5) {
-            while (tempCounter < countOfSymbols - numberOfLine) {
+        while (stringAmount <= 5) {
+            while (tempCounter < symbolsAmount - stringAmount) {
                 System.out.print("#");
 
                 tempCounter++;
@@ -172,40 +170,41 @@ public class CyclesTheme {
             
             System.out.println();
             tempCounter = 0;
-            numberOfLine++;
+            stringAmount++;
         }
         
         System.out.println();
         
-        numberOfLine = 1;
-        countOfSymbols = 5;
+        stringAmount = 1;
+        symbolsAmount = 5;
         tempCounter = 1;
         do
         {
-            if (numberOfLine <= 3) {
-                countOfSymbols = numberOfLine;
+            if (stringAmount <= 3) {
+                symbolsAmount = stringAmount;
             } else {
-                countOfSymbols -= 1;
+                symbolsAmount -= 1;
             }
             
             do
             {
                 System.out.print("$");
                 tempCounter++;
-            } while (tempCounter <= countOfSymbols);
+            } while (tempCounter <= symbolsAmount);
             
-            numberOfLine++;
+            stringAmount++;
             tempCounter = 1;
             System.out.println();
-        } while (numberOfLine <= 5);
+        } while (stringAmount <= 5);
         
         System.out.println();
         
         System.out.println("7. Отображение ASCII-символов.");
         
-        String decimal = "DECIMAL";
-        String character = "CHARACTER";
-        String description = "DESCRIPTION";
+        String final decimal = "DECIMAL";
+        String final character = "CHARACTER";
+        String final description = "DESCRIPTION";
+
         System.out.printf("%s:             %s:               %s:\n", decimal, character, description);
         for (int i = 0; i < 48; i++) {
             if (i % 2 != 0) {          
@@ -252,16 +251,22 @@ public class CyclesTheme {
         
         int digit1 = num10 % 10;
         num10 /= 10; 
+
         int digit2 = num10 % 10;
         num10 /= 10;
+
         int digit3 = num10 % 10;
         num10 /= 10;
+
         int digit4 = num10 % 10;
         num10 /= 10; 
+
         int digit5 = num10 % 10;
         num10 /= 10;
+
         int digit6 = num10 % 10;
         num10 /= 10;
+        
         int rightSum = digit1 + digit2 + digit3;
         int leftSum = digit4 + digit5 + digit6;
          
