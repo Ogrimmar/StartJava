@@ -89,8 +89,8 @@ public class IfElseStatementTheme {
         }
         System.out.println();
         System.out.println("5. Определение символа по его коду.");
-        char symbol = '\u0057';
 
+        char symbol = '\u0057';
         if (symbol >= 'A' && symbol <= 'Z') {
             System.out.printf("Символ %c является заглавной латинской буквой.\n", symbol);
         } else if (symbol >= 'a' && symbol <= 'z') {
@@ -123,6 +123,7 @@ public class IfElseStatementTheme {
         }
         System.out.println();
         System.out.println("7. Определение оценки по предметам.");
+
         int histRes = 59;
         int infoRes = 91;
         byte histMark, infoMark;
@@ -154,6 +155,7 @@ public class IfElseStatementTheme {
         System.out.printf("Средний процент за два предмета - %.2f%c\n", avgPercent, '%');
         System.out.println();
         System.out.println("8. Расчёт прибыли за год.");
+
         int hirePrice = 5_000;
         int goodsSales = 13_000;
         int costEffectiveness = 4_000;
@@ -173,6 +175,7 @@ public class IfElseStatementTheme {
         }
         System.out.println();
         System.out.println("9. Подсчёт количества банкнот.");
+        
         int totalSum = 567;
         int currentSum = totalSum;
         int hundredBanknotesAmount = 10;

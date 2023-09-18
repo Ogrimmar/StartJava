@@ -4,6 +4,7 @@ public class VariablesTheme {
 
     public static void main(String[] args) {
         System.out.println("1. Вывод характеристик компьютера.");
+
         byte procs = 4;
         short ramVol = 8;
         int ssdVol = 256;
@@ -89,6 +90,7 @@ public class VariablesTheme {
                 num1, num2);
         System.out.println();
         System.out.println("6. Вывод символов и их кодов.");
+        
         char dollarSign = '$';
         char asterisk = '*';
         char commercialA = '@';
