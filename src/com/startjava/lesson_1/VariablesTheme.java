@@ -30,7 +30,7 @@ public class VariablesTheme {
         int bookPrice = 200;
         int totalSum = penPrice + bookPrice;
         double discountSum = totalSum * 0.11;
-        double discountPrice = totalSum * (1.00 - 0.89);
+        double discountPrice = totalSum * 0.89;
 
         System.out.printf("Стоимость товаров без скидки: %d рублей\n", totalSum);
         System.out.printf("Сумма скидки: %.1f\n", discountSum);
