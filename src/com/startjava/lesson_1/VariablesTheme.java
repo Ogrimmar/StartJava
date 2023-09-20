@@ -23,27 +23,27 @@ public class VariablesTheme {
         System.out.printf("Объём физической памяти на ноутбуке: %.2f GB\n", physMem);
         System.out.printf("Модель процессора на ноутбуке: Intel %c5\n", iSymbol);
         System.out.printf("Отключён ли Firewall на ноутбуке? %b\n", isFirewallOff);
-        System.out.println();
-        System.out.println("2. Расчёт стоимости товара со скидкой.");
+
+        System.out.println("\n" + "2. Расчёт стоимости товара со скидкой.");
 
         int penPrice = 100;
         int bookPrice = 200;
         int totalSum = penPrice + bookPrice;
         double discountSum = totalSum * 0.11;
-        double discountPrice = totalSum * 0.89;
+        double discountPrice = totalSum - discountSum;
 
         System.out.printf("Стоимость товаров без скидки: %d рублей\n", totalSum);
         System.out.printf("Сумма скидки: %.1f\n", discountSum);
         System.out.printf("Стоимость товаров со скидкой: %.1f рублей\n", discountPrice);
-        System.out.println();
-        System.out.println("3. Вывод слова JAVA.");
+
+        System.out.println("\n" + "3. Вывод слова JAVA.");
 
         System.out.println("   J    a  v     v  a");
         System.out.println("   J   a a  v   v  a a");
         System.out.println("J  J  aaaaa  V V  aaaaa");
         System.out.println(" JJ  a     a  V  a     a");
-        System.out.println();
-        System.out.println("4. Вывод min и max значений целых числовых типов.");
+
+        System.out.println("\n" + "4. Вывод min и max значений целых числовых типов.");
 
         byte maxByte = 127;
         short maxShort = 32_767;
@@ -61,35 +61,33 @@ public class VariablesTheme {
         System.out.printf("maxLong: %d\n", maxLong);
         System.out.printf("++maxLong: %d\n", ++maxLong);
         System.out.printf("--maxLong: %d\n", --maxLong);
-        System.out.println();
-        System.out.println("5. Перестановка значений переменных.");
+
+        System.out.println("\n" + "5. Перестановка значений переменных.");
 
         int num1 = 2;
         int num2 = 5;
+        System.out.printf("Исходные значения 'num1' = %d, 'num2' = %d\n", num1, num2);
 
-        System.out.printf("Исходные значения переменных 'num1' и 'num2': num1 = %d, num2 = %d\n", num1, num2);
         int temp = num1;
         num1 = num2;
         num2 = temp;
-        System.out.printf("Значения переменных 'num1' и 'num2' после перестановки: num1 = %d, num2 = %d\n", num1, num2);
+        System.out.printf("Конечные значения 'num1' = %d, 'num2' = %d после перестановки.\n", num1, num2);
         System.out.println();
 
-        System.out.printf("Исходные значения переменных 'num1' и 'num2': num1 = %d, num2 = %d\n", num1, num2);
+        System.out.printf("Исходные значения 'num1' = %d, 'num2' = %d\n", num1, num2);
         num1 +=num2;
         num2 = num1 - num2;
         num1 -= num2;
-        System.out.printf("Конечные значения переменных 'num1' и 'num2' после арифметических операций: num1 = %d, num2 = %d\n", 
-                num1, num2);
+        System.out.printf("Конечные значения 'num1' = %d, 'num2' = %d после арифметических операций.\n",num1, num2);
         System.out.println();
 
-        System.out.printf("Исходные значения переменных 'num1' и 'num2': num1 = %d, num2 = %d\n", num1, num2);
+        System.out.printf("Исходные значения 'num1' = %d, 'num2' = %d\n", num1, num2);
         num1 ^= num2;
         num2 ^= num1;
         num1 ^= num2;
-        System.out.printf("Конечные значения переменных 'num1' и 'num2' после побитовых операций: num1 = %d, num2 = %d\n", 
-                num1, num2);
-        System.out.println();
-        System.out.println("6. Вывод символов и их кодов.");
+        System.out.printf("Конечные значения 'num1' = %d, 'num2' = %d после побитовых операций:\n",num1, num2);
+
+        System.out.println("\n" + "6. Вывод символов и их кодов.");
 
         char dollarSign = '$';
         char asterisk = '*';
@@ -102,8 +100,8 @@ public class VariablesTheme {
         System.out.printf("Код символа %c - %d\n", commercialA, (int) commercialA);
         System.out.printf("Код символа %c - %d\n", pipeline, (int) pipeline);
         System.out.printf("Код символа %c - %d\n", tilda, (int) tilda);
-        System.out.println();
-        System.out.println("7. Вывод в консоль ASCII-арт Дюка.");
+
+        System.out.println("\n" + "7. Вывод в консоль ASCII-арт Дюка.");
 
         char slash = '/';
         char backlslash = '\\';
@@ -115,24 +113,26 @@ public class VariablesTheme {
         System.out.println("   " + slash + "  " + backlslash + "  ");
         System.out.println("  " + slash + underscore + leftParenthesis + " " + rightParenthesis + backlslash);
         System.out.println(" " + slash + "      " + backlslash + " ");
-        System.out.println("" + slash + underscore + underscore + underscore +  underscore + slash + backlslash + underscore + 
-                underscore + backlslash);
-        System.out.println();
-        System.out.println("8. Вывод количества сотен, десятков и единиц числа.");
+        System.out.println("" + slash + underscore + underscore + underscore + underscore + slash + backlslash +
+                underscore + underscore + backlslash);
+
+        System.out.println("\n" + "8. Вывод количества сотен, десятков и единиц числа.");
 
         int srcNumber = 123;
         int hundreds = srcNumber / 100;
         int tens = srcNumber / 10;
         int units = srcNumber % 10;
-        System.out.printf("Число srcNumber = %d содержит\n  %d сотен\n  %d десятков\n  %d единиц\n", srcNumber, hundreds, tens, 
-                units);
+        System.out.print("Число srcNumber = " + srcNumber + " содержит\n" +
+                hundreds + " сотен\n" +
+                tens + " десятков\n" +
+                units + " единиц\n");
 
         int digitsMultiplication = (hundreds % 10) * (tens % 10) * units;
         int digitsSum = (hundreds % 10) + (tens % 10) + units;
         System.out.printf("Сумма его цифр = %d\n", digitsSum);
         System.out.printf("Произведение его цифр = %d\n", digitsMultiplication);
-        System.out.println();
-        System.out.println("9. Вывод времени.");
+
+        System.out.println("\n" + "9. Вывод времени.");
 
         int timeInSeconds = 86399;
         int hours = (timeInSeconds / 3600) % 24;
