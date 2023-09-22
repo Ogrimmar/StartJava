@@ -12,7 +12,7 @@ public class CalculatorTest {
         int num1;
         char arithOperSymbol;
         int num2;
-        double res = 0.0;
+        double result = 0.0;
 
             do {
                 String[] splittedMathExpr = CalculatorTest.enterMathExp();
@@ -22,18 +22,17 @@ public class CalculatorTest {
                 num2 = Integer.parseInt(splittedMathExpr[2]);
 
                 try {
-                    res = Calculator.calculate(num1, arithOperSymbol, num2);
+                    result = Calculator.calculate(num1, arithOperSymbol, num2);
                 } catch (RuntimeException ex) {
-                    ex.printStackTrace();
                     System.out.println(ex.getClass().getName());
                 }
 
-                if (res < (int) Double.MIN_VALUE) {
-                        String s = (res - Math.floor(res) == 0.0) ? "%d %c %d = %f\n" : "%d %c %d = %.3f\n";
-                        
-                        System.out.printf(s, num1, arithOperSymbol, num2, res);
+                if (result < (int) Double.MIN_VALUE) {
+                        String s = (result - Math.floor(result) == 0.0) ? "%d %c %d = %f\n" : "%d %c %d = %.3f\n";
+
+                        System.out.printf(s, num1, arithOperSymbol, num2, result);
                 }
-            } while (res < (int) Double.MIN_VALUE);
+            } while (result < (int) Double.MIN_VALUE);
     }
 
     private static String[] enterMathExp() {

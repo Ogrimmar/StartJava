@@ -12,26 +12,26 @@ public class CalculatorTest {
         int num1;
         char arithOperSymbol;
         int num2;
-        double res = 0.0;
+        double result = 0.0;
         Calculator calc = new Calculator();
 
         do {
-            String[] mathExpression = CalculatorTest.enterMathExp();
+            String[] mathExpr = CalculatorTest.enterMathExp();
 
-            num1 = Integer.parseInt(mathExpression[0]);
-            arithOperSymbol = (mathExpression[1].toCharArray())[0];
-            num2 = Integer.parseInt(mathExpression[2]);
+            num1 = Integer.parseInt(mathExpr[0]);
+            arithOperSymbol = (mathExpr[1].toCharArray())[0];
+            num2 = Integer.parseInt(mathExpr[2]);
 
-            res = calc.calculate(num1, arithOperSymbol, num2);
-            
-            if (res < Double.MIN_VALUE) {
-                if (res - Math.floor(res) == 0.000) {
-                    System.out.printf("%d " + arithOperSymbol + " %d = %f\n", num1, num2, res);
+            result = calc.calculate(num1, arithOperSymbol, num2);
+
+            if (result < Double.MIN_VALUE) {
+                if (result - Math.floor(result) == 0.000) {
+                    System.out.printf("%d " + arithOperSymbol + " %d = %f\n", num1, num2, result);
                 } else {
-                    System.out.printf("%d " + arithOperSymbol + " %d = %.3f\n", num1, num2, res);
+                    System.out.printf("%d " + arithOperSymbol + " %d = %.3f\n", num1, num2, result);
                 }
             }
-        } while (res < Double.MIN_VALUE);
+        } while (result < Double.MIN_VALUE);
     }
 
     private static String[] enterMathExp() {

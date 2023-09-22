@@ -11,7 +11,7 @@ public class GuessNumberTest {
 
     public static void main(String[] args) {
         System.out.println("2. Модифицируйте программу “Угадай число”.");
-        
+
         int generatedNumber = generateNumber();
 
         System.out.print("Введите имя первого игрока: ");
@@ -19,7 +19,7 @@ public class GuessNumberTest {
 
         System.out.print("Введите имя второго игрока: ");
         String secondPlayerName = scanner.nextLine();
-        
+
         System.out.println();
 
         GuessNumber game = new GuessNumber(firstPlayerName, secondPlayerName);

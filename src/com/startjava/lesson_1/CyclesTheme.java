@@ -4,7 +4,7 @@ public class CyclesTheme {
 
     public static void main(String[] args) {
         System.out.println("1. Подсчёт суммы чётных и нечётных чисел.");
-        
+
         final int leftEnd = -10;
         final int rightEnd = 21;
         int number = leftEnd;
@@ -25,7 +25,7 @@ public class CyclesTheme {
                 " нечётных = " + oddNumbersSum);
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания.");
-        
+
         final int num1 = -1;
         final int num2 = 5;
         final int num3 = 10;
@@ -59,7 +59,7 @@ public class CyclesTheme {
                 max = num2;
 
                 System.out.println("Максимальное число - " + max);
-                
+
                 if (num1 > num3) {
                     min = num3;
 
@@ -83,7 +83,7 @@ public class CyclesTheme {
         }
 
         System.out.println("\n3. Вывод реверсивного числа и суммы его цифр.");
-        
+
         int num = 1234;
 
         int digit;
@@ -142,17 +142,17 @@ public class CyclesTheme {
         }
 
         System.out.println("\n6. Отображение фигур в консоли.");
-        
+
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
                 System.out.print("*");
             }
-            
+
             System.out.println();
         }
-        
+
         System.out.println();
-        
+
         int symbolsAmount = 5;
         int stringAmount = 1;
         int tempCounter = 0;
@@ -162,14 +162,13 @@ public class CyclesTheme {
 
                 tempCounter++;
             }
-            
+
             System.out.println();
             tempCounter = 0;
             stringAmount++;
         }
-        
         System.out.println();
-        
+
         stringAmount = 1;
         symbolsAmount = 5;
         tempCounter = 1;
@@ -179,7 +178,7 @@ public class CyclesTheme {
             } else {
                 symbolsAmount -= 1;
             }
-            
+
             do {
                 System.out.print("$");
 
@@ -190,9 +189,9 @@ public class CyclesTheme {
             tempCounter = 1;
             System.out.println();
         } while (stringAmount <= 5);
-        
+
         System.out.println("\n7. Отображение ASCII-символов.");
-        
+
         String decimal = "DECIMAL";
         String character = "CHARACTER";
         String description = "DESCRIPTION";
@@ -222,7 +221,7 @@ public class CyclesTheme {
             if (!((num7 % 10) == (num8 / decrementalDivider))) {
                 flag = false;
             }
-            
+
             num7 -= (num7 / decrementalDivider) * decrementalDivider;
             num8 /= 10;
             decrementalDivider /= 10;

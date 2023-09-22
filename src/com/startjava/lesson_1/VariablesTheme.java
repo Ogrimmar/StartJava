@@ -16,7 +16,7 @@ public class VariablesTheme {
 
         System.out.println("Число процессоров на ноутбуке: " + procs);
         System.out.println("Объём RAM на ноутбуке: " + ramVolume + "Gb.");
-        System.out.println("Объём SSD на ноутбуке: " + ssdVolume + "Gb");
+        System.out.println("Объём SSD на ноутбуке: " + ssdVolume + "Gb.");
         System.out.println("Объём памяти видеокарты на ноутбуке: " + videoCardVolume + "Gb.");
         System.out.println("Частота каждого из процессоров на ноутбуке: " + coreFreq + "GHz.");
         System.out.println("Объём физической памяти на ноутбуке: " + physMemory + "Gb.");

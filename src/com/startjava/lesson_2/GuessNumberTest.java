@@ -34,7 +34,7 @@ class GuessNumberTest {
 
     private static int generateNumber() {
         System.out.println("Компьютер 'загадал' число!");
-        
+
         return (1 + min + new Random().nextInt(max));
     }
 }

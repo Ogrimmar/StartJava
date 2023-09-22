@@ -6,6 +6,7 @@ public class IfElseStatementTheme {
         System.out.println("1. Перевод псевдокода на язык Java.");
 
         int age = 70;
+
         if (age > 20) {
             System.out.println("Вы старше 20 лет.");
         } else {
@@ -13,6 +14,7 @@ public class IfElseStatementTheme {
         }
 
         boolean isGenderFemale = false;
+
         if (!isGenderFemale) {
             System.out.println("Вы мужчина.");
         } else {
@@ -20,6 +22,7 @@ public class IfElseStatementTheme {
         }
 
         double height = 1.80;
+
         if (height < 1.80) {
             System.out.println("Вы ниже 1.80 метров.");
         } else {
@@ -27,6 +30,7 @@ public class IfElseStatementTheme {
         }
 
         char firstNameLetter = "Alexander".charAt(0);
+
         if (firstNameLetter == 'M') {
             System.out.println("Ваше имя начинается с буквы M.");
         } else if (firstNameLetter == 'I') {
@@ -39,6 +43,7 @@ public class IfElseStatementTheme {
 
         int num1 = -100;
         int num2 = 100;
+
         if (num1 > num2) {
             System.out.println("Максимальное число - это " + num1 + ", а минимальное - " + num2);
         } else if (num1 == num2) {
@@ -50,6 +55,7 @@ public class IfElseStatementTheme {
         System.out.println("\n3. Проверка числа.");
 
         int num = 123_456;
+
         if (num == 0) {
             System.out.println("Число " + num + " равно 0.");
         } else {
@@ -65,7 +71,6 @@ public class IfElseStatementTheme {
                 System.out.println("Число " + num + " отрицательное.");
             }
         }
-
         System.out.println("\n4. Поиск одинаковых цифр в числах.");
 
         int num3 = 123;
@@ -78,6 +83,7 @@ public class IfElseStatementTheme {
         int num4Tens = (num4 / 10) % 10;
         int num3Units = num3 % 10;
         int num4Units = num4 % 10;
+
         if (num3Hundreds == num4Hundreds) {
             System.out.println("У трёхзначных чисел " + num3 + " и " + num4 + " совпадают третьи разряды."); 
         } else if (num3Tens == num4Tens) {
@@ -91,6 +97,7 @@ public class IfElseStatementTheme {
         System.out.println("\n5. Определение символа по его коду.");
 
         char symbol = '\u0057';
+
         if (symbol >= 'A' && symbol <= 'Z') {
             System.out.println("Символ " + symbol + " является заглавной латинской буквой.");
         } else if (symbol >= 'a' && symbol <= 'z') {
@@ -104,6 +111,7 @@ public class IfElseStatementTheme {
         System.out.println("\n6. Подсчёт суммы вклада и начисленных банком %.");
 
         int deposit = 301_000;
+
         System.out.println("Сумма начального вклада: " + deposit);
         if (deposit < 100_000) {
             deposit *= 1.05;
@@ -121,12 +129,13 @@ public class IfElseStatementTheme {
             System.out.println("Начисленные проценты: 10%.");
             System.out.println("Итоговая сумма с начисленными процентами: " + deposit);
         }
-
         System.out.println("\n7. Определение оценки по предметам.");
 
         int histRes = 59;
         int infoRes = 91;
-        byte histMark, infoMark;
+        byte histMark; 
+        byte infoMark;
+
         if (histRes <= 60) {
             histMark = 2;
         } else if (histRes > 60 && histRes <= 73) {
@@ -160,6 +169,7 @@ public class IfElseStatementTheme {
         int goodsSales = 13_000;
         int costEffectiveness = 4_000;
         int profitPerMonth = 0;
+
         for (int i = 0; i < 12; i++) {
             if (profitPerMonth >= hirePrice) {
                 profitPerMonth = goodsSales - hirePrice - costEffectiveness;

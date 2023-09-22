@@ -11,14 +11,14 @@ public class BookshelfTest {
 
     public static void main(String[] args) {
         System.out.println("Выпускной проект StartJava.");
-        
+
         displayBookshelf();
         do {
             displayMenu();
 
             actionNumber = choseActions();
             displayBookshelf();
-            
+
             System.out.print("Для продолжения нажмите Enter: ");
             scanner.nextLine();
             System.out.println();
@@ -71,7 +71,7 @@ public class BookshelfTest {
                 break;
             case 4: 
                 freeBookshelf();
-                
+
                 break;
             case 5: 
                 { return ATTEMPTS; }
@@ -87,7 +87,7 @@ public class BookshelfTest {
     private static void addBook() {      
         System.out.print("Введите автора книги, которую Вы хотите положить в книжный шкаф: ");
         String author = scanner.nextLine();
-        
+
         System.out.print("Введите название книги, которую Вы хотите положить в книжный шкаф: ");
         String title = scanner.nextLine();
         

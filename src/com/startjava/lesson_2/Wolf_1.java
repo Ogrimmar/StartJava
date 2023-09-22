@@ -14,7 +14,7 @@ public class Wolf_1 {
 
     void sit() {
         System.out.println("Сидит.");
-    }    
+    }
 
     void run() {
         System.out.println("Бежит.");

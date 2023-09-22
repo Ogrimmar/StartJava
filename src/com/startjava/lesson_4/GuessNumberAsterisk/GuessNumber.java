@@ -105,7 +105,7 @@ public class GuessNumber {
             }
         }
         System.out.print("]");
-        
+
         System.out.println();
     }
 
@@ -122,7 +122,7 @@ public class GuessNumber {
             do {
                 randomNumber = new Random().nextInt(copiedPlayersTurns[length - 1 - i]);
             } while (randomNumber >= copiedPlayersTurns[length - 1 - i]);
-            
+
             swap(playersTurns, randomNumber, playersTurns[length - 1 - i]);
         }
 
