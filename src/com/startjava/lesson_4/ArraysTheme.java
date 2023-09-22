@@ -8,24 +8,16 @@ public class ArraysTheme {
         System.out.println("1. Реверс значений.");
 
         completeFirstTask();
-        System.out.println();
-
-        System.out.println("2. Произведение элементов массива.");
+        System.out.println("\n" + "2. Произведение элементов массива.");
 
         completeSecondTask();
-        System.out.println();
-
-        System.out.println("3. Удаление элементов массива.");
+        System.out.println("\n" + "3. Удаление элементов массива.");
 
         completeThirdTask();
-        System.out.println();
-
-        System.out.println("4. Вывод алфавита лесенкой.");
+        System.out.println("\n" + "4. Вывод алфавита лесенкой.");
 
         completeFourthTask();
-        System.out.println();
-
-        System.out.println("5. Заполнение массива уникальными числами.");
+        System.out.println("\n" + "5. Заполнение массива уникальными числами.");
 
         completeFifthTask();
         System.out.println();

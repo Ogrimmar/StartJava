@@ -10,8 +10,11 @@ public class WolfTest_1 {
         wolf.age = 10;
         wolf.colour = "Gray";
 
-        System.out.printf("Пол волка: %s\nКличка волка: %s\nВес волка: %d\nВозраст волка: %d\nЦвет волка: %s\n", 
-                wolf.gender, wolf.moniker, wolf.weight, wolf.age, wolf.colour);
+        System.out.print("Пол волка: " + wolf.gender + "\n" +
+                "Кличка волка: " + wolf.moniker + "\n" +
+                "Вес волка: " + wolf.weight + "\n" +
+                "Возраст волка: " + wolf.age + "\n" +
+                "Цвет волка: " + wolf.colour + "\n");
 
         wolf.go();
         wolf.sit();

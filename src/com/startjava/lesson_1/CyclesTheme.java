@@ -23,9 +23,7 @@ public class CyclesTheme {
         } while (number <= rightEnd);
 
         System.out.printf("В промежутке [-10, 21] сумма чётных чисел = %d, а нечётных = %d.", evenNumbersSum, oddNumbersSum);
-        System.out.println();
-
-        System.out.println("2. Вывод чисел в интервале (min и max) в порядке убывания.");
+        System.out.println("\n" + "2. Вывод чисел в интервале (min и max) в порядке убывания.");
         
         final int num1 = -1;
         final int num2 = 5;
@@ -82,9 +80,8 @@ public class CyclesTheme {
         for (int i = max - 1; i > min; i--) {
             System.out.printf("%d ", i);
         }
-        System.out.println("\n");
+        System.out.println("\n" + "3. Вывод реверсивного числа и суммы его цифр.");
         
-        System.out.println("3. Вывод реверсивного числа и суммы его цифр.");
         int num = 1234;
 
         int digit;
@@ -98,10 +95,8 @@ public class CyclesTheme {
         System.out.println();
 
         System.out.printf("Сумма цифр числа равна %d.\n", digitsSum);
-        
-        System.out.println();
-        
-        System.out.println("4. Вывод чисел на консоль в несколько строк.");
+        System.out.println("\n" + "4. Вывод чисел на консоль в несколько строк.");
+
         final int left = 1;
         final int right = 24;
         int counter = 0;
@@ -123,9 +118,8 @@ public class CyclesTheme {
             }
         }
         
-        System.out.println("\n");
-        
-        System.out.println("5. Проверка количества двоек на чётность / нечётность.");
+        System.out.println("\n" + "5. Проверка количества двоек на чётность / нечётность.");
+
         int num4 = 3242592;
         int num5 = num4;
         int twosAmount = 0;
@@ -144,9 +138,7 @@ public class CyclesTheme {
             System.out.println("Количество двоек нечётно: %d", num4, twosAmount);
         }
 
-        System.out.println();
-        
-        System.out.println("6. Отображение фигур в консоли.");
+        System.out.println("\n" + "6. Отображение фигур в консоли.");
         
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
@@ -178,8 +170,7 @@ public class CyclesTheme {
         stringAmount = 1;
         symbolsAmount = 5;
         tempCounter = 1;
-        do
-        {
+        do {
             if (stringAmount <= 3) {
                 symbolsAmount = stringAmount;
             } else {
@@ -197,9 +188,7 @@ public class CyclesTheme {
             System.out.println();
         } while (stringAmount <= 5);
         
-        System.out.println();
-        
-        System.out.println("7. Отображение ASCII-символов.");
+        System.out.println("\n" + "7. Отображение ASCII-символов.");
         
         String final decimal = "DECIMAL";
         String final character = "CHARACTER";
@@ -217,10 +206,8 @@ public class CyclesTheme {
                 System.out.printf("%4d                 %5c                 %1s\n", i, (char) i, Character.getName(i));
             }
         }
-        System.out.println();
-        
-        System.out.println("8. Проверка, является ли число палиндромом.");
-        
+        System.out.println("\n" + "8. Проверка, является ли число палиндромом.");
+
         int num6 = 123_432_1;
         int num7 = num6;
         int num8 = num6;
@@ -243,9 +230,8 @@ public class CyclesTheme {
             System.out.printf("Число %d не является палиндромом.\n", num6);
         }
         
-        System.out.println();
-        
-        System.out.println("9. Проверка, является ли число счастливым.");
+        System.out.println("\n" + "9. Проверка, является ли число счастливым.");
+
         int num9 = 145_901;
         int num10 = num9;
         
@@ -278,11 +264,9 @@ public class CyclesTheme {
         } else {
             System.out.printf("Число %d не является счастливым.\n", num9);
         }
-    
-        System.out.println();
-        
-        System.out.println("10. Вывод таблицы умножения Пифагора.");
-        
+
+        System.out.println("\n" + "10. Вывод таблицы умножения Пифагора.");
+
         System.out.println("               ТАБЛИЦА    ПИФАГОРА          ");
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {

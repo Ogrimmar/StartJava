@@ -120,15 +120,15 @@ public class VariablesTheme {
 
         int srcNumber = 123;
         int hundreds = srcNumber / 100;
-        int tens = srcNumber / 10;
+        int tens = (srcNumber % 100) / 10;
         int units = srcNumber % 10;
         System.out.print("Число srcNumber = " + srcNumber + " содержит\n" +
                 hundreds + " сотен\n" +
                 tens + " десятков\n" +
                 units + " единиц\n");
 
-        int digitsMultiplication = (hundreds % 10) * (tens % 10) * units;
-        int digitsSum = (hundreds % 10) + (tens % 10) + units;
+        int digitsMultiplication = hundreds * tens * units;
+        int digitsSum = hundreds + tens + units;
         System.out.printf("Сумма его цифр = %d\n", digitsSum);
         System.out.printf("Произведение его цифр = %d\n", digitsMultiplication);
 
