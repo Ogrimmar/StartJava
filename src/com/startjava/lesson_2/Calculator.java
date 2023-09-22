@@ -12,12 +12,15 @@ public class Calculator {
         switch (arithOperSymbol) {
             case '+': 
                 res = num1 + num2;
+
                 break;
             case '-': 
                 res = num1 - num2;
+
                 break;
             case '*':
                 res = num1 * num2;
+
                 break;
             case '^': 
                 res = 1;
@@ -39,14 +42,14 @@ public class Calculator {
                 break;
             case '%':
                 res = num1 % num2;
+                
                 break;
             default:
-                System.out.println("Арифметическая операция не поддерживается.");
+                System.out.println("Арифметическая операция не поддерживается");
         }
         
-        System.out.printf("Результат: %d\n", res);
-        System.out.println();
-        
+        System.out.println("Результат: " + res + "\n");
+
         String answer = null;
         do {
             System.out.print("Хотите продолжить вычисления? [yes / no]: ");

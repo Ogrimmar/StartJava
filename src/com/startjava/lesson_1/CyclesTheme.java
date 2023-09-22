@@ -1,9 +1,9 @@
 package com.startjava.lesson_1;
 
 public class CyclesTheme {
-    
+
     public static void main(String[] args) {
-        System.out.println("1. Подсчет суммы чётных и нечётных чисел.");
+        System.out.println("1. Подсчёт суммы чётных и нечётных чисел.");
         
         final int leftEnd = -10;
         final int rightEnd = 21;
@@ -11,8 +11,7 @@ public class CyclesTheme {
 
         int evenNumberSum = 0;
         int oddNumbersSum = 0;
-        do
-        {
+        do {
             if (number % 2 == 0) {
                 evenNumberSum += number;
             } else {
@@ -22,8 +21,10 @@ public class CyclesTheme {
             number++;
         } while (number <= rightEnd);
 
-        System.out.printf("В промежутке [-10, 21] сумма чётных чисел = %d, а нечётных = %d.", evenNumbersSum, oddNumbersSum);
-        System.out.println("\n" + "2. Вывод чисел в интервале (min и max) в порядке убывания.");
+        System.out.println("На отрезке [" + leftEnd + ", " + rightEnd + "]" + " сумма чётных чисел = " + evenNumberSum + " , а" +
+                " нечётных = " + oddNumbersSum);
+
+        System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания.");
         
         final int num1 = -1;
         final int num2 = 5;
@@ -35,52 +36,53 @@ public class CyclesTheme {
             if (num1 > num3) {
                 max = num1;
 
-                System.out.printf("Максимальное число - это %d.\n", max);
+                System.out.println("Максимальное число - " + max);
 
                 if (num2 > num3) {
                     min = num3;
 
-                    System.out.printf("Минимальное число - это %d.\n", min);
+                    System.out.println("Максимальное число - " + min);
                 } else {
                     min = num2;
 
-                    System.out.printf("Минимальное число - это %d.\n", min);
+                    System.out.println("Максимальное число - " + min);
                 }
             } else {
                 max = num3;
                 min = num2;
 
-                System.out.printf("Максимальное число - это %d.\n", max);
-                System.out.printf("Минимальное число - это %d.\n", min);
+                System.out.println("Максимальное число - " + max);
+                System.out.println("Минимальное число - " + min);
             }
         } else {
             if (num2 > num3) {
                 max = num2;
 
-                System.out.printf("Максимальное число - это %d.\n", max);
+                System.out.println("Максимальное число - " + max);
                 
                 if (num1 > num3) {
                     min = num3;
 
-                     System.out.printf("Минимальное число - это %d.\n", min);
+                     System.out.println("Минимальное число - " + min);
                 } else {
                     min = num1;
 
-                     System.out.printf("Минимальное число - это %d.\n", min);
+                     System.out.println("Минимальное число - " + min);
                 }
             } else {
                 max = num3;
                 min = num1;
 
-                System.out.printf("Максимальное число - это %d.\n", max);
-                System.out.printf("Минимальное число - это %d.\n", min);
+                System.out.println("Максимальное число - " + max);
+                System.out.println("Минимальное число - " + min);
             }
         }
 
         for (int i = max - 1; i > min; i--) {
             System.out.printf("%d ", i);
         }
-        System.out.println("\n" + "3. Вывод реверсивного числа и суммы его цифр.");
+
+        System.out.println("\n3. Вывод реверсивного числа и суммы его цифр.");
         
         int num = 1234;
 
@@ -94,8 +96,9 @@ public class CyclesTheme {
         }
         System.out.println();
 
-        System.out.printf("Сумма цифр числа равна %d.\n", digitsSum);
-        System.out.println("\n" + "4. Вывод чисел на консоль в несколько строк.");
+        System.out.println("Сумма цифр числа равна " + digitsSum);
+
+        System.out.println("\n4. Вывод чисел на консоль в несколько строк.");
 
         final int left = 1;
         final int right = 24;
@@ -118,7 +121,7 @@ public class CyclesTheme {
             }
         }
         
-        System.out.println("\n" + "5. Проверка количества двоек на чётность / нечётность.");
+        System.out.println("\n5. Проверка количества двоек на чётность / нечётность.");
 
         int num4 = 3242592;
         int num5 = num4;
@@ -133,12 +136,12 @@ public class CyclesTheme {
         }
 
         if (twosAmount % 2 == 0) {
-            System.out.printf("Количество двоек чётно: %d", num4, twosAmount);
+            System.out.println("Количество двоек чётно: " + twosAmount);
         } else {
-            System.out.println("Количество двоек нечётно: %d", num4, twosAmount);
+            System.out.println("Количество двоек нечётно: " + twosAmount);
         }
 
-        System.out.println("\n" + "6. Отображение фигур в консоли.");
+        System.out.println("\n6. Отображение фигур в консоли.");
         
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
@@ -188,16 +191,16 @@ public class CyclesTheme {
             System.out.println();
         } while (stringAmount <= 5);
         
-        System.out.println("\n" + "7. Отображение ASCII-символов.");
+        System.out.println("\n7. Отображение ASCII-символов.");
         
-        String final decimal = "DECIMAL";
-        String final character = "CHARACTER";
-        String final description = "DESCRIPTION";
+        String decimal = "DECIMAL";
+        String character = "CHARACTER";
+        String description = "DESCRIPTION";
 
         System.out.printf("%s:             %s:               %s:\n", decimal, character, description);
         for (int i = 0; i < 48; i++) {
             if (i % 2 != 0) {          
-                System.out.printf("%4d                 %5c                 %1s\n", i, (char) i, Character.getName(i));  
+                System.out.printf("%4d                 %5c                 %1s\n", i, (char) i, Character.getName(i));
             }
         }
         
@@ -206,7 +209,8 @@ public class CyclesTheme {
                 System.out.printf("%4d                 %5c                 %1s\n", i, (char) i, Character.getName(i));
             }
         }
-        System.out.println("\n" + "8. Проверка, является ли число палиндромом.");
+
+        System.out.println("\n8. Проверка, является ли число палиндромом.");
 
         int num6 = 123_432_1;
         int num7 = num6;
@@ -225,12 +229,12 @@ public class CyclesTheme {
         }
         
         if (flag) {
-            System.out.printf("Число %d является палиндромом.\n", num6);
+            System.out.println("Число " + num6 + " является палиндромом.");
         } else {
-            System.out.printf("Число %d не является палиндромом.\n", num6);
+            System.out.println("Число " + num6 + " не является палиндромом.");
         }
         
-        System.out.println("\n" + "9. Проверка, является ли число счастливым.");
+        System.out.println("\n9. Проверка, является ли число счастливым.");
 
         int num9 = 145_901;
         int num10 = num9;
@@ -252,20 +256,20 @@ public class CyclesTheme {
 
         int digit6 = num10 % 10;
         num10 /= 10;
-        
+
         int rightSum = digit1 + digit2 + digit3;
         int leftSum = digit4 + digit5 + digit6;
-         
-        System.out.printf("Сумма первой тройки цифр <%d%d%d> равна %d.\n", digit3, digit2, digit1, leftSum);
-        System.out.printf("Сумма второй тройки цифр <%d%d%d> равна %d.\n", digit6, digit5, digit4, rightSum);
+
+        System.out.println("Сумма первой тройки цифр " + digit3 + digit2 + digit1 + " равна " + leftSum);
+        System.out.println("Сумма второй тройки цифр " + digit6 + digit5 + digit4 + " равна " + rightSum);
         
         if (rightSum == leftSum) {
-            System.out.printf("Число %d является счастливым.\n", num9);
+            System.out.println("Число " + num9 + " является счастливым.");
         } else {
-            System.out.printf("Число %d не является счастливым.\n", num9);
+            System.out.println("Число " + num9 + " не является счастливым.");
         }
 
-        System.out.println("\n" + "10. Вывод таблицы умножения Пифагора.");
+        System.out.println("\n10. Вывод таблицы умножения Пифагора.");
 
         System.out.println("               ТАБЛИЦА    ПИФАГОРА          ");
         for (int i = 0; i < 10; i++) {

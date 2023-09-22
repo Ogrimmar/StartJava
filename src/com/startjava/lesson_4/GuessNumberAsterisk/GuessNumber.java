@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class GuessNumber {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static final int ATTEMPTS = 30;
+    private static final int ATTEMPTS = 10;
     private Player[] players = new Player[3];
 
     GuessNumber(String firstPlayerName, String secondPlayerName, String thirdPlayerName) {
@@ -130,23 +130,23 @@ public class GuessNumber {
     }
 
     private void swap(int[] playersTurns, int num1, int num2) {
-        int index1 = 0;
-        int index2 = 0;
+        int indexOne = 0;
+        int indexTwo = 0;
         
         for (int i = 0; i < playersTurns.length; i++) {
             if (playersTurns[i] == num1) {
-                index1 = i;
+                indexOne = i;
             }
         }
         
         for (int i = 0; i < playersTurns.length; i++) {
             if (playersTurns[i] == num2) {
-                index2 = i;
+                indexTwo = i;
             }
         }
-        
-        int temp = playersTurns[index1];
-        playersTurns[index1] = playersTurns[index2];
-        playersTurns[index2] = temp;
+
+        int temp = playersTurns[indexOne];
+        playersTurns[indexOne] = playersTurns[indexTwo];
+        playersTurns[indexTwo] = temp;
     }
 }

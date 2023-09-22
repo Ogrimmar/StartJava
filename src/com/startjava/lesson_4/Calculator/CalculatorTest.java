@@ -3,7 +3,7 @@ package com.startjava.lesson_4.Calculator;
 import java.util.Scanner;
 
 public class CalculatorTest {
-    
+
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -22,10 +22,10 @@ public class CalculatorTest {
             arithOperSymbol = (mathExpression[1].toCharArray())[0];
             num2 = Integer.parseInt(mathExpression[2]);
 
-            result = calc.calculate(num1, arithOperSymbol, num2);
+            res = calc.calculate(num1, arithOperSymbol, num2);
             
-            if (result < Double.MIN_VALUE) {
-                if (result - Math.floor(res) == 0.0) {
+            if (res < Double.MIN_VALUE) {
+                if (res - Math.floor(res) == 0.000) {
                     System.out.printf("%d " + arithOperSymbol + " %d = %f\n", num1, num2, res);
                 } else {
                     System.out.printf("%d " + arithOperSymbol + " %d = %.3f\n", num1, num2, res);

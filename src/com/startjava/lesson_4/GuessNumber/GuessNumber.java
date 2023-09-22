@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class GuessNumber {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static final int ATTEMPTS = 30;
+    private static final int ATTEMPTS = 10;
     private Player p1 = null;
     private Player p2 = null;
 

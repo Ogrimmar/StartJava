@@ -97,7 +97,12 @@ public class Jaeger {
     }
     
     public String toString() {
-        return "Model Name: " + modelName + "\nMark: " + mark + "\nOrigin: " + origin + "\nHeight: " + height + "\nWeight: " + 
-                weight + "\nStrength: " + strength + "\nArmor: " + armor + "\n"; 
+        return "Model Name: " + modelName + 
+                "\nMark: " + mark + 
+                "\nOrigin: " + origin + 
+                "\nHeight: " + height + 
+                "\nWeight: " + weight + 
+                "\nStrength: " + strength + 
+                "\nArmor: " + armor + "\n"; 
     }
 }

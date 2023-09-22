@@ -15,7 +15,7 @@ public class JaegerTest {
         jaeger2.setStrength(10);
         jaeger2.setArmor(10);
             
-        System.out.println("Характеристики роботов до изменения параметров.");
+        System.out.println("Характеристики роботов до изменения параметров");
         System.out.print(jaeger1);
         System.out.print(jaeger2);
         
@@ -35,7 +35,7 @@ public class JaegerTest {
         jaeger2.setStrength(8);
         jaeger2.setArmor(6);
         
-        System.out.println("Характеристики роботов после изменения параметров.");
+        System.out.println("Характеристики роботов после изменения параметров");
         System.out.print(jaeger1);
         System.out.print(jaeger2);
     }

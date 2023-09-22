@@ -5,7 +5,7 @@ import java.util.Random;
 public class GuessNumber {
 
     private static final int ATTEMPTS = 30;
-    
+
     public static void main(String[] args) {
         System.out.println("Игра “Угадай число”.");
 
@@ -22,11 +22,11 @@ public class GuessNumber {
                 System.out.println("Вы победили!");
             } else {
                 if (guessedValue < randomValue) {
-                    System.out.printf("Число guessedValue = %d меньше загаданного компьютером значения randomValue = %d.\n", guessedValue, 
-                        randomValue);
+                    System.out.println("Число guessedValue = " + guessedValue + " меньше загаданного компьютером значения" + 
+                            " randomValue = " + randomValue);
                 } else {
-                    System.out.printf("Число guessedValue = %d больше загаданного компьютером значения randomValue = %d.\n", guessedValue, 
-                        randomValue);
+                    System.out.println("Число guessedValue = " + guessedValue + " больше загаданного компьютером значения" + 
+                            " randomValue = " + randomValue);
                 }
             }
 

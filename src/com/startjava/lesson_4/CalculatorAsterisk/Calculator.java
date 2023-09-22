@@ -4,20 +4,13 @@ public class Calculator {
     
     public static double calculate(int num1, char arithOperSymbol, int num2) throws RuntimeException {
             int res = switch (arithOperSymbol) {
-                case '+': 
-                    yield (num1 + num2);
-                case '-':
-                    yield (num1 - num2);
-                case '*': 
-                    yield (num1 * num2);
-                case '^': 
-                    yield (int) (Math.pow(num1, num2));
-                case '/': 
-                    yield (num1 / num2);
-                case '%': 
-                    yield (num1 % num2);
-                default: 
-                    throw new RuntimeException("Ошибка: знак " + arithOperSymbol + " не поддерживается.\n");
+                case '+': yield (num1 + num2);
+                case '-': yield (num1 - num2);
+                case '*': yield (num1 * num2);
+                case '^': yield (int) (Math.pow(num1, num2));
+                case '/': yield (num1 / num2);
+                case '%': yield (num1 % num2);
+                default: throw new RuntimeException("Ошибка: знак " + arithOperSymbol + " не поддерживается.\n");
             };
 
         return (double) res;

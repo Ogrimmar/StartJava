@@ -13,7 +13,7 @@ public class Bookshelf {
     }
 
     public int getAmountOfBooks() {
-        return curAmount;
+        return currAmount;
     }
 
     public int getFreeShelves() {

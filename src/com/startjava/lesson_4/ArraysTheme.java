@@ -8,16 +8,16 @@ public class ArraysTheme {
         System.out.println("1. Реверс значений.");
 
         completeFirstTask();
-        System.out.println("\n" + "2. Произведение элементов массива.");
+        System.out.println("\n2. Произведение элементов массива.");
 
         completeSecondTask();
-        System.out.println("\n" + "3. Удаление элементов массива.");
+        System.out.println("\n3. Удаление элементов массива.");
 
         completeThirdTask();
-        System.out.println("\n" + "4. Вывод алфавита лесенкой.");
+        System.out.println("\n4. Вывод алфавита лесенкой.");
 
         completeFourthTask();
-        System.out.println("\n" + "5. Заполнение массива уникальными числами.");
+        System.out.println("\n5. Заполнение массива уникальными числами.");
 
         completeFifthTask();
         System.out.println();
@@ -90,7 +90,7 @@ public class ArraysTheme {
             System.out.printf("%.3f  ", randomNumbers[i]);
         }
         System.out.println("\n");
-        System.out.printf("Количество обнулённых элементов: %d\n", nullifiedElems);
+        System.out.println("Количество обнулённых элементов: " + nullifiedElems);
     }
 
     private static void completeFourthTask() {

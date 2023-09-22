@@ -29,8 +29,9 @@ public class CalculatorTest {
                 }
                
                 if (res < (int) Double.MIN_VALUE) {
-                        String s = (result - Math.floor(res) == 0.0) ? "%d %c %d = %f\n" : "%d %c %d = %.3f\n";
-                        System.out.printf(s, num1, arithOperSymbol, num2, result);
+                        String s = (res - Math.floor(res) == 0.0) ? "%d %c %d = %f\n" : "%d %c %d = %.3f\n";
+                        
+                        System.out.printf(s, num1, arithOperSymbol, num2, res);
                 }
             } while (res < (int) Double.MIN_VALUE);
     }
@@ -45,11 +46,11 @@ public class CalculatorTest {
             System.out.print("Введите математическое выражение: ");
 
             mathExpr = scanner.nextLine();
-            length = mathExpression.length();
+            length = mathExpr.length();
             splittedMathExpr = mathExpr.split(" ");
         } while (Integer.parseInt(splittedMathExpr[0]) <= 0 || Integer.parseInt(splittedMathExpr[2]) <= 0);
         
-        System.out.printf("Длина математического выражения: %d\n", length);
+        System.out.println("Длина математического выражения: " + length);
 
         return splittedMathExpr;
     }

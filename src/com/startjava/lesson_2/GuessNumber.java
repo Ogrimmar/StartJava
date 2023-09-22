@@ -50,15 +50,15 @@ class GuessNumber {
         player.setNumber(scanner.nextInt());
 
         if (player.getNumber() == generatedNumber) {
-              System.out.println(player.getName() + " угадал загаданное компьютером число.");
+              System.out.println(player.getName() + " угадал загаданное компьютером число");
 
               return true;
         } else if (player.getNumber() < generatedNumber) {
             System.out.println("Число " + player.getNumber() + ", загаданное " + player.getName() + 
-                ", меньше того, что загадал компьютер.");
+                    ", меньше того, что загадал компьютер");
         } else {
             System.out.println("Число " + player.getNumber() + ", загаданное " + player.getName() + 
-                ", больше того, что загадал компьютер.");
+                    ", больше того, что загадал компьютер");
         }
 
         return false;

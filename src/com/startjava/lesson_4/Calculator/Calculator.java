@@ -8,15 +8,19 @@ public class Calculator {
         switch (arithOperSymbol) {
             case '+': 
                 res = num1 + num2;
+
                 break;
             case '-': 
                 res = num1 - num2;
+
                 break;
             case '*':
                 res = num1 * num2;
+
                 break;
             case '^': 
                 Math.pow(num1, num2);
+
                 break;
             case '/':
                 if (num2 != 0) {
@@ -28,6 +32,7 @@ public class Calculator {
                 break;
             case '%':
                 res = num1 % num2;
+                
                 break; 
             default:
                 System.out.println("Ошибка: знак " + "'" + arithOperSymbol + "'" + " не поддерживается.");

@@ -27,7 +27,7 @@ public class BookshelfTest {
 
     private static void displayBookshelf() {
         if (bookshelf.getAmountOfBooks() == 0) {
-            System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу." + "\n");
+            System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.\n");
         } else {
             System.out.println("В шкафу книг - " + bookshelf.getAmountOfBooks() + ", свободно полок - " + 
                     bookshelf.getFreeShelves() + "\n");
@@ -59,20 +59,25 @@ public class BookshelfTest {
         switch (commandNumber) {
             case 1: 
                 addBook();
+
                 break;
             case 2: 
                 findBook();
+
                 break;
             case 3: 
                 discardBook();
+
                 break;
             case 4: 
                 freeBookshelf();
+                
                 break;
             case 5: 
                 { return ATTEMPTS; }
             default: 
                 System.out.println("Команды с таким номером не существует. Введите номер с командой от 1 до 4 включительно.");
+
                 choseActions();
         }
 
