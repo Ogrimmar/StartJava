@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Calculator {
 
     private static final Scanner scanner = new Scanner(System.in);
-    
+
     public String calculate(int num1, char arithOperSymbol, int num2) {
         int res = 0;
 
@@ -42,12 +42,12 @@ public class Calculator {
                 break;
             case '%':
                 res = num1 % num2;
-                
+
                 break;
             default:
                 System.out.println("Арифметическая операция не поддерживается");
         }
-        
+
         System.out.println("Результат: " + res + "\n");
 
         String answer = null;

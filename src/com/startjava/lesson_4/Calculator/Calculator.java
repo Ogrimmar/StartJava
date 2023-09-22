@@ -1,7 +1,7 @@
 package com.startjava.lesson_4.Calculator;
 
 public class Calculator {
-    
+
     public double calculate(int num1, char arithOperSymbol, int num2) {
         int res = 0;
 
@@ -32,7 +32,7 @@ public class Calculator {
                 break;
             case '%':
                 res = num1 % num2;
-                
+
                 break; 
             default:
                 System.out.println("Ошибка: знак " + "'" + arithOperSymbol + "'" + " не поддерживается.");

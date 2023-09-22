@@ -25,7 +25,7 @@ public class Book {
     private int getPublicationYear() {
         return publicationYear;
     }
-    
+
     public int getLength() {
         return length;
     }

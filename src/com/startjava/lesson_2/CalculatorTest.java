@@ -3,12 +3,12 @@ package com.startjava.lesson_2;
 import java.util.Scanner;
 
 public class CalculatorTest {
-    
+
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("1. Модифицируйте программу “Калькулятор”.");
-        
+
         Calculator calc = new Calculator();
         String answer = null;
 

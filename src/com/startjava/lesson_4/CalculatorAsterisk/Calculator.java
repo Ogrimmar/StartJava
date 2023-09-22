@@ -1,7 +1,7 @@
 package com.startjava.lesson_4.CalculatorAsterisk;
 
 public class Calculator {
-    
+
     public static double calculate(int num1, char arithOperSymbol, int num2) throws RuntimeException {
             int res = switch (arithOperSymbol) {
                 case '+': yield (num1 + num2);

@@ -1,7 +1,7 @@
 package com.startjava.lesson_2;
 
 public class Person {
-    
+
     private double height = 1.70;
     private int weight = 75;
     private int age = 50;

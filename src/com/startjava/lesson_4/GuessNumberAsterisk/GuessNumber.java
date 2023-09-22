@@ -23,7 +23,7 @@ public class GuessNumber {
         boolean flag = false;
         int[] playersTurns = new int[] {1, 2, 3};
         int[] seqTurns = defineLot(playersTurns);
-        
+
         System.out.println("Жребий игроков такой: " + Arrays.toString(seqTurns) + "\n");
 
         do {
@@ -44,11 +44,11 @@ public class GuessNumber {
         } while ((playersAttempts[0] <= ATTEMPTS || playersAttempts[1] <= ATTEMPTS || playersAttempts[2] <= ATTEMPTS) && !flag);
 
         System.out.println();
-        
+
         displayNumbers(players[0]);
         displayNumbers(players[1]);
         displayNumbers(players[2]);
-        
+
         System.out.println();
 
         System.out.print("Хотите продолжить игру? [yes / no]: ");
@@ -68,7 +68,7 @@ public class GuessNumber {
         while (playerGeneratedNumber <= 0 || playerGeneratedNumber > 100) {
             playerGeneratedNumber = scanner.nextInt();
         }
-        
+
         player.setNumber(playerGeneratedNumber);
         int playerAttempt = player.getCurrSize();
 
@@ -78,7 +78,7 @@ public class GuessNumber {
                 "которое меньше того, что загадал компьютер.\n" : null;
 
         System.out.printf(s, player.getName(), player.getNumber(playerAttempt - 1), playerAttempt);
-        
+
         if (playerGeneratedNumber == generatedNumber) {
             return true;
         }
@@ -92,10 +92,10 @@ public class GuessNumber {
 
     private void displayNumbers(Player player) {
         System.out.print("Числа, названные игроком " + player.getName() + ": ");
-        
+
         int length = player.getCurrSize();
         int[] calledNumbers = player.getCalledNumbers();
-        
+
         System.out.print("[");
         for (int i = 0; i < length; i++) {
             if (i < length - 1) {
@@ -132,13 +132,13 @@ public class GuessNumber {
     private void swap(int[] playersTurns, int num1, int num2) {
         int indexOne = 0;
         int indexTwo = 0;
-        
+
         for (int i = 0; i < playersTurns.length; i++) {
             if (playersTurns[i] == num1) {
                 indexOne = i;
             }
         }
-        
+
         for (int i = 0; i < playersTurns.length; i++) {
             if (playersTurns[i] == num2) {
                 indexTwo = i;

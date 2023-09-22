@@ -39,7 +39,7 @@ public class Calculator {
         }
             
         if (isArithOperWrong || res != Integer.MIN_VALUE) {
-            System.out.println("" + num1 + " " + arithOperSymbol + " " + num2 + " = " + "" + res);
+            System.out.println(num1 + " " + arithOperSymbol + " " + num2 + " = " + res);
         } else {
             System.out.println("Некорректно выбраны целые числа.");
         }

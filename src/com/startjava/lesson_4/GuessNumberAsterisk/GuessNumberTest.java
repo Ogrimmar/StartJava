@@ -4,11 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumberTest {
-    
- private static final Scanner scanner = new Scanner(System.in);
+
+    private static final Scanner scanner = new Scanner(System.in);
     private static final int min = 0;
     private static final int max = 100;
-    
+
     public static void main(String[] args) {
         System.out.println("2. Модифицируйте программу “Угадай число” (задание с *).");
 
@@ -22,7 +22,7 @@ public class GuessNumberTest {
 
         System.out.print("Введите имя третьего игрока: ");
         String thirdPlayerName = scanner.nextLine();
-        
+
         System.out.println();
 
         GuessNumber game = new GuessNumber(firstPlayerName, secondPlayerName, thirdPlayerName);
@@ -32,7 +32,7 @@ public class GuessNumberTest {
             answer = game.startGame(generatedNumber);
         }
     }
-    
+
     private static int generateNumber() {
         System.out.println("Компьютер 'загадал' число!\n");
 

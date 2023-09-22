@@ -4,14 +4,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 class GuessNumberTest {
-    
+
     private static final Scanner scanner = new Scanner(System.in);
     private static final int min = 0;
     private static final int max = 100;
-    
+
     public static void main(String[] args) {
         System.out.println("3. Модифицируйте программу “Угадай число”.");
-        
+
         int generatedNumber = generateNumber();
 
         System.out.print("Введите имя первого игрока: ");
@@ -31,7 +31,7 @@ class GuessNumberTest {
             answer = game.startGame(generatedNumber);
         }
     }
-    
+
     private static int generateNumber() {
         System.out.println("Компьютер 'загадал' число!");
         

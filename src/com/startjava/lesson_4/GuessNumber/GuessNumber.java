@@ -32,14 +32,14 @@ public class GuessNumber {
                 secondPlayerAttempts++;
             }
         } while ((firstPlayerAttempts <= ATTEMPTS || secondPlayerAttempts <= ATTEMPTS) && !flag);
-        
+
         System.out.println();
 
         displayNumbers(p1);
         displayNumbers(p2);
-        
+
         System.out.println();
-        
+
         System.out.print("Хотите продолжить игру? [yes / no]: ");
         String answer = scanner.nextLine();
         
@@ -53,7 +53,7 @@ public class GuessNumber {
     private boolean doTurn(Player player, int generatedNumber) {
         System.out.print(player.getName() + " загадывает число: ");
         player.setNumber(scanner.nextInt());
-        
+
         int playerAttempt = player.getCurrSize();
 
         if (player.getNumber(playerAttempt - 1) == generatedNumber) {
@@ -78,10 +78,10 @@ public class GuessNumber {
 
     private void displayNumbers(Player player) {
         System.out.print("Числа, названные игроком " + player.getName() + ": ");
-        
+
         int length = player.getCurrSize();
         int[] calledNumbers = player.getCalledNumbers();
-        
+
         System.out.print("[");
         for (int i = 0; i < length; i++) {
             if (i < length - 1) {
@@ -91,7 +91,7 @@ public class GuessNumber {
             }
         }
         System.out.print("]");
-        
+
         System.out.println();
     }
 }

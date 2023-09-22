@@ -8,7 +8,7 @@ public class CalculatorTest {
 
     public static void main(String[] args) {
         System.out.println("1. Модифицируйте программу “Калькулятор”.");
-        
+
         int num1;
         char arithOperSymbol;
         int num2;

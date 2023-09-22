@@ -3,7 +3,7 @@ package com.startjava.lesson_4.GuessNumber;
 import java.util.Arrays;
 
 public class Player {
-    
+
     private static final int ATTEMPTS = 30;
     private String name;
     private int[] numbers = new int[ATTEMPTS];

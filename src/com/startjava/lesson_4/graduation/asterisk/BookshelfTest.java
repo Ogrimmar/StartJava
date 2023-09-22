@@ -15,7 +15,7 @@ public class BookshelfTest {
         displayBookshelf();
         do {
             displayMenu();
-            
+
             actionNumber = choseActions();
             displayBookshelf();
             

@@ -44,13 +44,13 @@ public class ArraysTheme {
     private static void completeSecondTask() {
         int[] digits = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         int multiplication = 1;
-        
+
         for (int digit : digits) {
             if (digit != 0 && digit != 9) {
                 multiplication *= digit;
             }
         }
-        
+
         String s = (multiplication > 0) ? "1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 = %d\n" : "-1%d\n";
         System.out.printf(s, multiplication);
     }
@@ -122,7 +122,7 @@ public class ArraysTheme {
                     generatedNumber = 40 * Math.random() + 60;
                 } while (!isUnique(randomNumbers, generatedNumber));
             }
-            
+
             randomNumbers[i] = generatedNumber;
         }
 

@@ -180,9 +180,9 @@ public class CyclesTheme {
                 symbolsAmount -= 1;
             }
             
-            do
-            {
+            do {
                 System.out.print("$");
+
                 tempCounter++;
             } while (tempCounter <= symbolsAmount);
             
@@ -203,7 +203,7 @@ public class CyclesTheme {
                 System.out.printf("%4d                 %5c                 %1s\n", i, (char) i, Character.getName(i));
             }
         }
-        
+
         for (int i = 97; i < 123; i++) {
             if (i % 2 == 0) {
                 System.out.printf("%4d                 %5c                 %1s\n", i, (char) i, Character.getName(i));
@@ -215,7 +215,7 @@ public class CyclesTheme {
         int num6 = 123_432_1;
         int num7 = num6;
         int num8 = num6;
-        
+
         int decrementalDivider = 1_000_000;
         boolean flag = true;
         for (int i = 0; i < 3 && flag == true; i++) {
@@ -227,18 +227,18 @@ public class CyclesTheme {
             num8 /= 10;
             decrementalDivider /= 10;
         }
-        
+
         if (flag) {
             System.out.println("Число " + num6 + " является палиндромом.");
         } else {
             System.out.println("Число " + num6 + " не является палиндромом.");
         }
-        
+
         System.out.println("\n9. Проверка, является ли число счастливым.");
 
         int num9 = 145_901;
         int num10 = num9;
-        
+
         int digit1 = num10 % 10;
         num10 /= 10; 
 
@@ -262,7 +262,7 @@ public class CyclesTheme {
 
         System.out.println("Сумма первой тройки цифр " + digit3 + digit2 + digit1 + " равна " + leftSum);
         System.out.println("Сумма второй тройки цифр " + digit6 + digit5 + digit4 + " равна " + rightSum);
-        
+
         if (rightSum == leftSum) {
             System.out.println("Число " + num9 + " является счастливым.");
         } else {
@@ -298,7 +298,7 @@ public class CyclesTheme {
                     System.out.printf("%2d ", i + j * i);
                 }
             }
-            
+
             System.out.println();
         }
     }
