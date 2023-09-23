@@ -5,7 +5,7 @@ public class VariablesTheme {
     public static void main(String[] args) {
         System.out.println("1. Вывод характеристик компьютера.");
 
-        byte procs = 4;
+        byte countCpus = 4;
         short ramVolume = 8;
         int ssdVolume = 256;
         long videoCardVolume = 4L;
@@ -14,7 +14,7 @@ public class VariablesTheme {
         char iSymbol = 'i';
         boolean isFirewallOff = true;
 
-        System.out.println("Число процессоров на ноутбуке: " + procs);
+        System.out.println("Число процессоров на ноутбуке: " + countCpus);
         System.out.println("Объём RAM на ноутбуке: " + ramVolume + "Gb.");
         System.out.println("Объём SSD на ноутбуке: " + ssdVolume + "Gb.");
         System.out.println("Объём памяти видеокарты на ноутбуке: " + videoCardVolume + "Gb.");
@@ -49,17 +49,17 @@ public class VariablesTheme {
         int maxInt = 2_147_483_647;
         long maxLong = 9_223_372_036_854_775_807L;
         System.out.println("maxByte: " + maxByte);
-        System.out.println("++maxByte: " +  (++maxByte));
-        System.out.println("--maxByte: " +  (--maxByte));
+        System.out.println("++maxByte: " + (++maxByte));
+        System.out.println("--maxByte: " + (--maxByte));
         System.out.println("maxShort: " + maxShort);
-        System.out.println("++maxShort: " +  (++maxShort));
-        System.out.println("--maxShort: " +  (--maxShort));
+        System.out.println("++maxShort: " + (++maxShort));
+        System.out.println("--maxShort: " + (--maxShort));
         System.out.println("maxInt: " + maxInt);
-        System.out.println("++maxInt: " +  (++maxInt));
-        System.out.println("--maxInt: " +  (--maxInt));
+        System.out.println("++maxInt: " + (++maxInt));
+        System.out.println("--maxInt: " + (--maxInt));
         System.out.println("maxLong: " + maxLong);
-        System.out.println("++maxLong: " +  (++maxLong));
-        System.out.println("--maxLong: " +  (--maxLong));
+        System.out.println("++maxLong: " + (++maxLong));
+        System.out.println("--maxLong: " + (--maxLong));
 
         System.out.println("\n5. Перестановка значений переменных.");
 
@@ -124,10 +124,10 @@ public class VariablesTheme {
                 tens + " десятков\n" +
                 units + " единиц");
 
-        int digitsMultiplication = hundreds * tens * units;
-        int digitsSum = hundreds + tens + units;
-        System.out.println("Сумма его цифр = " + digitsSum);
-        System.out.println("Произведение его цифр = " + digitsMultiplication);
+        int multiplicationDigits = hundreds * tens * units;
+        int sumDigits = hundreds + tens + units;
+        System.out.println("Сумма его цифр = " + sumDigits);
+        System.out.println("Произведение его цифр = " + multiplicationDigits);
 
         System.out.println("\n9. Вывод времени.");
 

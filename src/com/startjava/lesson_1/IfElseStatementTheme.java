@@ -32,9 +32,9 @@ public class IfElseStatementTheme {
         char firstNameLetter = "Alexander".charAt(0);
 
         if (firstNameLetter == 'M') {
-            System.out.println("Ваше имя начинается с буквы M.");
+            System.out.println("Ваше имя начинается с буквы 'M'.");
         } else if (firstNameLetter == 'I') {
-            System.out.println("Ваше имя начинается с буквы I.");
+            System.out.println("Ваше имя начинается с буквы 'I'.");
         } else {
             System.out.println("Ваше имя не начинается с буквы 'M' или буквы 'I'.");
         }
@@ -60,38 +60,40 @@ public class IfElseStatementTheme {
             System.out.println("Число " + num + " равно 0.");
         } else {
             if (num % 2 == 0) {
-                System.out.println("Число " + num + " чётное.");
+                if (num > 0) {
+                    System.out.println("Число " + num + " является положительным и чётным.");
+                } else {
+                    System.out.println("Число " + num + " является отрицательным и чётным.");
+                }
             } else {
-                System.out.println("Число " + num + " нечётное.");
-            }
-
-            if (num > 0) {
-                System.out.println("Число " + num + " положительное.");
-            } else {
-                System.out.println("Число " + num + " отрицательное.");
+                if (num > 0) {
+                    System.out.println("Число " + num + " является положительным и нечётным.");
+                } else {
+                    System.out.println("Число " + num + " является отрицательным и нечётным.");
+                }
             }
         }
+
         System.out.println("\n4. Поиск одинаковых цифр в числах.");
 
         int num3 = 123;
         int num4 = 223;
-        System.out.println("'num3' = " + num3 + ", 'num4' = " + num4);
-
         int num3Hundreds = num3 / 100;
         int num4Hundreds = num4 / 100;
-        int num3Tens = (num3 / 10) % 10;
-        int num4Tens = (num4 / 10) % 10;
+        int num3Tens = (num3 % 100) / 10;
+        int num4Tens = (num4 % 100) / 10;
         int num3Units = num3 % 10;
         int num4Units = num4 % 10;
 
+        System.out.print("У чисел " + num3 + " и " + num4);
         if (num3Hundreds == num4Hundreds) {
-            System.out.println("У трёхзначных чисел " + num3 + " и " + num4 + " совпадают третьи разряды."); 
+            System.out.println(" одинаковая цифра " + num3Hundreds + " в третьем разряде.");
         } else if (num3Tens == num4Tens) {
-            System.out.println("У трёхзначных чисел " + num3 + " и " + num4 + " совпадают вторые разряды."); 
+            System.out.println(" одинаковая цифра " + num3Tens + " во втором разряде.");
         } else if (num3Units == num4Units) {
-            System.out.println("У трёхзначных чисел " + num3 + " и " + num4 + " совпадают первые разряды."); 
+            System.out.println(" одинаковая цифра " + num3Units + " в первом разряде.");
         } else {
-            System.out.println("У трёхзначных чисел " + num3 + " и " + num4 + " не совпадают никакие цифры."); 
+            System.out.println(" не совпадают никакие цифры ни в каких разрядах.");
         }
 
         System.out.println("\n5. Определение символа по его коду.");
@@ -99,11 +101,11 @@ public class IfElseStatementTheme {
         char symbol = '\u0057';
 
         if (symbol >= 'A' && symbol <= 'Z') {
-            System.out.println("Символ " + symbol + " является заглавной латинской буквой.");
+            System.out.println(symbol + " - это заглавная латинская буква.");
         } else if (symbol >= 'a' && symbol <= 'z') {
-            System.out.println("Символ " + symbol + " является строчной латинской буквой.");
+            System.out.println(symbol + " - это строчная латинская буква.");
         } else if (symbol >= '0' && symbol <= '9') {
-            System.out.println("Символ " + symbol + " является цифрой.");
+            System.out.println(symbol + " - это цифра.");
         } else {
             System.out.println("Символ " + symbol + " не является ни строчной, ни заглавной латинской буквой, ни цифрой.");
         }
@@ -111,55 +113,52 @@ public class IfElseStatementTheme {
         System.out.println("\n6. Подсчёт суммы вклада и начисленных банком %.");
 
         int deposit = 301_000;
-
         System.out.println("Сумма начального вклада: " + deposit);
+        int percent;
+
         if (deposit < 100_000) {
-            deposit *= 1.05;
-
-            System.out.println("Начисленные проценты: 5%.");
-            System.out.println("Итоговая сумма с начисленными процентами: " + deposit);
+            percent = 5;
+            deposit *= (1 + (double) percent / 100);
         } else if (deposit >= 100_000 && deposit <= 300_000) {
-            deposit *= 1.07;
-
-            System.out.println("Начисленные проценты: 7%.");
-            System.out.println("Итоговая сумма с начисленными процентами: " + deposit);
+            percent = 7;
+            deposit *= (1 + (double) percent / 100);
         } else {
-            deposit *= 1.1;
-
-            System.out.println("Начисленные проценты: 10%.");
-            System.out.println("Итоговая сумма с начисленными процентами: " + deposit);
+            percent = 10;
+            deposit *= (1 + (double) percent / 100);
         }
+        System.out.println("Начисленные проценты: " + percent + "%");
+        System.out.println("Итоговая сумма с начисленными процентами: " + deposit);
+
         System.out.println("\n7. Определение оценки по предметам.");
 
-        int histRes = 59;
-        int infoRes = 91;
-        byte histMark; 
-        byte infoMark;
-
-        if (histRes <= 60) {
-            histMark = 2;
-        } else if (histRes > 60 && histRes <= 73) {
-            histMark = 3;
-        } else if (histRes > 73 && histRes <= 91) {
-            histMark = 4;
+        int historyResult = 59;
+        byte historyMark;
+        if (historyResult <= 60) {
+            historyMark = 2;
+        } else if (historyResult > 60 && historyResult <= 73) {
+            historyMark = 3;
+        } else if (historyResult > 73 && historyResult <= 91) {
+            historyMark = 4;
         } else {
-            histMark = 5;
+            historyMark = 5;
         }
-        System.out.println("История - " + histMark);
+        System.out.println("История - " + historyMark);
 
-        if (infoRes <= 60) {
-            infoMark = 2;
-        } else if (infoRes > 60 && infoRes <= 73) {
-            infoMark = 3;
-        } else if (infoRes > 73 && infoRes <= 91) {
-            infoMark = 4;
+        int programmingResult = 91;
+        byte programmingMark;
+        if (programmingResult <= 60) {
+            programmingMark = 2;
+        } else if (programmingResult > 60 && programmingResult <= 73) {
+            programmingMark = 3;
+        } else if (programmingResult > 73 && programmingResult <= 91) {
+            programmingMark = 4;
         } else {
-            infoMark = 5;
+            programmingMark = 5;
         }
-        System.out.printf("Информатика - " + infoMark);
+        System.out.println("Информатика - " + programmingMark);
 
-        double avgPercent = (double) ((histRes + infoRes) / 2);
-        double avgMark = (double) ((histMark + infoMark) / 2);
+        double avgPercent = (double) ((historyResult + programmingResult) / 2);
+        double avgMark = (double) ((historyMark + programmingMark) / 2);
         System.out.println("Средняя оценка за два предмета - " + avgMark);
         System.out.println("Средний процент за два предмета - " + avgPercent + "%");
 
@@ -233,8 +232,8 @@ public class IfElseStatementTheme {
                 }
 
                 if (gotSum == totalSum) {
-                    System.out.println("На сумму " + gotSum + " выдано " + gotHundredBanknotes + " банкнот в 100$, " + 
-                            gotFiveBanknotes + " банкнот в 5$ и " + gotSingleBanknotes + " банкнот - в 1$.");
+                    System.out.println("На сумму " + gotSum + " выдано " + gotHundredBanknotes + " банкнот достоинством в 100$, " + 
+                            gotFiveBanknotes + " банкнот в 5$ и " + gotSingleBanknotes + " банкнот в 1$.");
                 }
             }
         }
