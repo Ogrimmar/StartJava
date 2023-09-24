@@ -166,7 +166,7 @@ public class CyclesTheme {
 
                 thirdCounter++;
             } while (thirdCounter <= symbolsAmount);
-            
+
             stringAmount++;
             thirdCounter = 1;
 
