@@ -84,7 +84,7 @@ public class CyclesTheme {
         int secondCounter = 0;
 
         for (int i = left; i < right; i+= 2) {
-            System.out.print("      " + i);
+            System.out.printf("%4d", i);
 
             secondCounter++;
 
@@ -97,7 +97,7 @@ public class CyclesTheme {
 
         if (secondCounter % 5 != 0) {
             for (int i = 0; i < 5 - secondCounter; i++) {
-                System.out.print("    " + 0);
+                System.out.printf("%4d", 0);
             }
         }
 
