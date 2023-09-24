@@ -43,11 +43,11 @@ public class CyclesTheme {
 
         if (num3 > max) {
             max = num3;
-        }
+        } 
 
         if (num3 < min) {
             min = num3;
-        }
+        } 
 
         System.out.println("Максимальное число - " + max + ", а минимальное - " + min);
 
@@ -84,7 +84,7 @@ public class CyclesTheme {
         int secondCounter = 0;
 
         for (int i = left; i < right; i+= 2) {
-            System.out.printf("%4d  ", i);
+            System.out.print("      " + i);
 
             secondCounter++;
 
@@ -97,7 +97,7 @@ public class CyclesTheme {
 
         if (secondCounter % 5 != 0) {
             for (int i = 0; i < 5 - secondCounter; i++) {
-                System.out.printf("    " + 0);
+                System.out.print("    " + 0);
             }
         }
 
