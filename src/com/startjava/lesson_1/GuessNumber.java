@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class GuessNumber {
 
-    private static final int ATTEMPTS = 30;
+    private static final int ATTEMPTS = 10;
 
     public static void main(String[] args) {
         System.out.println("Игра “Угадай число”.");

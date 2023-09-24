@@ -55,8 +55,8 @@ public class IfElseStatementTheme {
         System.out.println("\n3. Проверка числа.");
 
         int num = 123_456;
-        String numberSign = null; 
-        String numberParity = null;
+        String numberSign = ""; 
+        String numberParity = "";
         String output = "Число " + "'" + num + "' ";
         if (num == 0) {
             System.out.println("Число равно " + num);
@@ -86,36 +86,30 @@ public class IfElseStatementTheme {
         int num4Tens = (num4 % 100) / 10;
         int num3Units = num3 % 10;
         int num4Units = num4 % 10;
-        String sout = "У чисел " + "'" + num3 + " и " + "'" + num4 + "'" + " ";
 
-        if (num3Hundreds == num4Hundreds && num3Tens == num4Tens && num3Units == num4Units) {
-            sout = sout + "одинаковые цифры " + "'" + num3Hundreds + "', " + "'" + num3Tens + "' и " + "'" + num3Units + "'" + 
-                    " во всех соответствующих разрядах.";
-        } else {
-            if (num3Hundreds == num4Hundreds) {
-                if (num3Tens == num4Tens) {
-                    sout = sout + "одинаковые цифры " + "'" + num3Tens + "' и " + "'" + num3Hundreds + "'" + " во втором и третьем " + 
-                            "разрядах.";
-                } else if (num3Units == num4Units) {
-                    sout = sout + "одинаковые цифры " + "'" + num3Units + "' и " + "'" + num3Hundreds + "'" + " в первом и третьем " + 
-                            "разрядах.";
-                } else {
-                    sout = sout + "одинаковая цифра " + "'" + num3Hundreds + "' и " + " в третьем разряде.";
-                }
-            } else if (num3Tens == num4Tens) {
-                if (num3Units == num4Units) {
-                    sout = sout + "одинаковые цифры " + "'" + num3Tens + "' и " + "'" + num3Units + "'" + " во втором и первом " + 
-                            "разрядах.";
-                } else {
-                    sout = sout + "одинаковая цифра " + "'" + num3Tens + "'" + " во втором разряде.";
-                }
-            } else if (num3Units == num4Units) {
-                sout = sout + "одинаковая цифра " + "'" + num3Units + "'" + " в первом разряде.";
-            } else {
-                sout = sout + "нет совпадающих цифр.";
-            }
+        System.out.println("У чисел " + "'" + num3 + " и " + "'" + num4 + "'" + " ");
+
+        String soutOne = "";
+        String soutTwo = "";
+        String soutThree = "";
+
+        if (num3Hundreds == num4Hundreds) {
+            soutOne += "    одинаковые цифры " + "'" + num3Hundreds + " в третьем " + "разряде";
+
+            System.out.println(soutOne);
         }
-        System.out.println(sout);
+
+        if (num3Tens == num4Tens) {
+            soutTwo += "    одинаковые цифры " + "'" + num3Tens + " во втором " + "разряде";
+
+            System.out.println(soutOne + soutTwo);
+        }
+
+        if (num3Units == num4Units) {
+            soutThree += "  одинаковые цифры " + "'" + num3Units + " в первом " + "разряде";
+
+            System.out.println(soutOne + soutTwo + soutThree);
+        }
 
         System.out.println("\n5. Определение символа по его коду.");
 
@@ -150,49 +144,49 @@ public class IfElseStatementTheme {
 
         System.out.println("\n7. Определение оценки по предметам.");
 
-        int historyResult = 59;
+        int historyPercent = 59;
         byte historyMark;
-        if (historyResult <= 60) {
+        if (historyPercent <= 60) {
             historyMark = 2;
-        } else if (historyResult > 60 && historyResult <= 73) {
+        } else if (historyPercent > 60 && historyPercent <= 73) {
             historyMark = 3;
-        } else if (historyResult > 73 && historyResult <= 91) {
+        } else if (historyPercent > 73 && historyPercent <= 91) {
             historyMark = 4;
         } else {
             historyMark = 5;
         }
+
         System.out.println("История - " + historyMark);
 
-        int programmingResult = 91;
+        int programmingPercent = 91;
         byte programmingMark;
-        if (programmingResult <= 60) {
+        if (programmingPercent <= 60) {
             programmingMark = 2;
-        } else if (programmingResult > 60 && programmingResult <= 73) {
+        } else if (programmingPercent > 60 && programmingPercent <= 73) {
             programmingMark = 3;
-        } else if (programmingResult > 73 && programmingResult <= 91) {
+        } else if (programmingPercent > 73 && programmingPercent <= 91) {
             programmingMark = 4;
         } else {
             programmingMark = 5;
         }
+
         System.out.println("Программирование - " + programmingMark);
 
-        double avgResult = (double) ((historyResult + programmingResult) / 2);
+        double avgPercent = (double) ((historyPercent + programmingPercent) / 2);
         double avgMark = (double) ((historyMark + programmingMark) / 2);
         System.out.println("Средняя оценка за два предмета - " + avgMark);
-        System.out.println("Средний процент за два предмета - " + avgResult + "%");
+        System.out.println("Средний процент за два предмета - " + avgPercent + "%");
 
         System.out.println("\n8. Расчёт прибыли за год.");
 
-        int hirePrice = 5_000;
+        int hirePrice = 15_000;
         int goodsSales = 13_000;
         int costEffectiveness = 4_000;
 
-        int annualGoodsEarnings = goodsSales * 12;
-        int annualHireExpenes = hirePrice * 12;
-        int annualCostEffectiveness = costEffectiveness * 12;
-        int annualProfit = annualGoodsEarnings - annualCostEffectiveness - annualHireExpenes;
+        int annualProfit = (goodsSales - costEffectiveness - hirePrice) * 12;
+        int annualProfitThousands = annualProfit / 1000;
 
-        System.out.println("Прибыль за год: " + annualProfit + " руб.");
+        System.out.printf("Прибыль за год: %+d %03d руб.\n", annualProfitThousands, 0);
 
         System.out.println("\n9. Подсчёт количества банкнот.");
 

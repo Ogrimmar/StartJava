@@ -8,36 +8,40 @@ public class ArraysTheme {
         System.out.println("1. Реверс значений.");
 
         completeFirstTask();
+
         System.out.println("\n2. Произведение элементов массива.");
 
         completeSecondTask();
+
         System.out.println("\n3. Удаление элементов массива.");
 
         completeThirdTask();
+
         System.out.println("\n4. Вывод алфавита лесенкой.");
 
         completeFourthTask();
+
         System.out.println("\n5. Заполнение массива уникальными числами.");
 
         completeFifthTask();
-        System.out.println();
     }
 
     private static void completeFirstTask() {
         int[] numbers = new int[] {7, 1, 6, 3, 4, 5};
-        int length = numbers.length;
 
-        System.out.println("Значения до реверса: ");
+        System.out.print("Значения до реверса: ");
         System.out.println(Arrays.toString(numbers));
 
         int elem;
+        int length = numbers.length;
+
         for (int i = 0; i < length / 2; i++) {
             elem = numbers[i];
             numbers[i] = numbers[length - 1 - i];
             numbers[length - 1 - i] = elem;
         }
 
-        System.out.println("Значения после реверса: ");
+        System.out.print("Значения после реверса: ");
         System.out.println(Arrays.toString(numbers));
     }
 
@@ -64,12 +68,15 @@ public class ArraysTheme {
         }
 
         System.out.print("Массив до изменения: ");
+
         for (int i = 0; i < length; i++) {
             if (i % 8 == 0) {
                  System.out.println();
             }
+
             System.out.printf("%.3f  ", randomNumbers[i]);
         }
+
         System.out.println("\n");
 
         int mediumElemIndex = length / 2;
@@ -83,12 +90,15 @@ public class ArraysTheme {
         }
 
         System.out.print("Массив после изменения: ");
+
         for (int i = 0; i < length; i++) {
             if (i % 7 == 0) {
                  System.out.println();
             }
+
             System.out.printf("%.3f  ", randomNumbers[i]);
         }
+
         System.out.println("\n");
         System.out.println("Количество обнулённых элементов: " + nullifiedElems);
     }
@@ -106,6 +116,7 @@ public class ArraysTheme {
             for (int j = length - 1; j >= i; j--) {
                 System.out.print(englishAlphabet[j]);
             }
+
             System.out.println();
         }
     }
@@ -127,8 +138,9 @@ public class ArraysTheme {
         }
 
         Arrays.sort(randomNumbers);
+
         for (int i = 0; i < length; i++) {
-            if (i % 10 == 0) {
+            if (i % 10 == 0 && i > 0) {
                 System.out.println();
             }
 
