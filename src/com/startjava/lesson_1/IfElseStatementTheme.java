@@ -13,9 +13,9 @@ public class IfElseStatementTheme {
             System.out.println("Вам не больше 20 лет.");
         }
 
-        boolean isGenderFemale = false;
+        boolean GenderFemale = false;
 
-        if (!isGenderFemale) {
+        if (!GenderFemale) {
             System.out.println("Вы мужчина.");
         } else {
             System.out.println("Вы женщина.");
@@ -45,56 +45,77 @@ public class IfElseStatementTheme {
         int num2 = 100;
 
         if (num1 > num2) {
-            System.out.println("Максимальное число - это " + num1 + ", а минимальное - " + num2);
+            System.out.println("Максимальное число - " + num1 + ", а минимальное - " + num2);
         } else if (num1 == num2) {
-            System.out.printf("Числа равны. Их максимум и минимум совпадают. Они равны " + num1);
+            System.out.println("Числа равны.");
         } else {
-            System.out.println("Максимальное число - это " + num2 + ", а минимальное - " + num1);
+            System.out.println("Максимальное число - " + num2 + ", а минимальное - " + num1);
         }
 
         System.out.println("\n3. Проверка числа.");
 
         int num = 123_456;
-
+        String numberSign = null; 
+        String numberParity = null;
+        String output = "Число " + "'" + num + "' ";
         if (num == 0) {
-            System.out.println("Число " + num + " равно 0.");
+            System.out.println("Число равно " + num);
         } else {
             if (num % 2 == 0) {
-                if (num > 0) {
-                    System.out.println("Число " + num + " является положительным и чётным.");
-                } else {
-                    System.out.println("Число " + num + " является отрицательным и чётным.");
-                }
+                numberParity = "чётным.";
             } else {
-                if (num > 0) {
-                    System.out.println("Число " + num + " является положительным и нечётным.");
-                } else {
-                    System.out.println("Число " + num + " является отрицательным и нечётным.");
-                }
+                numberParity = "нечётным.";
+            }
+
+            if (num > 0) {
+                numberSign = "положительным ";
+            } else {
+                numberSign = "отрицательным ";
             }
         }
+
+        System.out.println(output + "является " + numberSign + "и " + numberParity);
 
         System.out.println("\n4. Поиск одинаковых цифр в числах.");
 
         int num3 = 123;
-        int num4 = 223;
+        int num4 = 228;
         int num3Hundreds = num3 / 100;
         int num4Hundreds = num4 / 100;
         int num3Tens = (num3 % 100) / 10;
         int num4Tens = (num4 % 100) / 10;
         int num3Units = num3 % 10;
         int num4Units = num4 % 10;
+        String sout = "У чисел " + "'" + num3 + " и " + "'" + num4 + "'" + " ";
 
-        System.out.print("У чисел " + num3 + " и " + num4);
-        if (num3Hundreds == num4Hundreds) {
-            System.out.println(" одинаковая цифра " + num3Hundreds + " в третьем разряде.");
-        } else if (num3Tens == num4Tens) {
-            System.out.println(" одинаковая цифра " + num3Tens + " во втором разряде.");
-        } else if (num3Units == num4Units) {
-            System.out.println(" одинаковая цифра " + num3Units + " в первом разряде.");
+        if (num3Hundreds == num4Hundreds && num3Tens == num4Tens && num3Units == num4Units) {
+            sout = sout + "одинаковые цифры " + "'" + num3Hundreds + "', " + "'" + num3Tens + "' и " + "'" + num3Units + "'" + 
+                    " во всех соответствующих разрядах.";
         } else {
-            System.out.println(" не совпадают никакие цифры ни в каких разрядах.");
+            if (num3Hundreds == num4Hundreds) {
+                if (num3Tens == num4Tens) {
+                    sout = sout + "одинаковые цифры " + "'" + num3Tens + "' и " + "'" + num3Hundreds + "'" + " во втором и третьем " + 
+                            "разрядах.";
+                } else if (num3Units == num4Units) {
+                    sout = sout + "одинаковые цифры " + "'" + num3Units + "' и " + "'" + num3Hundreds + "'" + " в первом и третьем " + 
+                            "разрядах.";
+                } else {
+                    sout = sout + "одинаковая цифра " + "'" + num3Hundreds + "' и " + " в третьем разряде.";
+                }
+            } else if (num3Tens == num4Tens) {
+                if (num3Units == num4Units) {
+                    sout = sout + "одинаковые цифры " + "'" + num3Tens + "' и " + "'" + num3Units + "'" + " во втором и первом " + 
+                            "разрядах.";
+                } else {
+                    sout = sout + "одинаковая цифра " + "'" + num3Tens + "'" + " во втором разряде.";
+                }
+            } else if (num3Units == num4Units) {
+                sout = sout + "одинаковая цифра " + "'" + num3Units + "'" + " в первом разряде.";
+            } else {
+                sout = sout + "нет совпадающих цифр.";
+            }
         }
+        System.out.println(sout);
 
         System.out.println("\n5. Определение символа по его коду.");
 
@@ -114,19 +135,17 @@ public class IfElseStatementTheme {
 
         int deposit = 301_000;
         System.out.println("Сумма начального вклада: " + deposit);
-        int percent;
+        double percent = 5.0;
 
-        if (deposit < 100_000) {
-            percent = 5;
-            deposit *= (1 + (double) percent / 100);
-        } else if (deposit >= 100_000 && deposit <= 300_000) {
-            percent = 7;
-            deposit *= (1 + (double) percent / 100);
+        if (deposit >= 100_000 && deposit <= 300_000) {
+            percent = 7.0;
         } else {
-            percent = 10;
-            deposit *= (1 + (double) percent / 100);
+            percent = 10.0;
         }
-        System.out.println("Начисленные проценты: " + percent + "%");
+
+        deposit *= (1 + percent / 100);
+
+        System.out.println("Сумма начисленного процента: " + (int) (percent * deposit / 100));
         System.out.println("Итоговая сумма с начисленными процентами: " + deposit);
 
         System.out.println("\n7. Определение оценки по предметам.");
@@ -155,37 +174,29 @@ public class IfElseStatementTheme {
         } else {
             programmingMark = 5;
         }
-        System.out.println("Информатика - " + programmingMark);
+        System.out.println("Программирование - " + programmingMark);
 
-        double avgPercent = (double) ((historyResult + programmingResult) / 2);
+        double avgResult = (double) ((historyResult + programmingResult) / 2);
         double avgMark = (double) ((historyMark + programmingMark) / 2);
         System.out.println("Средняя оценка за два предмета - " + avgMark);
-        System.out.println("Средний процент за два предмета - " + avgPercent + "%");
+        System.out.println("Средний процент за два предмета - " + avgResult + "%");
 
         System.out.println("\n8. Расчёт прибыли за год.");
 
         int hirePrice = 5_000;
         int goodsSales = 13_000;
         int costEffectiveness = 4_000;
-        int profitPerMonth = 0;
 
-        for (int i = 0; i < 12; i++) {
-            if (profitPerMonth >= hirePrice) {
-                profitPerMonth = goodsSales - hirePrice - costEffectiveness;
-            } else {
-                profitPerMonth = goodsSales - costEffectiveness;
-            }
-        }
+        int annualGoodsEarnings = goodsSales * 12;
+        int annualHireExpenes = hirePrice * 12;
+        int annualCostEffectiveness = costEffectiveness * 12;
+        int annualProfit = annualGoodsEarnings - annualCostEffectiveness - annualHireExpenes;
 
-        if (profitPerMonth != 0) {
-            System.out.println("Прибыль составила " + profitPerMonth + " рублей.");
-        } else {
-            System.out.println("Прибыль составила 0 рублей.");
-        }
+        System.out.println("Прибыль за год: " + annualProfit + " руб.");
+
         System.out.println("\n9. Подсчёт количества банкнот.");
 
         int totalSum = 567;
-        int currSum = totalSum;
         int hundredBanknotesAmount = 10;
         int fiveBanknotesAmount = 5;
         int singleBanknotesAmount = 50;
@@ -195,7 +206,9 @@ public class IfElseStatementTheme {
         int necessaryFiveBanknotes = (totalSum - 100 * necessaryHundredBanknotes) / 5;
         int necessarySingleBanknotes = (totalSum - 100 * (totalSum / 100) - 5 * necessaryFiveBanknotes) % 10;
         int necessaryBanknotes = necessaryHundredBanknotes + necessaryFiveBanknotes + necessarySingleBanknotes;
-        System.out.println("Имеются 3 номинала банкнот - 1$, 5$ и 100$");
+        System.out.println("Имеются 3 номинала банкнот - 1$, 5$ и 100$.");
+
+        int currSum = totalSum;
 
         if (necessaryBanknotes > banknotesAmount) {
             System.out.println("Нельзя выдать сумму " + totalSum + "$ из банкомата, поскольку не хватает банкнот.");
@@ -213,16 +226,12 @@ public class IfElseStatementTheme {
                     gotSum += 100;
                 } 
 
-                System.out.println("Банкнот достоинством в 100$ не хватает.");
-
                 while (fiveBanknotesAmount > 0 && currSum >= 5) {
                     gotFiveBanknotes++;
                     fiveBanknotesAmount--;
                     currSum -= 5;
                     gotSum += 5;
                 } 
-
-                System.out.println("Банкнот достоинством в 5$ не хватает.");
 
                 while (singleBanknotesAmount > 0 && currSum >= 1) {
                     gotSingleBanknotes++;
@@ -232,7 +241,7 @@ public class IfElseStatementTheme {
                 }
 
                 if (gotSum == totalSum) {
-                    System.out.println("На сумму " + gotSum + " выдано " + gotHundredBanknotes + " банкнот достоинством в 100$, " + 
+                    System.out.print("На сумму " + gotSum + "$ выдано " + gotHundredBanknotes + " банкнот достоинством в 100$, " + 
                             gotFiveBanknotes + " банкнот в 5$ и " + gotSingleBanknotes + " банкнот в 1$.");
                 }
             }
