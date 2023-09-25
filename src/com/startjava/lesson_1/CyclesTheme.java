@@ -10,9 +10,9 @@ public class CyclesTheme {
 
         int counter = startRange;
         int sumEvenNumbers = 0;
-        int sumoddNumbers = 0;
+        int sumOddNumbers = 0;
         do {
-            if (firstCounter % 2 == 0) {
+            if (counter % 2 == 0) {
                 sumEvenNumbers += counter;
             } else {
                 sumOddNumbers += counter;
@@ -141,7 +141,7 @@ public class CyclesTheme {
                 System.out.print("$");
 
                 сounter++;
-            } while (thirdCounter <= symbolsAmount);
+            } while (counter <= symbolsAmount);
 
             stringAmount++;
             сounter = 1;
