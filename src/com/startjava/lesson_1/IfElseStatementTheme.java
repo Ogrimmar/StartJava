@@ -84,31 +84,25 @@ public class IfElseStatementTheme {
         int num4Hundreds = num4 / 100;
         int num3Tens = (num3 % 100) / 10;
         int num4Tens = (num4 % 100) / 10;
-        int num3Units = num3 % 10;
-        int num4Units = num4 % 10;
+        int num3Ones = num3 % 10;
+        int num4Ones = num4 % 10;
 
-        System.out.println("У чисел " + "'" + num3 + " и " + "'" + num4 + "'" + " ");
-
-        String soutOne = "";
-        String soutTwo = "";
-        String soutThree = "";
+        System.out.println("У чисел " + "'" + num3 + " и " + "'" + num4 + "'" + ":");
 
         if (num3Hundreds == num4Hundreds) {
-            soutOne += "    одинаковые цифры " + "'" + num3Hundreds + " в третьем " + "разряде";
-
-            System.out.println(soutOne);
+            System.out.println("одинаковые цифры " + "'" + num3Hundreds + "'" + " в третьем " + "разряде");
         }
 
         if (num3Tens == num4Tens) {
-            soutTwo += "    одинаковые цифры " + "'" + num3Tens + " во втором " + "разряде";
-
-            System.out.println(soutOne + soutTwo);
+            System.out.println("одинаковые цифры " + "'" + num3Tens + "'" + " во втором " + "разряде");
         }
 
-        if (num3Units == num4Units) {
-            soutThree += "  одинаковые цифры " + "'" + num3Units + " в первом " + "разряде";
+        if (num3Ones == num4Ones) {
+            System.out.println("одинаковые цифры " + "'" + num3Ones + "'" + " в первом " + "разряде");
+        }
 
-            System.out.println(soutOne + soutTwo + soutThree);
+        if (num3Hundreds != num4Hundreds && num3Tens != num4Tens && num3Ones != num4Ones) {
+            System.out.println("нет одинаковых цифр во всех соответствующих разрядах");
         }
 
         System.out.println("\n5. Определение символа по его коду.");

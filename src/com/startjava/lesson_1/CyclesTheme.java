@@ -8,18 +8,17 @@ public class CyclesTheme {
         int startRange = -10;
         int rightRange = 21;
 
-        int firstCounter = startRange;
+        int counter = startRange;
         int sumEvenNumbers = 0;
-        int sumOddNumbers = 0;
-
+        int sumoddNumbers = 0;
         do {
             if (firstCounter % 2 == 0) {
-                sumEvenNumbers += firstCounter;
+                sumEvenNumbers += counter;
             } else {
-                sumOddNumbers += firstCounter;
+                sumOddNumbers += counter;
             }
-            firstCounter++;
-        } while (firstCounter <= rightRange);
+            counter++;
+        } while (counter <= rightRange);
 
         System.out.println("На отрезке [" + startRange + ", " + rightRange + "]" + 
                 " сумма чётных чисел = " + sumEvenNumbers + " , а" +" нечётных = " + sumOddNumbers);
@@ -29,16 +28,12 @@ public class CyclesTheme {
         int num1 = -1;
         int num2 = 5;
         int num3 = 10;
-
-        int min;
-        int max;
+        int min = num1;
+        int max = num2;
 
         if (num1 > num2) {
             min = num2;
             max = num1;
-        } else {
-            min = num1;
-            max = num2;
         }
 
         if (num3 > max) {
@@ -55,18 +50,12 @@ public class CyclesTheme {
             System.out.print(i + " ");
         }
 
-        System.out.println();
-
-        System.out.println("\n3. Вывод реверсивного числа и суммы его цифр.");
+        System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр.");
 
         int num4 = 1_234;
-
         System.out.println("Имеется число " + "'" + num4 + "'.");
-
         System.out.print("Реверсивное число - ");
-
         int sumDigits = 0;
-
         while (num4 != 0) {
             int digit = num4 % 10;
             sumDigits += digit;
@@ -81,40 +70,33 @@ public class CyclesTheme {
 
         int left = 1;
         int right = 24;
-        int secondCounter = 0;
-
+        counter = 0;
         for (int i = left; i < right; i+= 2) {
             System.out.printf("%4d", i);
+            counter++;
 
-            secondCounter++;
-
-            if (secondCounter % 5 == 0) {
-                secondCounter  = 0;
-
+            if (counter % 5 == 0) {
+                counter  = 0;
                 System.out.println();
             }
         }
 
-        if (secondCounter % 5 != 0) {
-            for (int i = 0; i < 5 - secondCounter; i++) {
+        if (counter % 5 != 0) {
+            for (int i = 0; i < 5 - counter; i++) {
                 System.out.printf("%4d", 0);
             }
         }
-
-        System.out.println();
-        
-        System.out.println("\n5. Проверка количества двоек на чётность / нечётность.");
+        System.out.println("\n\n5. Проверка количества двоек на чётность / нечётность.");
 
         int num5 = 3_242_592;
-        int num6 = num5;
+        int copyNum = num5;
         int deuceAmount = 0;
-
-        while (num6 > 0) {
-            if (num6 % 10 == 2) {
+        while (copyNum > 0) {
+            if (copyNum % 10 == 2) {
                 deuceAmount++;
             }
 
-            num6 /= 10;
+            copyNum /= 10;
         }
 
         System.out.println("В числе " + "'" + num5 + "'" + " количество двоек - " + deuceAmount);
@@ -128,31 +110,25 @@ public class CyclesTheme {
 
             System.out.println();
         }
-
         System.out.println();
 
         int symbolsAmount = 5;
         int stringAmount = 1;
-        int thirdCounter = 0;
-
+        counter = 0;
         while (stringAmount <= 5) {
-            while (thirdCounter < symbolsAmount - stringAmount) {
+            while (counter < symbolsAmount - stringAmount) {
                 System.out.print("#");
-
-                thirdCounter++;
+                counter++;
             }
 
             System.out.println();
-
-            thirdCounter = 0;
+            сounter = 0;
             stringAmount++;
         }
-
         System.out.println();
-
         stringAmount = 1;
         symbolsAmount = 5;
-        thirdCounter = 1;
+        сounter = 1;
 
         do {
             if (stringAmount <= 3) {
@@ -164,21 +140,18 @@ public class CyclesTheme {
             do {
                 System.out.print("$");
 
-                thirdCounter++;
+                сounter++;
             } while (thirdCounter <= symbolsAmount);
 
             stringAmount++;
-            thirdCounter = 1;
+            сounter = 1;
 
             System.out.println();
         } while (stringAmount <= 5);
 
         System.out.println("\n7. Отображение ASCII-символов.");
 
-        String decimal = "DECIMAL";
-        String character = "CHARACTER";
-        String description = "DESCRIPTION";
-        System.out.printf("%s:%20s:%23s:\n", decimal, character, description);
+        System.out.printf("%s:%20s:%23s:\n", "DECIMAL", "CHARACTER", "DESCRIPTION");
 
         for (int i = 15; i < 48; i++) {
             if (i % 2 != 0) {
@@ -195,23 +168,23 @@ public class CyclesTheme {
         System.out.println("\n8. Проверка, является ли число палиндромом.");
 
         int num7 = 1_234_321;
-        int num8 = num7;
-        int num9 = num7;
+        int firstCopyNum = num7;
+        int secondCopyNum = num7;
         int decrementalDivider = 1_000_000;
         boolean flag = true;
         int num8Units;
         int num8LeftDigit;
 
         for (int i = 0; i < 3 && flag == true; i++) {
-            num8Units = num8 % 10;
-            num8LeftDigit = num9 / decrementalDivider;
+            num8Units = firstCopyNum % 10;
+            num8LeftDigit = secondCopyNum / decrementalDivider;
 
             if (num8Units != num8LeftDigit) {
                 flag = false;
             }
 
-            num8 -= num8LeftDigit * decrementalDivider;
-            num9 /= 10;
+            firstCopyNum -= num8LeftDigit * decrementalDivider;
+            secondCopyNum /= 10;
             decrementalDivider /= 10;
         }
 
@@ -224,25 +197,25 @@ public class CyclesTheme {
         System.out.println("\n9. Проверка, является ли число счастливым.");
 
         int num10 = 145_901;
-        int num11 = num10;
+        copyNum = num10;
 
-        int firstDigit = num11 % 10;
-        num11 /= 10; 
+        int firstDigit = copyNum % 10;
+        copyNum /= 10; 
 
-        int secondDigit = num11 % 10;
-        num11 /= 10;
+        int secondDigit = copyNum % 10;
+        copyNum /= 10;
 
-        int thirdDigit = num11 % 10;
-        num11 /= 10;
+        int thirdDigit = copyNum % 10;
+        copyNum /= 10;
 
-        int fourthDigit = num11 % 10;
-        num11 /= 10; 
+        int fourthDigit = copyNum % 10;
+        copyNum /= 10; 
 
-        int fifthDigit = num11 % 10;
-        num11 /= 10;
+        int fifthDigit = copyNum % 10;
+        copyNum /= 10;
 
-        int sixthDigit = num11 % 10;
-        num11 /= 10;
+        int sixthDigit = copyNum % 10;
+        copyNum /= 10;
 
         int firstSum = firstDigit + secondDigit + thirdDigit;
         int secondSum = fourthDigit + fifthDigit + sixthDigit;
@@ -289,7 +262,6 @@ public class CyclesTheme {
                     System.out.printf("%2d ", i + j * i);
                 }
             }
-
             System.out.println();
         }
     }
