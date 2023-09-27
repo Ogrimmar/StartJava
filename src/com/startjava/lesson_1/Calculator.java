@@ -16,7 +16,6 @@ public class Calculator {
     }
 
     private static void calculate(int num1, int num2, char mathSign) {
-        boolean wrongMathSign = true;
         int result = 0;
 
         if (mathSign == '+') {
@@ -33,7 +32,6 @@ public class Calculator {
                 result = num1 / num2;
             } else {
                 System.out.println("На 0 делить нельзя!");
-
                 return;
             }
         } else if (mathSign == '%') {

@@ -6,7 +6,7 @@ public class CyclesTheme {
         System.out.println("1. Подсчёт суммы чётных и нечётных чисел.");
 
         int startRange = -10;
-        int rightRange = 21;
+        int endRange = 21;
 
         int counter = startRange;
         int sumEvenNumbers = 0;
@@ -18,9 +18,9 @@ public class CyclesTheme {
                 sumOddNumbers += counter;
             }
             counter++;
-        } while (counter <= rightRange);
+        } while (counter <= endRange);
 
-        System.out.println("На отрезке [" + startRange + ", " + rightRange + "]" + 
+        System.out.println("На отрезке [" + startRange + ", " + endRange + "]" + 
                 " сумма чётных чисел = " + sumEvenNumbers + " , а" +" нечётных = " + sumOddNumbers);
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания.");
@@ -122,13 +122,13 @@ public class CyclesTheme {
             }
 
             System.out.println();
-            сounter = 0;
+            counter = 0;
             stringAmount++;
         }
         System.out.println();
         stringAmount = 1;
         symbolsAmount = 5;
-        сounter = 1;
+        counter = 1;
 
         do {
             if (stringAmount <= 3) {
@@ -140,11 +140,11 @@ public class CyclesTheme {
             do {
                 System.out.print("$");
 
-                сounter++;
+                counter++;
             } while (counter <= symbolsAmount);
 
             stringAmount++;
-            сounter = 1;
+            counter = 1;
 
             System.out.println();
         } while (stringAmount <= 5);
@@ -257,7 +257,7 @@ public class CyclesTheme {
                 if (i == 1) {
                     System.out.print("---");
                 }
-                
+
                 if (i > 1 && j < 9) {
                     System.out.printf("%2d ", i + j * i);
                 }

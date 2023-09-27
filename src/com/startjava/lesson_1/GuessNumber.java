@@ -4,18 +4,15 @@ import java.util.Random;
 
 public class GuessNumber {
 
-    private static final int ATTEMPTS = 10;
-
     public static void main(String[] args) {
         System.out.println("Игра “Угадай число”.");
 
-        int min = 0;
+        int min = 1;
         int max = 100;
-        int randomValue = min + 1 + new Random().nextInt(max);
+        int randomValue = min + new Random().nextInt(max);
         int guessedValue = 0;
-        int attempts = 0;
 
-        while (guessedValue != randomValue && attempts <= ATTEMPTS) {
+        while (guessedValue != randomValue) {
             guessedValue = changeNumber(guessedValue);
 
             if (guessedValue == randomValue) {
@@ -29,8 +26,6 @@ public class GuessNumber {
                             " randomValue = " + randomValue);
                 }
             }
-
-            attempts++;
         }
     }
 
