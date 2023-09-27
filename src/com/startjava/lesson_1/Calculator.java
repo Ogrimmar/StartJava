@@ -38,7 +38,6 @@ public class Calculator {
             result = num1 % num2;
         } else {
             System.out.println("Арифметический знак " + "'" + mathSign + "'" + " не поддерживается.");
-
             return;
         }
 

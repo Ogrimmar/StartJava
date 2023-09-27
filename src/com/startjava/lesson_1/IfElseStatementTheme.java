@@ -93,15 +93,18 @@ public class IfElseStatementTheme {
             System.out.println("нет одинаковых цифр во всех соответствующих разрядах");
         } else {
             if (num3Hundreds == num4Hundreds) {
-                System.out.println("одинаковые цифры " + "'" + num3Hundreds + "'" + " в третьем " + "разряде");
+                System.out.println("одинаковые цифры " + "'" + num3Hundreds + "'" + " в третьем " + 
+                        "разряде");
             }
 
             if (num3Tens == num4Tens) {
-                System.out.println("одинаковые цифры " + "'" + num3Tens + "'" + " во втором " + "разряде");
+                System.out.println("одинаковые цифры " + "'" + num3Tens + "'" + " во втором " + 
+                        "разряде");
             }
 
             if (num3Ones == num4Ones) {
-                System.out.println("одинаковые цифры " + "'" + num3Ones + "'" + " в первом " + "разряде");
+                System.out.println("одинаковые цифры " + "'" + num3Ones + "'" + " в первом " + 
+                        "разряде");
             }
         }
 
@@ -116,7 +119,8 @@ public class IfElseStatementTheme {
         } else if (symbol >= '0' && symbol <= '9') {
             System.out.println(symbol + " - это цифра.");
         } else {
-            System.out.println("Символ " + symbol + " не является ни строчной, ни заглавной латинской буквой, ни цифрой.");
+            System.out.println("Символ " + symbol + " не является ни строчной, ни заглавной " + 
+                    "латинской буквой, ни цифрой.");
         }
 
         System.out.println("\n6. Подсчёт суммы вклада и начисленных банком %.");
@@ -193,13 +197,15 @@ public class IfElseStatementTheme {
         int necessaryHundredBanknotes = (totalSum / 100);
         int necessaryFiveBanknotes = (totalSum - 100 * necessaryHundredBanknotes) / 5;
         int necessarySingleBanknotes = (totalSum - 100 * (totalSum / 100) - 5 * necessaryFiveBanknotes) % 10;
-        int necessaryBanknotes = necessaryHundredBanknotes + necessaryFiveBanknotes + necessarySingleBanknotes;
+        int necessaryBanknotes = necessaryHundredBanknotes + necessaryFiveBanknotes + 
+                necessarySingleBanknotes;
         System.out.println("Имеются 3 номинала банкнот - 1$, 5$ и 100$.");
 
         int currSum = totalSum;
 
         if (necessaryBanknotes > banknotesAmount) {
-            System.out.println("Нельзя выдать сумму " + totalSum + "$ из банкомата, поскольку не хватает банкнот.");
+            System.out.println("Нельзя выдать сумму " + totalSum + "$ из банкомата, поскольку не " +
+                    " хватает банкнот.");
         } else {
             int gotHundredBanknotes = 0;
             int gotFiveBanknotes = 0;
@@ -229,8 +235,9 @@ public class IfElseStatementTheme {
                 }
 
                 if (gotSum == totalSum) {
-                    System.out.print("На сумму " + gotSum + "$ выдано " + gotHundredBanknotes + " банкнот достоинством в 100$, " + 
-                            gotFiveBanknotes + " банкнот в 5$ и " + gotSingleBanknotes + " банкнот в 1$.");
+                    System.out.print("На сумму " + gotSum + "$ выдано " + gotHundredBanknotes + 
+                        " банкнот достоинством в 100$, " + gotFiveBanknotes + " банкнот в 5$ и " + 
+                        gotSingleBanknotes + " банкнот в 1$.");
                 }
             }
         }

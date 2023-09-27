@@ -70,19 +70,22 @@ public class VariablesTheme {
         int temp = num1;
         num1 = num2;
         num2 = temp;
-        System.out.println("Конечные значения 'num1' = " + num1 + ", 'num2' = " + num2 + " после перестановки.\n");
+        System.out.println("Конечные значения 'num1' = " + num1 + ", 'num2' = " + num2 + " после " +
+                "перестановки.\n");
 
         System.out.println("Исходные значения 'num1' = 2, 'num2' = 5");
         num1 += num2;
         num2 = num1 - num2;
         num1 -= num2;
-        System.out.println("Конечные значения 'num1' = " + num1 + ", 'num2' = " + num2 + " после арифметических операций.\n");
+        System.out.println("Конечные значения 'num1' = " + num1 + ", 'num2' = " + num2 + " после " +
+                " арифметических операций.\n");
 
         System.out.println("Исходные значения 'num1' = 2, 'num2' = 5");
         num1 ^= num2;
         num2 ^= num1;
         num1 ^= num2;
-        System.out.println("Конечные значения 'num1' = " + num1 + ", 'num2' = " + num2 + " после побитовых операций.\n");
+        System.out.println("Конечные значения 'num1' = " + num1 + ", 'num2' = " + num2 + " после " +
+                "побитовых операций.\n");
 
         System.out.println("\n6. Вывод символов и их кодов.");
 
@@ -108,10 +111,11 @@ public class VariablesTheme {
 
         System.out.println("    " + slash + backlslash);
         System.out.println("   " + slash + "  " + backlslash);
-        System.out.println("  " + slash + underscore + leftParenthesis + " " + rightParenthesis + backlslash);
+        System.out.println("  " + slash + underscore + leftParenthesis + " " + rightParenthesis + 
+                backlslash);
         System.out.println(" " + slash + "      " + backlslash);
-        System.out.println("" + slash + underscore + underscore + underscore + underscore + slash + backlslash +
-                underscore + underscore + backlslash);
+        System.out.println("" + slash + underscore + underscore + underscore + underscore + slash + 
+                backlslash + underscore + underscore + backlslash);
 
         System.out.println("\n8. Вывод количества сотен, десятков и единиц числа.");
 

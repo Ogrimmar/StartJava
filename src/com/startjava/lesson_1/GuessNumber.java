@@ -9,29 +9,27 @@ public class GuessNumber {
 
         int min = 1;
         int max = 100;
-        int randomValue = min + new Random().nextInt(max);
-        int guessedValue = 0;
+        int randomNumber = min + new Random().nextInt(max);
+        int guessedNumber = 0;
 
-        while (guessedValue != randomValue) {
-            guessedValue = changeNumber(guessedValue);
+        while (guessedNumber != randomNumber) {
+            guessedNumber = changeNumber(guessedNumber, randomNumber);
 
-            if (guessedValue == randomValue) {
-                System.out.println("Вы победили!");
+            if (guessedNumber < randomNumber) {
+                System.out.println("Число guessedNumber = " + guessedNumber + " меньше " + 
+                        "загаданного компьютером значения" + " randomNumber = " + randomNumber);
             } else {
-                if (guessedValue < randomValue) {
-                    System.out.println("Число guessedValue = " + guessedValue + " меньше загаданного компьютером значения" + 
-                            " randomValue = " + randomValue);
-                } else {
-                    System.out.println("Число guessedValue = " + guessedValue + " больше загаданного компьютером значения" + 
-                            " randomValue = " + randomValue);
-                }
+                System.out.println("Число guessedNumber = " + guessedNumber + " больше " + 
+                    "загаданного компьютером значения" + " randomNumber = " + randomNumber);
             }
         }
+
+        System.out.println("Вы победили!");
     }
 
-    private static int changeNumber(int number) {
-        number = (number % 3 == 0) ? number + 6 : number - 2;
+    private static int changeNumber(int guessedNumber, int randomNumber) {
+        guessedNumber = (guessedNumber > randomNumber) ? guessedNumber - 2 : guessedNumber + 1;
 
-        return number;
+        return guessedNumber;
     }
 }
