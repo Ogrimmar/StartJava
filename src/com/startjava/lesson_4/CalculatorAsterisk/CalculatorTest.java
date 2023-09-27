@@ -10,29 +10,28 @@ public class CalculatorTest {
         System.out.println("1. Модифицируйте программу “Калькулятор” (задание с *).");
 
         int num1;
-        char arithOperSymbol;
+        char mathSign;
         int num2;
         double result = 0.0;
 
-            do {
-                String[] splittedMathExpr = CalculatorTest.enterMathExp();
+        do {
+            String[] splittedMathExpr = CalculatorTest.enterMathExp();
+            num1 = Integer.parseInt(splittedMathExpr[0]);
+            mathSign = (splittedMathExpr[1].toCharArray())[0];
+            num2 = Integer.parseInt(splittedMathExpr[2]);
 
-                num1 = Integer.parseInt(splittedMathExpr[0]);
-                arithOperSymbol = (splittedMathExpr[1].toCharArray())[0];
-                num2 = Integer.parseInt(splittedMathExpr[2]);
+            try {
+                result = Calculator.calculate(num1, mathSign, num2);
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getClass().getName());
+            }
 
-                try {
-                    result = Calculator.calculate(num1, arithOperSymbol, num2);
-                } catch (RuntimeException ex) {
-                    System.out.println(ex.getClass().getName());
-                }
+            if (result < (int) Double.MIN_VALUE) {
+                String s = (result - Math.floor(result) == 0.0) ? "%d %c %d = %f\n" : "%d %c %d = %.3f\n";
 
-                if (result < (int) Double.MIN_VALUE) {
-                        String s = (result - Math.floor(result) == 0.0) ? "%d %c %d = %f\n" : "%d %c %d = %.3f\n";
-
-                        System.out.printf(s, num1, arithOperSymbol, num2, result);
-                }
-            } while (result < (int) Double.MIN_VALUE);
+                System.out.printf(s, num1, mathSign, num2, result);
+            }
+        } while (result < (int) Double.MIN_VALUE);
     }
 
     private static String[] enterMathExp() {

@@ -13,9 +13,9 @@ public class IfElseStatementTheme {
             System.out.println("Вам не больше 20 лет.");
         }
 
-        boolean GenderFemale = false;
+        boolean femaleGender = false;
 
-        if (!GenderFemale) {
+        if (!femaleGender) {
             System.out.println("Вы мужчина.");
         } else {
             System.out.println("Вы женщина.");
@@ -89,20 +89,20 @@ public class IfElseStatementTheme {
 
         System.out.println("У чисел " + "'" + num3 + " и " + "'" + num4 + "'" + ":");
 
-        if (num3Hundreds == num4Hundreds) {
-            System.out.println("одинаковые цифры " + "'" + num3Hundreds + "'" + " в третьем " + "разряде");
-        }
-
-        if (num3Tens == num4Tens) {
-            System.out.println("одинаковые цифры " + "'" + num3Tens + "'" + " во втором " + "разряде");
-        }
-
-        if (num3Ones == num4Ones) {
-            System.out.println("одинаковые цифры " + "'" + num3Ones + "'" + " в первом " + "разряде");
-        }
-
         if (num3Hundreds != num4Hundreds && num3Tens != num4Tens && num3Ones != num4Ones) {
             System.out.println("нет одинаковых цифр во всех соответствующих разрядах");
+        } else {
+            if (num3Hundreds == num4Hundreds) {
+                System.out.println("одинаковые цифры " + "'" + num3Hundreds + "'" + " в третьем " + "разряде");
+            }
+
+            if (num3Tens == num4Tens) {
+                System.out.println("одинаковые цифры " + "'" + num3Tens + "'" + " во втором " + "разряде");
+            }
+
+            if (num3Ones == num4Ones) {
+                System.out.println("одинаковые цифры " + "'" + num3Ones + "'" + " в первом " + "разряде");
+            }
         }
 
         System.out.println("\n5. Определение символа по его коду.");

@@ -7,41 +7,43 @@ public class Calculator {
 
         int num1 = 91;
         int num2 = 3;
-        char arithOperSymbol = '+';
+        char mathSign = '+';
+        System.out.println("Первое число - " + "'" + num1 + "'" + 
+                "\nВторое число - " + "'" + num2 + "'" +
+                "\nАрифметический знак - " + "'" + mathSign + "'");
 
-        doMathOperation(num1, num2, arithOperSymbol);
+        calculate(num1, num2, mathSign);
     }
 
-    private static void doMathOperation(int num1, int num2, char arithOperSymbol) {
-        boolean isArithOperWrong = true;
+    private static void calculate(int num1, int num2, char mathSign) {
+        boolean wrongMathSign = true;
         int result = 0;
 
-        if (arithOperSymbol == '+') {
+        if (mathSign == '+') {
             result = num1 + num2;
-        } else if (arithOperSymbol == '-') {
+        } else if (mathSign == '-') {
             result = num1 - num2;
-        } else if (arithOperSymbol == '^') {
+        } else if (mathSign == '^') {
             result = 1;
-
             for (int i = 0; i < num2; i++) {
                 result *= num1;
             }
-        } else if (arithOperSymbol == '/') {
+        } else if (mathSign == '/') {
             if (num2 != 0) {
                 result = num1 / num2;
             } else {
-                result = Integer.MIN_VALUE;
+                System.out.println("На 0 делить нельзя!");
+
+                return;
             }
-        } else if (arithOperSymbol == '%') {
+        } else if (mathSign == '%') {
             result = num1 % num2;
         } else {
-            isArithOperWrong = false;
+            System.out.println("Арифметический знак " + "'" + mathSign + "'" + " не поддерживается.");
+
+            return;
         }
-            
-        if (isArithOperWrong || result != Integer.MIN_VALUE) {
-            System.out.println(num1 + " " + arithOperSymbol + " " + num2 + " = " + result);
-        } else {
-            System.out.println("Некорректно выбраны целые числа.");
-        }
+
+        System.out.println("Результат: "+ num1 + " " + mathSign + " " + num2 + " = " + result);
     }
 }

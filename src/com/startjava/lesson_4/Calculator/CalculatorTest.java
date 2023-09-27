@@ -10,25 +10,23 @@ public class CalculatorTest {
         System.out.println("1. Модифицируйте программу “Калькулятор”.");
 
         int num1;
-        char arithOperSymbol;
+        char mathSign;
         int num2;
         double result = 0.0;
         Calculator calc = new Calculator();
 
         do {
             String[] mathExpr = CalculatorTest.enterMathExp();
-
             num1 = Integer.parseInt(mathExpr[0]);
-            arithOperSymbol = (mathExpr[1].toCharArray())[0];
+            mathSign = (mathExpr[1].toCharArray())[0];
             num2 = Integer.parseInt(mathExpr[2]);
-
-            result = calc.calculate(num1, arithOperSymbol, num2);
+            result = calc.calculate(num1, mathSign, num2);
 
             if (result < Double.MIN_VALUE) {
                 if (result - Math.floor(result) == 0.000) {
-                    System.out.printf("%d " + arithOperSymbol + " %d = %f\n", num1, num2, result);
+                    System.out.printf("%d " + mathSign + " %d = %f\n", num1, num2, result);
                 } else {
-                    System.out.printf("%d " + arithOperSymbol + " %d = %.3f\n", num1, num2, result);
+                    System.out.printf("%d " + mathSign + " %d = %.3f\n", num1, num2, result);
                 }
             }
         } while (result < Double.MIN_VALUE);

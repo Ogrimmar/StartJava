@@ -2,10 +2,10 @@ package com.startjava.lesson_4.Calculator;
 
 public class Calculator {
 
-    public double calculate(int num1, char arithOperSymbol, int num2) {
+    public double calculate(int num1, char mathSign, int num2) {
         int result = 0;
 
-        switch (arithOperSymbol) {
+        switch (mathSign) {
             case '+': 
                 result = num1 + num2;
 
@@ -35,7 +35,7 @@ public class Calculator {
 
                 break; 
             default:
-                System.out.println("Ошибка: знак " + "'" + arithOperSymbol + "'" + " не поддерживается.");
+                System.out.println("Ошибка: знак " + "'" + mathSign + "'" + " не поддерживается.");
 
                 return Double.MIN_VALUE;
         }
