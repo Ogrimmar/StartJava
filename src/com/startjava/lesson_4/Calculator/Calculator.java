@@ -36,7 +36,6 @@ public class Calculator {
                 break; 
             default:
                 System.out.println("Ошибка: знак " + "'" + mathSign + "'" + " не поддерживается.");
-
                 return Double.MIN_VALUE;
         }
 

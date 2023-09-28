@@ -14,7 +14,6 @@ public class CalculatorTest {
         int num2;
         double result = 0.0;
         Calculator calc = new Calculator();
-
         do {
             String[] mathExpr = CalculatorTest.enterMathExp();
             num1 = Integer.parseInt(mathExpr[0]);
@@ -34,7 +33,6 @@ public class CalculatorTest {
 
     private static String[] enterMathExp() {
         String[] mathExpr = new String[3];
-
         System.out.print("Введите математическое выражение: ");
         mathExpr = (scanner.nextLine()).split(" ");
 

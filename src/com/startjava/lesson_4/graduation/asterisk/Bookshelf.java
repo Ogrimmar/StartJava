@@ -6,11 +6,12 @@ public class Bookshelf {
 
     private static final int MAX_AMOUNT = 10;
     private static final int DEFAULT_LENGTH = 1;
-    private Book[] books = new Book[MAX_AMOUNT];
+    private Book[] books;
     private int currAmount;
     private int bookshelfLength;
 
     public Bookshelf() {
+        books = new Book[MAX_AMOUNT];
         currAmount = 0;
         bookshelfLength = DEFAULT_LENGTH;
     }
@@ -30,7 +31,7 @@ public class Bookshelf {
     public boolean addBook(Book book) {
         if (currAmount < MAX_AMOUNT) {
             books[currAmount++] = book;
-            
+
             if (book.getLength() > bookshelfLength) {
                 bookshelfLength = book.getLength();
             }
@@ -57,11 +58,8 @@ public class Bookshelf {
         for (int i = 0; i <= currAmount; i++) {
             if (books[i].getTitle().equals(_title)) {
                 int length = books[i].getLength();
-
                 System.arraycopy(books, i + 1, books, i, currAmount - 1);
-
                 currAmount--;
-
                 books[currAmount] = null;
 
                 if (bookshelfLength == length) {
@@ -81,7 +79,6 @@ public class Bookshelf {
 
     public void freeBookshelf() {
         Arrays.fill(books, 0, currAmount, null);
-
         currAmount = 0;
     }
 

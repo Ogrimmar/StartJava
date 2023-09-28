@@ -68,15 +68,12 @@ public class ArraysTheme {
         }
 
         System.out.print("Массив до изменения: ");
-
         for (int i = 0; i < length; i++) {
             if (i % 8 == 0) {
                  System.out.println();
             }
-
             System.out.printf("%.3f  ", randomNumbers[i]);
         }
-
         System.out.println("\n");
 
         int mediumElemIndex = length / 2;
@@ -90,17 +87,13 @@ public class ArraysTheme {
         }
 
         System.out.print("Массив после изменения: ");
-
         for (int i = 0; i < length; i++) {
             if (i % 7 == 0) {
                  System.out.println();
             }
-
             System.out.printf("%.3f  ", randomNumbers[i]);
         }
-
-        System.out.println("\n");
-        System.out.println("Количество обнулённых элементов: " + nullifiedElems);
+        System.out.println("\nКоличество обнулённых элементов: " + nullifiedElems);
     }
 
     private static void completeFourthTask() {
@@ -116,7 +109,6 @@ public class ArraysTheme {
             for (int j = length - 1; j >= i; j--) {
                 System.out.print(englishAlphabet[j]);
             }
-
             System.out.println();
         }
     }
@@ -143,7 +135,6 @@ public class ArraysTheme {
             if (i % 10 == 0 && i > 0) {
                 System.out.println();
             }
-
             System.out.printf("%.3f   ", randomNumbers[i]);
         }
     }

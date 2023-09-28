@@ -15,7 +15,6 @@ public class BookshelfTest {
         displayBookshelf();
         do {
             displayMenu();
-
             actionNumber = choseActions();
             displayBookshelf();
 
@@ -29,8 +28,8 @@ public class BookshelfTest {
         if (bookshelf.getAmountOfBooks() == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.\n");
         } else {
-            System.out.println("В шкафу книг - " + bookshelf.getAmountOfBooks() + ", свободно полок - " + 
-                    bookshelf.getFreeShelves() + "\n");
+            System.out.println("В шкафу книг - " + bookshelf.getAmountOfBooks() + ", свободно "+ 
+                    "полок - " + bookshelf.getFreeShelves() + "\n");
 
             Book[] books = bookshelf.getAllBooks();
             for (Book book : books) {
@@ -70,27 +69,27 @@ public class BookshelfTest {
 
                 break;
             case 4: 
-                freeBookshelf();
+                BookshelfTest.freeBookshelf();
 
                 break;
             case 5: 
                 { return ATTEMPTS; }
             default: 
-                System.out.println("Команды с таким номером не существует. Введите номер с командой от 1 до 4 включительно.");
-
+                System.out.println("Команды с таким номером не существует. Введите номер с " + 
+                        "командой от 1 до 4 включительно.");
                 choseActions();
         }
 
         return 0;
     }
 
-    private static void addBook() {      
+    private static void addBook() {
         System.out.print("Введите автора книги, которую Вы хотите положить в книжный шкаф: ");
         String author = scanner.nextLine();
 
         System.out.print("Введите название книги, которую Вы хотите положить в книжный шкаф: ");
         String title = scanner.nextLine();
-        
+
         System.out.print("Введите год издания книги, которую Вы хотите положить в книжный шкаф: ");
         int publicationYear = Integer.parseInt(scanner.nextLine());
 
@@ -126,7 +125,6 @@ public class BookshelfTest {
 
     private static void freeBookshelf() {
         bookshelf.freeBookshelf();
-
         System.out.println("Книжный шкаф освобождён.\n");
     }
 }

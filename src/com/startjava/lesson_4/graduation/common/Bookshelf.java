@@ -60,7 +60,6 @@ public class Bookshelf {
 
     public void freeBookshelf() {
         Arrays.fill(books, 0, currAmount, null);
-
         currAmount = 0;
     }
 }

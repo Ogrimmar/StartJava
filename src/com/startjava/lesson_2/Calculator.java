@@ -44,7 +44,8 @@ public class Calculator {
 
                 break;
             default:
-                System.out.println("Арифметический знак " + "'" + mathSign + "'" + " не поддерживается.");
+                System.out.println("Арифметический знак " + "'" + mathSign + "'" + 
+                        " не поддерживается.");
         }
 
         System.out.println("Результат: "+ num1 + " " + mathSign + " " + num2 + " = " + result);

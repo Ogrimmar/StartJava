@@ -8,9 +8,10 @@ public class GuessNumber {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static final int ATTEMPTS = 10;
-    private Player[] players = new Player[3];
+    private Player[] players;
 
     GuessNumber(String firstPlayerName, String secondPlayerName, String thirdPlayerName) {
+        players = new Player[3];
         players[0] = new Player(firstPlayerName);
         players[1] = new Player(secondPlayerName);
         players[2] = new Player(thirdPlayerName);
@@ -41,7 +42,8 @@ public class GuessNumber {
                 flag = doTurn(players[seqTurns[2] - 1], generatedNumber);
                 playersAttempts[2]++;
             }
-        } while ((playersAttempts[0] <= ATTEMPTS || playersAttempts[1] <= ATTEMPTS || playersAttempts[2] <= ATTEMPTS) && !flag);
+        } while ((playersAttempts[0] <= ATTEMPTS || playersAttempts[1] <= ATTEMPTS || 
+                        playersAttempts[2] <= ATTEMPTS) && !flag);
 
         System.out.println();
 
@@ -72,10 +74,11 @@ public class GuessNumber {
         player.setNumber(playerGeneratedNumber);
         int playerAttempt = player.getCurrSize();
 
-        String s = (playerGeneratedNumber == generatedNumber) ? "Игрок %s угадал число %d с %d попытки.\n" : 
-                (playerGeneratedNumber > generatedNumber) ? "Игрок %s загадал число %d с попытки %d, которое больше того, что " + 
-                "загадал компьютер.\n" : (playerGeneratedNumber < generatedNumber) ? "Игрок %s загадал число %d с попытки %d, " + 
-                "которое меньше того, что загадал компьютер.\n" : null;
+        String s = (playerGeneratedNumber == generatedNumber) ? "Игрок %s угадал число %d с %d " + 
+                " попытки.\n" : (playerGeneratedNumber > generatedNumber) ? "Игрок %s загадал " + 
+                "число %d с попытки %d, которое больше того, что " + "загадал компьютер.\n" : 
+                (playerGeneratedNumber < generatedNumber) ? "Игрок %s загадал число %d с попытки "+ 
+                "%d, " + "которое меньше того, что загадал компьютер.\n" : null;
 
         System.out.printf(s, player.getName(), player.getNumber(playerAttempt - 1), playerAttempt);
 

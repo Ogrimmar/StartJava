@@ -5,9 +5,9 @@ import java.util.Scanner;
 class GuessNumber {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static final int ATTEMPTS = 30;
-    private Player p1 = null;
-    private Player p2 = null;
+    private static final int ATTEMPTS = 10;
+    private Player p1;
+    private Player p2;
 
     GuessNumber(Player _p1, Player _p2) {
         p1 = _p1;
@@ -18,7 +18,6 @@ class GuessNumber {
         int firstPlayerAttempts = 0;
         int secondPlayerAttempts = 0;
         boolean flag = false;
-        
         do {
             if (!flag) {
                 flag = doTurn(p1, generatedNumber);
@@ -29,7 +28,6 @@ class GuessNumber {
                  flag = doTurn(p2, generatedNumber);
                  secondPlayerAttempts++;
             }
-
         } while ((firstPlayerAttempts <= ATTEMPTS || secondPlayerAttempts <= ATTEMPTS) && !flag);
 
         System.out.print("Хотите продолжить игру? [yes / no]: ");
@@ -37,7 +35,6 @@ class GuessNumber {
 
         while (!answer.equals("yes") && !answer.equals("no")) {
             System.out.print("Введите корректный ответ: ");
-
             answer = scanner.nextLine().trim();
         }
 
@@ -46,7 +43,6 @@ class GuessNumber {
 
     private boolean doTurn(Player player, int generatedNumber) {
         System.out.print(player.getName() + " загадывает число: ");
-
         player.setNumber(scanner.nextInt());
 
         if (player.getNumber() == generatedNumber) {

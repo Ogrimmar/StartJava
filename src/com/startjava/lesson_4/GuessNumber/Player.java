@@ -6,10 +6,11 @@ public class Player {
 
     private static final int ATTEMPTS = 30;
     private String name;
-    private int[] numbers = new int[ATTEMPTS];
+    private int[] numbers;
     private int currSize;
 
     Player(String _name) {
+        numbers = new int[ATTEMPTS];
         name = _name;
         currSize = 0;
     }

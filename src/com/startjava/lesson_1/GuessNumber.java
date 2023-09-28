@@ -20,7 +20,7 @@ public class GuessNumber {
                         "загаданного компьютером значения" + " randomNumber = " + randomNumber);
             } else {
                 System.out.println("Число guessedNumber = " + guessedNumber + " больше " + 
-                    "загаданного компьютером значения" + " randomNumber = " + randomNumber);
+                        "загаданного компьютером значения" + " randomNumber = " + randomNumber);
             }
         }
 

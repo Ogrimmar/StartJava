@@ -1,6 +1,5 @@
 package com.startjava.lesson_4.graduation.common;
 
-
 import java.util.Scanner;
 
 public class BookshelfTest {
@@ -30,8 +29,8 @@ public class BookshelfTest {
         if (bookshelf.getAmountOfBooks() == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.\n");
         } else {
-            System.out.println("В шкафу книг - " + bookshelf.getAmountOfBooks() + ", свободно полок - " + 
-                    bookshelf.getFreeShelves() + "\n");
+            System.out.println("В шкафу книг - " + bookshelf.getAmountOfBooks() + 
+                    ", свободно полок - " + bookshelf.getFreeShelves() + "\n");
 
             Book[] books = bookshelf.getAllBooks();
             for (Book book : books) {
@@ -71,14 +70,14 @@ public class BookshelfTest {
 
                 break;
             case 4: 
-                freeBookshelf();
+                BookshelfTest.freeBookshelf();
 
                 break;
             case 5: 
                 { return ATTEMPTS; }
             default: 
-                System.out.println("Команды с таким номером не существует. Введите номер с командой от 1 до 4 включительно.");
-
+                System.out.println("Команды с таким номером не существует. Введите номер с " + 
+                        "командой от 1 до 4 включительно.");
                 choseActions();
         }
 
@@ -127,7 +126,6 @@ public class BookshelfTest {
 
     private static void freeBookshelf() {
         bookshelf.freeBookshelf();
-
         System.out.println("Книжный шкаф освобождён.\n");
     }
 }

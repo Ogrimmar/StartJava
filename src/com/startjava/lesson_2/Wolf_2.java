@@ -54,7 +54,7 @@ public class Wolf_2 {
 
     public void sit() {
         System.out.println("Сидит.");
-    }    
+    }
 
     public void run() {
         System.out.println("Бежит.");

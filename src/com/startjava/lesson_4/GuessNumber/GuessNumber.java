@@ -6,8 +6,8 @@ public class GuessNumber {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static final int ATTEMPTS = 10;
-    private Player p1 = null;
-    private Player p2 = null;
+    private Player p1;
+    private Player p2;
 
     GuessNumber(String firstPlayerName, String secondPlayerName) {
         p1 = new Player(firstPlayerName);
@@ -42,7 +42,7 @@ public class GuessNumber {
 
         System.out.print("Хотите продолжить игру? [yes / no]: ");
         String answer = scanner.nextLine();
-        
+
         while (!answer.equals("yes") && !answer.equals("no")) {
             answer = scanner.nextLine();
         } 
@@ -57,16 +57,16 @@ public class GuessNumber {
         int playerAttempt = player.getCurrSize();
 
         if (player.getNumber(playerAttempt - 1) == generatedNumber) {
-            System.out.println("Игрок " + player.getName() + " угадал число " + player.getNumber(playerAttempt - 1) + 
-                    " с " + playerAttempt + " попытки.");
+            System.out.println("Игрок " + player.getName() + " угадал число " + 
+                    player.getNumber(playerAttempt - 1) + " с " + playerAttempt + " попытки.");
 
             return true;
         } else if (player.getNumber(playerAttempt - 1) < generatedNumber) {
-            System.out.println("Число " + player.getNumber(playerAttempt - 1) + ", загаданное " + player.getName() + 
-                    ", меньше того, что загадал компьютер.");
+            System.out.println("Число " + player.getNumber(playerAttempt - 1) + ", загаданное " + 
+                    player.getName() + ", меньше того, что загадал компьютер.");
         } else {
-            System.out.println("Число " + player.getNumber(playerAttempt - 1) + ", загаданное " + player.getName() + 
-                    ", больше того, что загадал компьютер.");
+            System.out.println("Число " + player.getNumber(playerAttempt - 1) + ", загаданное " + 
+                    player.getName() + ", больше того, что загадал компьютер.");
         }
 
         if (playerAttempt == ATTEMPTS) {

@@ -6,7 +6,7 @@ import java.util.Scanner;
 class GuessNumberTest {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static final int min = 0;
+    private static final int min = 1;
     private static final int max = 100;
 
     public static void main(String[] args) {
@@ -35,6 +35,6 @@ class GuessNumberTest {
     private static int generateNumber() {
         System.out.println("Компьютер 'загадал' число!");
 
-        return (1 + min + new Random().nextInt(max));
+        return min + new Random().nextInt(max);
     }
 }

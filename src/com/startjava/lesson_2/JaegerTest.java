@@ -5,7 +5,6 @@ public class JaegerTest {
     public static void main(String[] args) {
         System.out.println("2. Модифицируйте класс Jaeger.");
 
-        Jaeger jaeger1 = new Jaeger("Romeo Blue", "Mark-I", "USA", 77.72F, 7.775F, 7, 6);
         Jaeger jaeger2 = new Jaeger();
         jaeger2.setModelName("Cherno Alpha");
         jaeger2.setMark("Mark-I");
@@ -15,10 +14,7 @@ public class JaegerTest {
         jaeger2.setStrength(10);
         jaeger2.setArmor(10);
 
-        System.out.println("Характеристики роботов до изменения параметров");
-        System.out.print(jaeger1);
-        System.out.print(jaeger2);
-
+        Jaeger jaeger1 = new Jaeger("Romeo Blue", "Mark-I", "USA", 77.72F, 7.775F, 7, 6);
         jaeger1.setModelName("Horizon Brave");
         jaeger1.setMark("Mark-I");
         jaeger1.setOrigin("China");
@@ -26,6 +22,10 @@ public class JaegerTest {
         jaeger1.setWeight(7.890F);
         jaeger1.setStrength(4);
         jaeger1.setArmor(6);
+
+        System.out.println("Характеристики роботов до изменения параметров.");
+        System.out.print(jaeger1);
+        System.out.print(jaeger2);
 
         jaeger2.setModelName("Crimson Typhoon");
         jaeger2.setMark("Mark-I");
@@ -35,7 +35,7 @@ public class JaegerTest {
         jaeger2.setStrength(8);
         jaeger2.setArmor(6);
 
-        System.out.println("Характеристики роботов после изменения параметров");
+        System.out.println("Характеристики роботов после изменения параметров.");
         System.out.print(jaeger1);
         System.out.print(jaeger2);
     }
