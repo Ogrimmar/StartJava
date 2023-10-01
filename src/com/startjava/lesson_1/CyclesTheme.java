@@ -168,27 +168,27 @@ public class CyclesTheme {
         System.out.println("\n8. Проверка, является ли число палиндромом.");
 
         int num7 = 1_234_321;
-        int firstCopyNum = num7;
-        int secondCopyNum = num7;
-        int decrementalDivider = 1_000_000;
-        boolean flag = true;
-        int num8Units;
-        int num8LeftDigit;
+        copyNum = num7;
+        int rightHalfFactor = 1;
+        int leftHalfFactor = 10_000;
 
-        for (int i = 0; i < 3 && flag == true; i++) {
-            num8Units = firstCopyNum % 10;
-            num8LeftDigit = secondCopyNum / decrementalDivider;
-
-            if (num8Units != num8LeftDigit) {
-                flag = false;
-            }
-
-            firstCopyNum -= num8LeftDigit * decrementalDivider;
-            secondCopyNum /= 10;
-            decrementalDivider /= 10;
+        int num7RightHalf = num7 % 1000;                    // 321
+        int num7MediumUnit = (num7 / 1000) % 10;            // 4
+        int num7LeftHalf = (num7 / 10000) % 1000;           // 123
+        int reversedNum7 = 0;
+        for (int i = 0; i < 3; i++) {
+            reversedNum7 += (num7RightHalf % 10) * rightHalfFactor;
+            reversedNum7 += (num7LeftHalf % 10) * leftHalfFactor;
+            num7RightHalf /= 10;
+            num7LeftHalf /= 10;
+            rightHalfFactor *= 10;
+            leftHalfFactor *= 10;
         }
+        reversedNum7 += num7MediumUnit * rightHalfFactor;
 
-        if (flag) {
+        System.out.println(reversedNum7);
+
+        if (reversedNum7 == num7) {
             System.out.println("Число " + "'" + num7 + "'" + " является палиндромом.");
         } else {
             System.out.println("Число " + "'" + num7 + "'" + " не является палиндромом.");
@@ -199,68 +199,40 @@ public class CyclesTheme {
         int num10 = 145_901;
         copyNum = num10;
 
-        int firstDigit = copyNum % 10;
-        copyNum /= 10; 
-
-        int secondDigit = copyNum % 10;
-        copyNum /= 10;
-
-        int thirdDigit = copyNum % 10;
-        copyNum /= 10;
-
-        int fourthDigit = copyNum % 10;
-        copyNum /= 10; 
-
-        int fifthDigit = copyNum % 10;
-        copyNum /= 10;
-
-        int sixthDigit = copyNum % 10;
-        copyNum /= 10;
-
-        int firstSum = firstDigit + secondDigit + thirdDigit;
-        int secondSum = fourthDigit + fifthDigit + sixthDigit;
-
-        String output;
-        if (firstSum == secondSum) {
-            output = "Число " + "'" + num10 + "'" + " является счастливым.";
-        } else {
-            output = "Число " + "'" + num10 + "'" + " не является счастливым.";
+        int rightSum = 0;
+        int leftSum = 0;
+        for (int i = 0; i < 3; i++) {
+            rightSum += copyNum % 10;
+            leftSum += (copyNum / 1000) % 10;
+            copyNum /= 10;
         }
 
-        System.out.println(output);
-        System.out.println("Сумма цифр " + "'" + firstDigit + secondDigit + thirdDigit + "'" + 
-                " = " + firstSum + ", а сумма цифр " + "'" + fourthDigit + fifthDigit + 
-                sixthDigit + "'" + " = " + secondSum);
+        if (rightSum == leftSum) {
+            System.out.println("Число " + "'" + num10 + "'" + "является счастливым.");
+        } else {
+            System.out.println("Число " + "'" + num10 + "'" + "не является счастливым.");
+        }
 
         System.out.println("\n10. Вывод таблицы умножения Пифагора.");
 
-        System.out.println("               ТАБЛИЦА    ПИФАГОРА          ");
+        System.out.println("                              ТАБЛИЦА    ПИФАГОРА          \n");
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if (j == 0) {
-                    System.out.print("          ");
-                }
+        System.out.print("                   |");
+        for (int i = 2; i <= 9; i++) {
+            System.out.print("   " + i + " ");
+        }
+        System.out.println();
 
-                if (i == 0 && j == 0) {
-                    System.out.print("   ");
-                }
+        System.out.print("                ---|");
+        for (int i = 0; i < 8; i++) {
+            System.out.print("-----");
+        }
+        System.out.println();
 
-                if (j == 1) {
-                    System.out.print("" + "|");
-                }
-
-                if (i == 0 && j > 1) {
-                    System.out.printf("%2d ", j);
-                }
-
-                if (i == 1) {
-                    System.out.print("---");
-                }
-
-                if (i > 1 && j < 9) {
-                    System.out.printf("%2d ", i + j * i);
-                }
+        for (int i = 1; i <= 9; i++) {
+            System.out.print("                  " + i + "|");
+            for (int j = 2; j <= 9; j++) {
+                System.out.printf(" %3d ", i * j);
             }
             System.out.println();
         }

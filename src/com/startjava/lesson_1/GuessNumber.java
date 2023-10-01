@@ -15,21 +15,17 @@ public class GuessNumber {
         while (guessedNumber != randomNumber) {
             guessedNumber = changeNumber(guessedNumber, randomNumber);
 
-            if (guessedNumber < randomNumber) {
+            if (guessedNumber <=  randomNumber) {
                 System.out.println("Число guessedNumber = " + guessedNumber + " меньше " + 
                         "загаданного компьютером значения" + " randomNumber = " + randomNumber);
+                guessedNumber -= 2;
             } else {
                 System.out.println("Число guessedNumber = " + guessedNumber + " больше " + 
                         "загаданного компьютером значения" + " randomNumber = " + randomNumber);
+                guessedNumber += 1;
             }
         }
 
         System.out.println("Вы победили!");
-    }
-
-    private static int changeNumber(int guessedNumber, int randomNumber) {
-        guessedNumber = (guessedNumber > randomNumber) ? guessedNumber - 2 : guessedNumber + 1;
-
-        return guessedNumber;
     }
 }
