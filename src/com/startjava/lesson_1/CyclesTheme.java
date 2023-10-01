@@ -186,8 +186,6 @@ public class CyclesTheme {
         }
         reversedNum7 += num7MediumUnit * rightHalfFactor;
 
-        System.out.println(reversedNum7);
-
         if (reversedNum7 == num7) {
             System.out.println("Число " + "'" + num7 + "'" + " является палиндромом.");
         } else {

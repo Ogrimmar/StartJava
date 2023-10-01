@@ -13,16 +13,14 @@ public class GuessNumber {
         int guessedNumber = 0;
 
         while (guessedNumber != randomNumber) {
-            guessedNumber = changeNumber(guessedNumber, randomNumber);
-
             if (guessedNumber <=  randomNumber) {
                 System.out.println("Число guessedNumber = " + guessedNumber + " меньше " + 
                         "загаданного компьютером значения" + " randomNumber = " + randomNumber);
-                guessedNumber -= 2;
+                guessedNumber++;
             } else {
                 System.out.println("Число guessedNumber = " + guessedNumber + " больше " + 
                         "загаданного компьютером значения" + " randomNumber = " + randomNumber);
-                guessedNumber += 1;
+                guessedNumber -= 2;
             }
         }
 
