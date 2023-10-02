@@ -10,8 +10,8 @@ public class CalculatorTest {
         System.out.println("1. Модифицируйте программу “Калькулятор”.");
 
         Calculator calc = new Calculator();
-        String answer = null;
-
+        String answer = "";
+        int result;
         do {
             System.out.print("Введите первое число: ");
             int num1 = scanner.nextInt();
@@ -22,7 +22,13 @@ public class CalculatorTest {
             System.out.print("Введите второе число: ");
             int num2 = scanner.nextInt();
 
-            answer = calc.calculate(num1, mathSign, num2);
+            result = calc.calculate(num1, mathSign, num2);
+            System.out.println("Результат - " + result);
+
+            do {
+                System.out.print("Хотите продолжить вычисления? [yes / no]: ");
+                answer = scanner.nextLine();
+            } while (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no"));
         } while (answer.equalsIgnoreCase("yes"));
     }
 }

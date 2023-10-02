@@ -3,49 +3,49 @@ package com.startjava.lesson_2;
 public class Wolf_2 {
 
     private String gender;
-    private String moniker;
+    private String nickname;
     private int weight;
     private int age;
-    private String colour;
+    private String color;
 
     public String getGender() {
         return gender;
     }
 
-    public void setGender(String _gender) {
-        gender = _gender;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getMoniker() {
-        return moniker;
+        return nickname;
     }
 
-    public void setMoniker(String _moniker) {
-        moniker = _moniker;
+    public void setMoniker(String nickname) {
+        this.nickname = nickname;
     }
 
     public int getWeight() {
         return weight;
     }
 
-    public void setWeight(int _weight) {
-        weight = _weight;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int _age) {
-        age = _age;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getColour() {
-        return colour;
+        return color;
     }
 
-    public void setColour(String _colour) {
-        colour = _colour;
+    public void setColour(String color) {
+        this.color = color;
     }
 
     public void go() {
