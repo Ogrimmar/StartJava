@@ -10,19 +10,15 @@ public class ArraysTheme {
         completeFirstTask();
 
         System.out.println("\n2. Произведение элементов массива.");
-
         completeSecondTask();
 
         System.out.println("\n3. Удаление элементов массива.");
-
         completeThirdTask();
 
         System.out.println("\n4. Вывод алфавита лесенкой.");
-
         completeFourthTask();
 
         System.out.println("\n5. Заполнение массива уникальными числами.");
-
         completeFifthTask();
     }
 
@@ -32,8 +28,8 @@ public class ArraysTheme {
         System.out.print("Значения до реверса: ");
         System.out.println(Arrays.toString(numbers));
 
-        int elem;
         int length = numbers.length;
+        int elem;
 
         for (int i = 0; i < length / 2; i++) {
             elem = numbers[i];
@@ -81,7 +77,7 @@ public class ArraysTheme {
         int nullifiedElems = 0;
         for (int i = 0; i < length; i++) {
             if (randomNumbers[i] > mediumElem) {
-                randomNumbers[i] = 0.0D;
+                randomNumbers[i] = 0.0;
                 nullifiedElems++;
             }
         }
@@ -97,16 +93,15 @@ public class ArraysTheme {
     }
 
     private static void completeFourthTask() {
-        int cardinalityEngAlph = 26;
-        char[] englishAlphabet = new char[cardinalityEngAlph];
-        int length = englishAlphabet.length;
+        int englishAlphabetLength = 26;
+        char[] englishAlphabet = new char[englishAlphabetLength];
 
         for (int i = 0; i < 26; i++) {
             englishAlphabet[i] = (char) (i + 65);
         }
 
-        for (int i = length - 1; i >= 0; i--) {
-            for (int j = length - 1; j >= i; j--) {
+        for (int i = englishAlphabetLength - 1; i >= 0; i--) {
+            for (int j = englishAlphabetLength - 1; j >= i; j--) {
                 System.out.print(englishAlphabet[j]);
             }
             System.out.println();
@@ -125,7 +120,6 @@ public class ArraysTheme {
                     generatedNumber = 40 * Math.random() + 60;
                 } while (!isUnique(randomNumbers, generatedNumber));
             }
-
             randomNumbers[i] = generatedNumber;
         }
 

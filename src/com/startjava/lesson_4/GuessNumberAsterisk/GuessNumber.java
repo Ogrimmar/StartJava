@@ -18,9 +18,9 @@ public class GuessNumber {
     }
 
     public String startGame(int generatedNumber) {
-        System.out.println("Игра началась! У каждого игрока по 10 попыток.");
+        System.out.println("Игра началась! У каждого игрока по " + ATTEMPTS + " попыток.");
 
-        int[] playersAttempts = new int[] {0, 0, 0};
+        int[] playersAttempt = new int[] {0, 0, 0};
         boolean flag = false;
         int[] playersTurns = new int[] {1, 2, 3};
         int[] seqTurns = defineLot(playersTurns);
@@ -30,20 +30,19 @@ public class GuessNumber {
         do {
             if (!flag) {
                 flag = doTurn(players[seqTurns[0] - 1], generatedNumber);
-                playersAttempts[0]++;
+                playersAttempt[0]++;
             }
 
             if (!flag) {
                 flag = doTurn(players[seqTurns[1] - 1], generatedNumber);
-                playersAttempts[1]++;
+                playersAttempt[1]++;
             }
 
             if (!flag) {
                 flag = doTurn(players[seqTurns[2] - 1], generatedNumber);
-                playersAttempts[2]++;
+                playersAttempt[2]++;
             }
-        } while ((playersAttempts[0] <= ATTEMPTS || playersAttempts[1] <= ATTEMPTS || 
-                        playersAttempts[2] <= ATTEMPTS) && !flag);
+        } while (playersAttempt[0] <= ATTEMPTS && !flag);
 
         System.out.println();
 
@@ -51,9 +50,7 @@ public class GuessNumber {
         displayNumbers(players[1]);
         displayNumbers(players[2]);
 
-        System.out.println();
-
-        System.out.print("Хотите продолжить игру? [yes / no]: ");
+        System.out.print("\nХотите продолжить игру? [yes / no]: ");
         String answer = scanner.nextLine();
 
         while (!answer.equals("yes") && !answer.equals("no")) {
@@ -65,51 +62,53 @@ public class GuessNumber {
 
     private boolean doTurn(Player player, int generatedNumber) {
         System.out.print(player.getName() + " загадывает число: ");
-        int playerGeneratedNumber = scanner.nextInt();
 
-        while (playerGeneratedNumber <= 0 || playerGeneratedNumber > 100) {
+        int playerGeneratedNumber = 0;
+        do {
             playerGeneratedNumber = scanner.nextInt();
-        }
+        } while (playerGeneratedNumber <= 0 || playerGeneratedNumber > 100);
 
         player.setNumber(playerGeneratedNumber);
         int playerAttempt = player.getCurrSize();
 
-        String s = (playerGeneratedNumber == generatedNumber) ? "Игрок %s угадал число %d с %d " + 
-                " попытки.\n" : (playerGeneratedNumber > generatedNumber) ? "Игрок %s загадал " + 
-                "число %d с попытки %d, которое больше того, что " + "загадал компьютер.\n" : 
-                (playerGeneratedNumber < generatedNumber) ? "Игрок %s загадал число %d с попытки "+ 
-                "%d, " + "которое меньше того, что загадал компьютер.\n" : null;
-
-        System.out.printf(s, player.getName(), player.getNumber(playerAttempt - 1), playerAttempt);
-
-        if (playerGeneratedNumber == generatedNumber) {
-            return true;
-        }
-
-        if (playerAttempt == ATTEMPTS) {
+        if (playerAttempt > ATTEMPTS) {
             System.out.println("У " + player.getName() + " закончились попытки.");
-        }
 
-        return false;
+            return false;
+        } else {
+            String s = (playerGeneratedNumber == generatedNumber) ? "Игрок %s угадал число %d с " + 
+                    "%d попытки.\n" : (playerGeneratedNumber > generatedNumber) ? "Игрок %s "+ 
+                    "загадал " + "число %d с попытки %d, которое больше того, что " + "загадал " + 
+                    "компьютер.\n" : (playerGeneratedNumber < generatedNumber) ? "Игрок %s "+ 
+                    "загадал число %d с попытки " + "%d, " + "которое меньше того, что загадал " + 
+                    "компьютер.\n" : "";
+
+            System.out.printf(s, player.getName(), player.getNumber(playerAttempt - 1), 
+                    playerAttempt);
+
+            if (playerGeneratedNumber == generatedNumber) {
+                return true;
+            }
+
+            return false;
+        }
     }
 
     private void displayNumbers(Player player) {
         System.out.print("Числа, названные игроком " + player.getName() + ": ");
 
         int length = player.getCurrSize();
-        int[] calledNumbers = player.getCalledNumbers();
+        int[] pronouncedNumbers = player.getCalledNumbers();
 
         System.out.print("[");
         for (int i = 0; i < length; i++) {
             if (i < length - 1) {
-                System.out.print(calledNumbers[i] + ", ");
+                System.out.print(pronouncedNumbers[i] + ", ");
             } else {
-                System.out.print(calledNumbers[i]);
+                System.out.print(pronouncedNumbers[i]);
             }
         }
-        System.out.print("]");
-
-        System.out.println();
+        System.out.print("]\n");
     }
 
     private int[] defineLot(int[] playersTurns) {
