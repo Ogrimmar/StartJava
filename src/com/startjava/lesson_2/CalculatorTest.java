@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class CalculatorTest {
 
-    private static final Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
         System.out.println("1. Модифицируйте программу “Калькулятор”.");
 
-        Calculator calc = new Calculator();
+        boolean isYes = false;
+        boolean isNo = false;
         String answer = "";
-        int result;
+        Calculator calc = new Calculator();
+        Scanner scanner = new Scanner(System.in);
         do {
             System.out.print("Введите первое число: ");
             int num1 = scanner.nextInt();
@@ -22,13 +22,15 @@ public class CalculatorTest {
             System.out.print("Введите второе число: ");
             int num2 = scanner.nextInt();
 
-            result = calc.calculate(num1, mathSign, num2);
+            int result = calc.calculate(num1, mathSign, num2);
             System.out.println("Результат - " + result);
 
             do {
                 System.out.print("Хотите продолжить вычисления? [yes / no]: ");
                 answer = scanner.nextLine();
-            } while (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no"));
-        } while (answer.equalsIgnoreCase("yes"));
+                isYes = answer.equalsIgnoreCase("yes");
+                isNo = answer.equalsIgnoreCase("no");
+            } while (!isYes && !isNo);
+        } while (isYes);
     }
 }
