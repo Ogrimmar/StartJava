@@ -5,8 +5,8 @@ class Player {
     private String name;
     private int number;
 
-    Player(String _name) {
-        name = _name;
+    Player(String name) {
+        this.name = name;
     }
 
     public String getName() {
@@ -17,7 +17,7 @@ class Player {
         return number;
     }
 
-    public void setNumber(int _number) {
-        number = _number;
+    public void setNumber(int number) {
+        this.number = number;
     }
 }

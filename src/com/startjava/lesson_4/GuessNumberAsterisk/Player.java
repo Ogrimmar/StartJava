@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class Player {
 
-    private static final int ATTEMPTS = 30;
+    private static final int ATTEMPTS = 10;
     private String name;
     private int[] numbers;
     private int currSize;
 
-    Player(String _name) {
+    Player(String name) {
+        this.name = name;
         numbers = new int[ATTEMPTS];
-        name = _name;
         currSize = 0;
     }
 
@@ -23,15 +23,14 @@ public class Player {
         return numbers[attempt];
     }
 
-    public void setNumber(int _number) {
+    public void setNumber(int number) {
         increaseCurrSize();
-        numbers[currSize - 1] = _number;
+        numbers[currSize - 1] = number;
     }
 
     public int[] getCalledNumbers() {
         int[] numbersCopy = Arrays.copyOfRange(numbers, 0, currSize);
         Arrays.fill(numbers, 0, currSize, 0);
-
         return numbersCopy;
     }
 

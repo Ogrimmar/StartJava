@@ -1,54 +1,49 @@
 package com.startjava.lesson_4.GuessNumber;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
 
-    private static final Scanner scanner = new Scanner(System.in);
     private static final int ATTEMPTS = 10;
-    private Player p1;
-    private Player p2;
+    private static final int MIN = 1;
+    private static final int MAX = 100;
+    private final Scanner scanner = new Scanner(System.in);
+    private Player player1;
+    private Player player2;
 
-    GuessNumber(String firstPlayerName, String secondPlayerName) {
-        p1 = new Player(firstPlayerName);
-        p2 = new Player(secondPlayerName);
+    GuessNumber(String name1, String name2) {
+        player1 = new Player(name1);
+        player2 = new Player(name2);
     }
 
-    public String startGame(int generatedNumber) {
+    public void start() {
         System.out.println("Игра началась! У каждого игрока по " + ATTEMPTS + " попыток.");
+
+        System.out.println("Компьютер 'загадал' число!\n");
+        int generatedNumber = MIN + new Random().nextInt(MAX);
 
         int firstPlayerAttempt = 0;
         int secondPlayerAttempt = 0;
-        boolean flag = false;
-
         do {
-            if (!flag) {
-                flag = doTurn(p1, generatedNumber);
+            if (!isGuessed(player1, generatedNumber)) {
                 firstPlayerAttempt++;
+            } else {
+                break;
             }
 
-            if (!flag) {
-                flag = doTurn(p2, generatedNumber);
+            if (!isGuessed(player1, generatedNumber)) {
                 secondPlayerAttempt++;
+            } else {
+                break;
             }
-        } while (firstPlayerAttempt <= ATTEMPTS && !flag);
+        } while (firstPlayerAttempt <= ATTEMPTS);
 
-        System.out.println();
-
-        displayNumbers(p1);
-        displayNumbers(p2);
-
-        System.out.print("\nХотите продолжить игру? [yes / no]: ");
-        String answer = scanner.nextLine();
-
-        while (!answer.equals("yes") && !answer.equals("no")) {
-            answer = scanner.nextLine();
-        } 
-
-        return answer;
+        displayNumbers(player1);
+        displayNumbers(player2);
     }
 
-    private boolean doTurn(Player player, int generatedNumber) {
+    private boolean isGuessed(Player player, int generatedNumber) {
         System.out.print(player.getName() + " загадывает число: ");
         player.setNumber(scanner.nextInt());
 

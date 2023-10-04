@@ -6,61 +6,57 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final int MIN = 1;
+    private static final int MAX = 100;
     private static final int ATTEMPTS = 10;
+    private final Scanner scanner = new Scanner(System.in);
     private Player[] players;
 
-    GuessNumber(String firstPlayerName, String secondPlayerName, String thirdPlayerName) {
+    GuessNumber(String name1, String name2, String name3) {
         players = new Player[3];
-        players[0] = new Player(firstPlayerName);
-        players[1] = new Player(secondPlayerName);
-        players[2] = new Player(thirdPlayerName);
+        players[0] = new Player(name1);
+        players[1] = new Player(name2);
+        players[2] = new Player(name3);
     }
 
-    public String startGame(int generatedNumber) {
+    public void start() {
         System.out.println("Игра началась! У каждого игрока по " + ATTEMPTS + " попыток.");
 
+        System.out.println("Компьютер 'загадал' число!\n");
+        int generatedNumber = MIN + new Random().nextInt(MAX);
+
         int[] playersAttempt = new int[] {0, 0, 0};
-        boolean flag = false;
         int[] playersTurns = new int[] {1, 2, 3};
         int[] seqTurns = defineLot(playersTurns);
 
         System.out.println("Жребий игроков такой: " + Arrays.toString(seqTurns) + "\n");
 
         do {
-            if (!flag) {
-                flag = doTurn(players[seqTurns[0] - 1], generatedNumber);
+            if (!isGuessed(players[0], generatedNumber)) {
                 playersAttempt[0]++;
+            } else {
+                break;
             }
 
-            if (!flag) {
-                flag = doTurn(players[seqTurns[1] - 1], generatedNumber);
+            if (!isGuessed(players[1], generatedNumber)) {
                 playersAttempt[1]++;
+            } else {
+                break;
             }
 
-            if (!flag) {
-                flag = doTurn(players[seqTurns[2] - 1], generatedNumber);
+            if (!isGuessed(players[2], generatedNumber)) {
                 playersAttempt[2]++;
+            } else {
+                break;
             }
-        } while (playersAttempt[0] <= ATTEMPTS && !flag);
-
-        System.out.println();
+        } while (playersAttempt[0] <= ATTEMPTS);
 
         displayNumbers(players[0]);
         displayNumbers(players[1]);
         displayNumbers(players[2]);
-
-        System.out.print("\nХотите продолжить игру? [yes / no]: ");
-        String answer = scanner.nextLine();
-
-        while (!answer.equals("yes") && !answer.equals("no")) {
-            answer = scanner.nextLine();
-        }
-
-        return answer;
     }
 
-    private boolean doTurn(Player player, int generatedNumber) {
+    private boolean isGuessed(Player player, int generatedNumber) {
         System.out.print(player.getName() + " загадывает число: ");
 
         int playerGeneratedNumber = 0;

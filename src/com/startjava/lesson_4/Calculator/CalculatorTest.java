@@ -34,7 +34,7 @@ public class CalculatorTest {
     private static String[] enterMathExp() {
         String[] mathExpr = new String[3];
         System.out.print("Введите математическое выражение: ");
-        mathExpr = (scanner.nextLine()).split(" ");
+        mathExpr = scanner.nextLine().split(" ");
 
         return mathExpr;
     }

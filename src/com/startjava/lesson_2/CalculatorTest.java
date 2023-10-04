@@ -7,8 +7,6 @@ public class CalculatorTest {
     public static void main(String[] args) {
         System.out.println("1. Модифицируйте программу “Калькулятор”.");
 
-        boolean isYes = false;
-        boolean isNo = false;
         String answer = "";
         Calculator calc = new Calculator();
         Scanner scanner = new Scanner(System.in);
@@ -23,14 +21,14 @@ public class CalculatorTest {
             int num2 = scanner.nextInt();
 
             int result = calc.calculate(num1, mathSign, num2);
-            System.out.println("Результат - " + result);
+            if (result != Integer.MAX_VALUE) {
+                System.out.println("Результат - " + result);
+            }
 
             do {
                 System.out.print("Хотите продолжить вычисления? [yes / no]: ");
-                answer = scanner.nextLine();
-                isYes = answer.equalsIgnoreCase("yes");
-                isNo = answer.equalsIgnoreCase("no");
-            } while (!isYes && !isNo);
-        } while (isYes);
+                answer = scanner.nextLine().toLowerCase();
+            } while (!answer.equals("yes") && !answer.equals("no"));
+        } while (answer.equals("yes"));
     }
 }

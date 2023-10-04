@@ -13,7 +13,6 @@ public class CalculatorTest {
         char mathSign;
         int num2;
         double result = 0.0;
-
         do {
             String[] splittedMathExpr = CalculatorTest.enterMathExp();
             num1 = Integer.parseInt(splittedMathExpr[0]);
@@ -26,19 +25,18 @@ public class CalculatorTest {
                 System.out.println(ex.getClass().getName());
             }
 
-            if (result < (int) Double.MIN_VALUE) {
+            if (result < Double.MIN_VALUE) {
                 String s = (result - Math.floor(result) == 0.0) ? "%d %c %d = %f\n" : "%d %c %d = %.3f\n";
 
                 System.out.printf(s, num1, mathSign, num2, result);
             }
-        } while (result < (int) Double.MIN_VALUE);
+        } while (result < Double.MIN_VALUE);
     }
 
     private static String[] enterMathExp() {
         String mathExpr = null;
         int length = 0;
         String[] splittedMathExpr = new String[3];
-
         do {
             System.out.println("Нужно вводить натуральные числа.");
             System.out.print("Введите математическое выражение: ");

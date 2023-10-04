@@ -17,7 +17,6 @@ public class Calculator {
                 for (int i = 0; i < num2; i++) {
                     result *= num1;
                 }
-
                 return result;
             case '/':
                 if (num2 != 0) {
