@@ -4,15 +4,15 @@ import java.util.Arrays;
 
 public class Player {
 
-    private static final int ATTEMPTS = 30;
+    private static final int ATTEMPTS = 10;
     private String name;
-    private int[] numbers;
-    private int currSize;
+    private int[] pronouncedNumbers;
+    private int attempt;
 
-    Player(String _name) {
-        numbers = new int[ATTEMPTS];
-        name = _name;
-        currSize = 0;
+    Player(String name) {
+        this.name = name;
+        pronouncedNumbers = new int[ATTEMPTS];
+        attempt = 0;
     }
 
     public String getName() {
@@ -20,26 +20,29 @@ public class Player {
     }
 
     public int getNumber(int attempt) {
-        return numbers[attempt];
+        return pronouncedNumbers[attempt];
     }
 
-    public void setNumber(int _number) {
-        increaseCurrSize();
-        numbers[currSize - 1] = _number;
+    public void setNumber(int number) {
+        increaseAttempt();
+        pronouncedNumbers[attempt - 1] = number;
     }
 
-    public int[] getCalledNumbers() {
-        int[] numbersCopy = Arrays.copyOfRange(numbers, 0, currSize);
-        Arrays.fill(numbers, 0, currSize, 0);
-
-        return numbersCopy;
+    public int[] getPronouncedNumbers() {
+        int[] pronouncedNumbersCopy = Arrays.copyOfRange(pronouncedNumbers, 0, attempt);
+        Arrays.fill(pronouncedNumbers, 0, attempt, 0);
+        return pronouncedNumbersCopy;
     }
 
-    public int getCurrSize() {
-        return currSize;
+    public int getAttempt() {
+        return attempt;
     }
 
-    private void increaseCurrSize() {
-        currSize++;
+    public void setAttempt(int attempt) {
+        this.attempt = attempt;
+    }
+
+    private void increaseAttempt() {
+        attempt++;
     }
 }

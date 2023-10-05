@@ -1,8 +1,8 @@
 package com.startjava.lesson_4.GuessNumberAsterisk;
 
-import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
+import java.util.Random;
+import java.util.Arrays;
 
 public class GuessNumber {
 
@@ -27,29 +27,24 @@ public class GuessNumber {
 
         int[] playersAttempt = new int[] {0, 0, 0};
         int[] playersTurns = new int[] {1, 2, 3};
-        int[] seqTurns = defineLot(playersTurns);
-
+        playersTurns = defineLot(playersTurns);
         System.out.println("Жребий игроков такой: " + Arrays.toString(seqTurns) + "\n");
-
         do {
-            if (!isGuessed(players[0], generatedNumber)) {
-                playersAttempt[0]++;
-            } else {
+            if (isGuessed(players[0], generatedNumber)) {
+                players[0].setAttempt(0);
                 break;
             }
 
-            if (!isGuessed(players[1], generatedNumber)) {
-                playersAttempt[1]++;
-            } else {
+            if (isGuessed(players[1], generatedNumber)) {
+                players[1].setAttempt(0);
                 break;
             }
 
-            if (!isGuessed(players[2], generatedNumber)) {
-                playersAttempt[2]++;
-            } else {
+            if (isGuessed(players[2], generatedNumber)) {
+                players[2].setAttempt(0);
                 break;
             }
-        } while (playersAttempt[0] <= ATTEMPTS);
+        } while (players[playersTurns[0]].getAttempt() <= ATTEMPTS);
 
         displayNumbers(players[0]);
         displayNumbers(players[1]);
@@ -57,19 +52,20 @@ public class GuessNumber {
     }
 
     private boolean isGuessed(Player player, int generatedNumber) {
-        System.out.print(player.getName() + " загадывает число: ");
+        System.out.print("Игрок " + player.getName() + " загадывает число: ");
 
         int playerGeneratedNumber = 0;
         do {
+            System.out.println("Введите целое число, генерируемое " + player.getName() + 
+                    ", от 1 до 100 включительно.");
             playerGeneratedNumber = scanner.nextInt();
         } while (playerGeneratedNumber <= 0 || playerGeneratedNumber > 100);
 
         player.setNumber(playerGeneratedNumber);
-        int playerAttempt = player.getCurrSize();
 
+        int playerAttempt = player.getAttempt();
         if (playerAttempt > ATTEMPTS) {
             System.out.println("У " + player.getName() + " закончились попытки.");
-
             return false;
         } else {
             String s = (playerGeneratedNumber == generatedNumber) ? "Игрок %s угадал число %d с " + 
@@ -92,10 +88,8 @@ public class GuessNumber {
 
     private void displayNumbers(Player player) {
         System.out.print("Числа, названные игроком " + player.getName() + ": ");
-
         int length = player.getCurrSize();
-        int[] pronouncedNumbers = player.getCalledNumbers();
-
+        int[] pronouncedNumbers = player.getPronouncedNumbers();
         System.out.print("[");
         for (int i = 0; i < length; i++) {
             if (i < length - 1) {
@@ -110,7 +104,6 @@ public class GuessNumber {
     private int[] defineLot(int[] playersTurns) {
         int length = playersTurns.length;
         int[] copiedPlayersTurns = new int[length];
-
         for (int i = 0; i < length; i++) {
             copiedPlayersTurns[i] = playersTurns[i];
         }
@@ -120,7 +113,6 @@ public class GuessNumber {
             do {
                 randomNumber = new Random().nextInt(copiedPlayersTurns[length - 1 - i]);
             } while (randomNumber >= copiedPlayersTurns[length - 1 - i]);
-
             swap(playersTurns, randomNumber, playersTurns[length - 1 - i]);
         }
 
@@ -130,7 +122,6 @@ public class GuessNumber {
     private void swap(int[] playersTurns, int num1, int num2) {
         int indexOne = 0;
         int indexTwo = 0;
-
         for (int i = 0; i < playersTurns.length; i++) {
             if (playersTurns[i] == num1) {
                 indexOne = i;

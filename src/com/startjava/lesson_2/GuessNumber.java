@@ -3,12 +3,12 @@ package com.startjava.lesson_2;
 import java.util.Scanner;
 import java.util.Random;
 
-class GuessNumber {
+public class GuessNumber {
 
-    private final Scanner scanner = new Scanner(System.in);
-    private static final int ATTEMPTS = 10;
     private static final int MIN = 1;
     private static final int MAX = 100;
+    private static final int ATTEMPTS = 10;
+    private final Scanner scanner = new Scanner(System.in);
     private Player player1;
     private Player player2;
 
@@ -18,41 +18,37 @@ class GuessNumber {
     }
 
     public void start() {
+        System.out.println("Игра началась! У каждого игрока по " + ATTEMPTS + " попыток.");
+
         System.out.println("Компьютер 'загадал' число!\n");
         int generatedNumber = MIN + new Random().nextInt(MAX);
-
-        int firstPlayerAttempt = 0;
-        int secondPlayerAttempt = 0;
         do {
-            if (!isGuessed(player1, generatedNumber)) {
-                firstPlayerAttempt++;
-            } else {
+            if (isGuessed(player1, generatedNumber)) {
+                player1.setAttempt(0);
                 break;
             }
 
-            if (!isGuessed(player2, generatedNumber)) {
-                secondPlayerAttempt++;
-            } else {
+            if (isGuessed(player2, generatedNumber)) {
+                player2.setAttempt(0);
                 break;
             }
-        } while (firstPlayerAttempt <= ATTEMPTS);
+        } while (player1.getAttempt() <= ATTEMPTS);
     }
 
     private boolean isGuessed(Player player, int generatedNumber) {
-        System.out.print(player.getName() + " загадывает число: ");
+        System.out.print("Игрок " + player.getName() + " загадывает число: ");
         player.setNumber(scanner.nextInt());
 
         if (player.getNumber() == generatedNumber) {
-            System.out.println(player.getName() + " угадал загаданное компьютером число.");
+            System.out.println("Игрок " + player.getName() + " угадал загаданное компьютером " + 
+                    "число.\n");
             return true;
-        } 
-
-        if (player.getNumber() < generatedNumber) {
-            System.out.println("Число " + player.getNumber() + ", загаданное " + player.getName() + 
-                    ", меньше того, что загадал компьютер.");
+        } else if (player.getNumber() < generatedNumber) {
+            System.out.println("Число " + "'" + player.getNumber() + "'" + ", загаданное игроком " +
+                    player.getName() + ", меньше того, что загадал компьютер.");
         } else {
-            System.out.println("Число " + player.getNumber() + ", загаданное " + player.getName() + 
-                    ", больше того, что загадал компьютер.");
+            System.out.println("Число " + "'" + player.getNumber() + "'" + ", загаданное игроком " +
+                    player.getName() + ", больше того, что загадал компьютер.");
         }
 
         return false;

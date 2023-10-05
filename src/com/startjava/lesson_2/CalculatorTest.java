@@ -10,6 +10,7 @@ public class CalculatorTest {
         String answer = "";
         Calculator calc = new Calculator();
         Scanner scanner = new Scanner(System.in);
+        int result = 0;
         do {
             System.out.print("Введите первое число: ");
             int num1 = scanner.nextInt();
@@ -20,7 +21,7 @@ public class CalculatorTest {
             System.out.print("Введите второе число: ");
             int num2 = scanner.nextInt();
 
-            int result = calc.calculate(num1, mathSign, num2);
+            result = calc.calculate(num1, mathSign, num2);
             if (result != Integer.MAX_VALUE) {
                 System.out.println("Результат - " + result);
             }
