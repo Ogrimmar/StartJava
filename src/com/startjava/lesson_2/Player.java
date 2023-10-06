@@ -1,6 +1,6 @@
 package com.startjava.lesson_2;
 
-public class Player {
+class Player {
 
     private String name;
     private int number;
@@ -8,7 +8,6 @@ public class Player {
 
     Player(String name) {
         this.name = name;
-        attempt = 0;
     }
 
     public String getName() {

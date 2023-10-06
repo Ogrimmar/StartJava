@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
 
-public class GuessNumber {
+class GuessNumber {
 
     private static final int MIN = 1;
     private static final int MAX = 100;
@@ -22,7 +22,7 @@ public class GuessNumber {
     public void start() {
         System.out.println("Игра началась! У каждого игрока по " + ATTEMPTS + " попыток.");
 
-        System.out.println("Компьютер 'загадал' число!\n");
+        System.out.println("Компьютер \"загадал\" число!\n");
         int generatedNumber = MIN + new Random().nextInt(MAX);
 
         int[] playersAttempt = new int[] {0, 0, 0};
@@ -62,10 +62,11 @@ public class GuessNumber {
         } while (playerGeneratedNumber <= 0 || playerGeneratedNumber > 100);
 
         player.setNumber(playerGeneratedNumber);
+        player.increaseAttempt();
 
         int playerAttempt = player.getAttempt();
         if (playerAttempt > ATTEMPTS) {
-            System.out.println("У " + player.getName() + " закончились попытки.");
+            System.out.println("У игрока " + player.getName() + " закончились попытки.");
             return false;
         } else {
             String s = (playerGeneratedNumber == generatedNumber) ? "Игрок %s угадал число %d с " + 
@@ -88,7 +89,7 @@ public class GuessNumber {
 
     private void displayNumbers(Player player) {
         System.out.print("Числа, названные игроком " + player.getName() + ": ");
-        int length = player.getCurrSize();
+        int length = player.getAttempt();
         int[] pronouncedNumbers = player.getPronouncedNumbers();
         System.out.print("[");
         for (int i = 0; i < length; i++) {

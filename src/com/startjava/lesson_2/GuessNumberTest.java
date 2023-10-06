@@ -2,10 +2,10 @@ package com.startjava.lesson_2;
 
 import java.util.Scanner;
 
-public class GuessNumberTest {
+class GuessNumberTest {
 
     public static void main(String[] args) {
-        System.out.println("3. Модифицируйте программу “Угадай число”.");
+        System.out.println("3. Модифицируйте программу \"Угадай число\".");
 
         Scanner scanner = new Scanner(System.in);
 

@@ -1,8 +1,7 @@
 package com.startjava.lesson_4.GuessNumber;
 
 import java.util.Arrays;
-
-public class Player {
+class Player {
 
     private static final int ATTEMPTS = 10;
     private String name;
@@ -12,7 +11,6 @@ public class Player {
     Player(String name) {
         this.name = name;
         pronouncedNumbers = new int[ATTEMPTS];
-        attempt = 0;
     }
 
     public String getName() {
@@ -24,7 +22,6 @@ public class Player {
     }
 
     public void setNumber(int number) {
-        increaseAttempt();
         pronouncedNumbers[attempt - 1] = number;
     }
 
