@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BookshelfTest {
 
-    private static final int ATTEMPTS = Integer.MAX_VALUE;
+    private static final int ATTEMPTS = 10;
     private static final Scanner scanner = new Scanner(System.in);
     private static Bookshelf bookshelf = new Bookshelf();
     private static int actionNumber = 0;
@@ -25,7 +25,7 @@ public class BookshelfTest {
     }
 
     private static void displayBookshelf() {
-        if (bookshelf.getAmountOfBooks() == 0) {
+        if (bookshelf.getBooksAmount() == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.\n");
         } else {
             System.out.println("В шкафу книг - " + bookshelf.getAmountOfBooks() + ", свободно "+ 
@@ -58,19 +58,15 @@ public class BookshelfTest {
         switch (commandNumber) {
             case 1: 
                 addBook();
-
                 break;
             case 2: 
                 findBook();
-
                 break;
             case 3: 
                 discardBook();
-
                 break;
             case 4: 
                 BookshelfTest.freeBookshelf();
-
                 break;
             case 5: 
                 { return ATTEMPTS; }

@@ -2,7 +2,7 @@ package com.startjava.lesson_4.GuessNumberAsterisk;
 
 import java.util.Scanner;
 
-class GuessNumberTest {
+public class GuessNumberTest {
 
     public static void main(String[] args) {
         System.out.println("2. Модифицируйте программу \"Угадай число\" (задание с *).");

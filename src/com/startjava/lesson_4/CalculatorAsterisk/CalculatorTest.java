@@ -7,8 +7,9 @@ public class CalculatorTest {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("1. Модифицируйте программу “Калькулятор” (задание с *).");
+        System.out.println("1. Модифицируйте программу \"Калькулятор\" (задание с *).");
 
+        String answer = "";
         int num1;
         char mathSign;
         int num2;
@@ -30,7 +31,16 @@ public class CalculatorTest {
 
                 System.out.printf(s, num1, mathSign, num2, result);
             }
-        } while (result < Double.MIN_VALUE);
+
+            System.out.print("Хотите продолжить вычисления? [yes / no]: ");
+            answer = scanner.nextLine().toLowerCase();
+            while (!answer.equals("yes") && !answer.equals("no")) {
+                System.out.print("Введите корректный ответ [yes / no]: ");
+                answer = scanner.nextLine().toLowerCase();
+            }
+
+            System.out.println();
+        } while (answer.equals("yes"));
     }
 
     private static String[] enterMathExp() {

@@ -1,16 +1,16 @@
 package com.startjava.lesson_4.graduation.asterisk;
 
-public class Book {
+class Book {
 
-    private final String author;
-    private final String title;
-    private final int publicationYear;
-    private final int length;
+    private String author;
+    private String title;
+    private int publicationYear;
+    private int length;
 
-    public Book(String _author, String _title, int _publicationYear) {
-        author = _author;
-        title = _title;
-        publicationYear = _publicationYear;
+    public Book(String author, String title, int publicationYear) {
+        this.author = author;
+        this.title = title;
+        this.publicationYear = publicationYear;
         length = toString().length();
     }
 

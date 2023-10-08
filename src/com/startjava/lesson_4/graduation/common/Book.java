@@ -1,13 +1,13 @@
 package com.startjava.lesson_4.graduation.common;
 
-public class Book {
+class Book {
 
     private final String author;
     private final String title;
     private final int publicationYear;
     private final int length;
 
-    public Book(String _author, String _title, int _publicationYear) {
+    Book(String _author, String _title, int _publicationYear) {
         author = _author;
         title = _title;
         publicationYear = _publicationYear;

@@ -2,7 +2,7 @@ package com.startjava.lesson_4.graduation.asterisk;
 
 import java.util.Arrays;
 
-public class Bookshelf {
+class Bookshelf {
 
     private static final int MAX_AMOUNT = 10;
     private static final int DEFAULT_LENGTH = 1;
@@ -16,7 +16,7 @@ public class Bookshelf {
         bookshelfLength = DEFAULT_LENGTH;
     }
 
-    public int getAmountOfBooks() {
+    public int getBooksAmount() {
         return currAmount;
     }
 
@@ -46,7 +46,6 @@ public class Bookshelf {
         for (Book book : books) {
             if (book.getTitle().equals(_title)) {
                 System.out.println("Книга найдена.");
-
                 return book;
             }
         }

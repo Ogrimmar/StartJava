@@ -1,6 +1,4 @@
-package com.startjava.lesson_2;
-
-public class Calculator {
+class Calculator {
 
     public int calculate(int num1, char mathSign, int num2) {
         int result = Integer.MAX_VALUE;

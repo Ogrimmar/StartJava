@@ -2,7 +2,7 @@ package com.startjava.lesson_4.graduation.common;
 
 import java.util.Arrays;
 
-public class Bookshelf {
+class Bookshelf {
 
     private static final int MAX_AMOUNT = 10;
     private Book[] books = new Book[MAX_AMOUNT];
@@ -12,7 +12,7 @@ public class Bookshelf {
         this.currAmount = 0;
     }
 
-    public int getAmountOfBooks() {
+    public int getBooksAmount() {
         return currAmount;
     }
 
@@ -23,7 +23,6 @@ public class Bookshelf {
     public boolean addBook(Book book) {
         if (currAmount < MAX_AMOUNT) {
             books[currAmount++] = book;
-
             return true;
         } else {
             return false;
