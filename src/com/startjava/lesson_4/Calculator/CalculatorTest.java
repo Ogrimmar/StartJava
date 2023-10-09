@@ -10,11 +10,11 @@ public class CalculatorTest {
         System.out.println("1. Модифицируйте программу \"Калькулятор\".");
 
         String answer = "";
+        Calculator calc = new Calculator();
+        double result = 0.0;
         int num1;
         char mathSign;
         int num2;
-        double result = 0.0;
-        Calculator calc = new Calculator();
         do {
             String[] mathExpr = CalculatorTest.enterMathExp();
             num1 = Integer.parseInt(mathExpr[0]);
@@ -31,10 +31,10 @@ public class CalculatorTest {
             }
 
             System.out.print("Хотите продолжить вычисления? [yes / no]: ");
-            answer = scanner.nextLine().toLowerCase();
+            answer = scanner.next().trim().toLowerCase();
             while (!answer.equals("yes") && !answer.equals("no")) {
                 System.out.print("Введите корректный ответ [yes / no]: ");
-                answer = scanner.nextLine().toLowerCase();
+                answer = scanner.nextLine().trim().toLowerCase();
             }
 
             System.out.println();
