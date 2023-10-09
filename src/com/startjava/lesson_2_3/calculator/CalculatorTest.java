@@ -1,3 +1,5 @@
+package com.startjava.lesson_2_3.calculator;
+
 import java.util.Scanner;
 
 public class CalculatorTest {
@@ -6,9 +8,9 @@ public class CalculatorTest {
         System.out.println("1. Модифицируйте программу \"Калькулятор\".");
 
         String answer = "";
+        int result = 0;
         Calculator calc = new Calculator();
         Scanner scanner = new Scanner(System.in);
-        int result = 0;
         do {
             System.out.print("Введите первое число: ");
             int num1 = scanner.nextInt();
