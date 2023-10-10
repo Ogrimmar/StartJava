@@ -74,7 +74,7 @@ class GuessNumber {
     private void displayNumbers(Player player) {
         System.out.print("Числа, названные игроком " + player.getName() + ": ");
 
-        int length = player.getCurrSize();
+        int length = player.getAttempt();
         int[] pronouncedNumbers = player.getPronouncedNumbers();
 
         System.out.print("[");

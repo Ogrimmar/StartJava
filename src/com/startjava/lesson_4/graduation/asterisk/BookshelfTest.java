@@ -28,7 +28,7 @@ public class BookshelfTest {
         if (bookshelf.getBooksAmount() == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.\n");
         } else {
-            System.out.println("В шкафу книг - " + bookshelf.getAmountOfBooks() + ", свободно "+ 
+            System.out.println("В шкафу книг - " + bookshelf.getBooksAmount() + ", свободно "+ 
                     "полок - " + bookshelf.getFreeShelves() + "\n");
 
             Book[] books = bookshelf.getAllBooks();

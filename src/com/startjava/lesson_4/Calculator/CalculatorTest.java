@@ -36,7 +36,6 @@ public class CalculatorTest {
                 System.out.print("Введите корректный ответ [yes / no]: ");
                 answer = scanner.nextLine().trim().toLowerCase();
             }
-
             System.out.println();
         } while (answer.equals("yes"));
     }

@@ -39,7 +39,7 @@ class Player {
         this.attempt = attempt;
     }
 
-    private void increaseAttempt() {
+    public void increaseAttempt() {
         attempt++;
     }
 }

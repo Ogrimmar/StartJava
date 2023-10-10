@@ -28,7 +28,7 @@ class GuessNumber {
         int[] playersAttempt = new int[] {0, 0, 0};
         int[] playersTurns = new int[] {1, 2, 3};
         playersTurns = defineLot(playersTurns);
-        System.out.println("Жребий игроков такой: " + Arrays.toString(seqTurns) + "\n");
+        System.out.println("Жребий игроков такой: " + Arrays.toString(playersTurns) + "\n");
         do {
             if (isGuessed(players[0], generatedNumber)) {
                 players[0].setAttempt(0);

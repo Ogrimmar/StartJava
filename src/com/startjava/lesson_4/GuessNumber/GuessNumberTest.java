@@ -28,6 +28,7 @@ public class GuessNumberTest {
                 System.out.print("Введите корректный ответ: ");
                 answer = scanner.nextLine().trim().toLowerCase();
             }
+            System.out.println();
         } while (answer.equals("yes"));
     }
 }
