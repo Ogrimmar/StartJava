@@ -14,5 +14,5 @@ CREATE TABLE jaegers (
 	kaiju_kill  INT
 );
 
-\include C:/Users/111/Desktop/JavaOps/StartJava/Original/Lesson' '5/init_db.sql
-\include C:/Users/111/Desktop/JavaOps/StartJava/Original/Lesson' '5/queries.sql
+\include C:/Users/111/Desktop/StartJava/src/com/startjava/lesson_5/init_db.sql
+\include C:/Users/111/Desktop/StartJava/src/com/startjava/lesson_5/queries.sql

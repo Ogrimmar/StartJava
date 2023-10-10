@@ -17,10 +17,10 @@ SELECT *
   FROM jaegers
  WHERE mark NOT IN ('Mark-1', 'Mark-4');
 
-\echo отсортировать таблицу по убыванию по столбцу mark
+\echo отсортировать таблицу по именам роботов в алфавитном порядке
 SELECT *
   FROM jaegers
- ORDER BY mark DESC;
+ ORDER BY model_name ASC;
 
 \echo вывести информацию о самом старом роботе
 SELECT *
@@ -34,8 +34,8 @@ SELECT *
   WHERE kaiju_kill = (SELECT MAX(kaiju_kill)
 					    FROM jaegers);
 
-\echo вывести средний вес роботов		
-SELECT AVG(weight) AS avg_weight
+\echo вывести округлённый средний вес роботов		
+SELECT ROUND(AVG(weight)) AS avg_weight
   FROM jaegers;
 
 \echo увеличить на единицу количество уничтоженных kaiju у роботов, которые до сих пор не разрушены, а затем отобразить таблицу
