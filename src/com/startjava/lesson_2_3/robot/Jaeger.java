@@ -1,6 +1,6 @@
 package com.startjava.lesson_2_3.robot;
 
-public class Jaeger {
+class Jaeger {
 
     private String modelName;
     private String mark;

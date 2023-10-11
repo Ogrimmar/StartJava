@@ -1,4 +1,4 @@
-package com.startjava.lesson_4.GuessNumberAsterisk;
+package com.startjava.lesson_4.guess.asterisk;
 
 import java.util.Scanner;
 import java.util.Random;

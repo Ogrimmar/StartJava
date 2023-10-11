@@ -1,6 +1,7 @@
-package com.startjava.lesson_4.GuessNumber;
+package com.startjava.lesson_4.guess.common;
 
 import java.util.Arrays;
+
 class Player {
 
     private static final int ATTEMPTS = 10;

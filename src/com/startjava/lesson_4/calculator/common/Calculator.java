@@ -1,6 +1,6 @@
-package com.startjava.lesson_4.Calculator;
+package com.startjava.lesson_4.calculator.common;
 
-public class Calculator {
+class Calculator {
 
     public double calculate(int num1, char mathSign, int num2) {
         double result = Double.MIN_VALUE;

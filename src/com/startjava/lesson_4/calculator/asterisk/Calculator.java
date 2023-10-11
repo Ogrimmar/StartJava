@@ -1,6 +1,6 @@
-package com.startjava.lesson_4.CalculatorAsterisk;
+package com.startjava.lesson_4.calculator.asterisk;
 
-public class Calculator {
+class Calculator {
 
     public static double calculate(int num1, char mathSign, int num2) throws RuntimeException {
         double result = switch (mathSign) {

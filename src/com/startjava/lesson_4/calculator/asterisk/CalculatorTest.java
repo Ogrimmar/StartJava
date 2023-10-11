@@ -1,4 +1,4 @@
-package com.startjava.lesson_4.CalculatorAsterisk;
+package com.startjava.lesson_4.calculator.asterisk;
 
 import java.util.Scanner;
 
