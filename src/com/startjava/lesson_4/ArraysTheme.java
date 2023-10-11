@@ -28,7 +28,6 @@ public class ArraysTheme {
         System.out.println(Arrays.toString(numbers));
 
         int length = numbers.length;
-
         for (int i = 0; i < length / 2; i++) {
             int number = numbers[i];
             numbers[i] = numbers[length - 1 - i];
@@ -47,7 +46,8 @@ public class ArraysTheme {
 
         int multiplication = 1;
         for (int factor : factors) {
-            String output = (factor <= 0 || factor >= 9) ? "" : factor == 8 ? factor + " = " : factor + " * ";
+            String output = (factor <= 0 || factor >= 9) ? "" : (factor == 8 ? factor + " = " : 
+                    factor + " * ");
             System.out.print(output);
             multiplication = (factor > 0 && factor < 9) ? multiplication * factor : multiplication;
         }
@@ -57,7 +57,6 @@ public class ArraysTheme {
     private static void deleteArrayCells() {
         double[] randomNumbers = new double[15];
         int length = randomNumbers.length;
-
         for (int i = 0; i < length; i++) {
             randomNumbers[i] = Math.random();
         }
@@ -93,7 +92,6 @@ public class ArraysTheme {
     private static void outputAlphabet() {
         int length = 26;
         char[] englishAlphabet = new char[length];
-
         for (int i = 0; i < length; i++) {
             englishAlphabet[i] = (char) (i + 65);
         }
@@ -109,7 +107,6 @@ public class ArraysTheme {
     private static void fillWithUniqueNumbers() {
         double[] uniqueNumbers = new double[30];
         int length = uniqueNumbers.length;
-
         for (int i = 0; i < length; i++) {
             double randomNumber = 40 * Math.random() + 60;
             while (!isUnique(uniqueNumbers, randomNumber)) {
