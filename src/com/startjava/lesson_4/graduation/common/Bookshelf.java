@@ -29,9 +29,9 @@ class Bookshelf {
         }
     }
 
-    public Book findBook(String _title) {
+    public Book findBook(String title) {
         for (Book book : books) {
-            if (book.getTitle().equals(_title)) {
+            if (book.getTitle().equals(title)) {
                 return book;
             }
         }
@@ -39,9 +39,9 @@ class Bookshelf {
         return null;
     }
 
-    public boolean discardBook(String _title) {
+    public boolean discardBook(String title) {
         for (int i = 0; i <= currAmount; i++) {
-            if (books[i].getTitle().equals(_title)) {
+            if (books[i].getTitle().equals(title)) {
                 System.arraycopy(books, i + 1, books, i, currAmount - 1);
                 currAmount--;
                 books[currAmount] = null;

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class BookshelfTest {
 
     private static final int ATTEMPTS = 10;
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
     private static Bookshelf bookshelf = new Bookshelf();
     private static int actionNumber = 0;
 
@@ -26,7 +26,7 @@ public class BookshelfTest {
 
     private static void displayBookshelf() {
         if (bookshelf.getBooksAmount() == 0) {
-            System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.\n");
+            System.out.println("Шкаф пуст.\n");
         } else {
             System.out.println("В шкафу книг - " + bookshelf.getBooksAmount() + ", свободно "+ 
                     "полок - " + bookshelf.getFreeShelves() + "\n");
@@ -54,7 +54,6 @@ public class BookshelfTest {
     private static int choseActions() {
         System.out.print("Введите номер команды: ");
         int commandNumber = Integer.parseInt(scanner.nextLine());
-
         switch (commandNumber) {
             case 1: 
                 addBook();
@@ -89,8 +88,7 @@ public class BookshelfTest {
         System.out.print("Введите год издания книги, которую Вы хотите положить в книжный шкаф: ");
         int publicationYear = Integer.parseInt(scanner.nextLine());
 
-        boolean flag = bookshelf.addBook(new Book(author, title, publicationYear));
-        if (flag) {
+        if (bookshelf.addBook(new Book(author, title, publicationYear))) {
             System.out.println("Книга добавлена в шкаф.\n");
         } else {
             System.out.println("Книга не была добавлена в шкаф, поскольку в нём нет места.\n");
@@ -100,9 +98,7 @@ public class BookshelfTest {
     private static void findBook() {
         System.out.print("Введите название книги, которую Вы хотите найти в книжном шкафу: ");
         String title = scanner.nextLine();
-
-        Book book = bookshelf.findBook(title);
-        if (book == null) {
+        if (bookshelf.findBook(title) == null) {
             System.out.println("Книга не найдена.\n");
         } else {
             System.out.println("Книга найдена.\n");
@@ -112,9 +108,7 @@ public class BookshelfTest {
     private static void discardBook() {
         System.out.print("Введите название книги, которую Вы хотите убрать из книжного шкафа: ");
         String title = scanner.nextLine();
-
-        boolean flag = bookshelf.discardBook(title);
-        if (flag) {
+        if (bookshelf.discardBook(title)) {
             System.out.println("Книга убрана из шкафа.\n");
         }
     }

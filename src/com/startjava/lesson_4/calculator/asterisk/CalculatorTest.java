@@ -28,7 +28,6 @@ public class CalculatorTest {
 
             if (result < Double.MIN_VALUE) {
                 String s = (result - Math.floor(result) == 0.0) ? "%d %c %d = %f\n" : "%d %c %d = %.3f\n";
-
                 System.out.printf(s, num1, mathSign, num2, result);
             }
 
@@ -49,12 +48,10 @@ public class CalculatorTest {
         do {
             System.out.println("Нужно вводить натуральные числа.");
             System.out.print("Введите математическое выражение: ");
-
             mathExpr = scanner.nextLine();
             length = mathExpr.length();
             splittedMathExpr = mathExpr.split(" ");
         } while (Integer.parseInt(splittedMathExpr[0]) <= 0 || Integer.parseInt(splittedMathExpr[2]) <= 0);
-
         System.out.println("Длина математического выражения: " + length);
 
         return splittedMathExpr;

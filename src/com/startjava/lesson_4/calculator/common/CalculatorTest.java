@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class CalculatorTest {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("1. Модифицируйте программу \"Калькулятор\".");
@@ -23,7 +23,7 @@ public class CalculatorTest {
             result = calc.calculate(num1, mathSign, num2);
 
             if (result < Double.MIN_VALUE) {
-                if (result - Math.floor(result) == 0.000) {
+                if (result - Math.floor(result) == 0.0) {
                     System.out.printf("%d " + mathSign + " %d = %f\n", num1, num2, result);
                 } else {
                     System.out.printf("%d " + mathSign + " %d = %.3f\n", num1, num2, result);
