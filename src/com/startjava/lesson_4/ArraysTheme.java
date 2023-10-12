@@ -9,7 +9,7 @@ public class ArraysTheme {
         reverseArray();
 
         System.out.println("\n2. Произведение элементов массива.");
-        multiplyArrayCells();
+        multiplyFactors();
 
         System.out.println("\n3. Удаление элементов массива.");
         deleteArrayCells();
@@ -29,27 +29,28 @@ public class ArraysTheme {
 
         int length = numbers.length;
         for (int i = 0; i < length / 2; i++) {
+            length--;
             int number = numbers[i];
-            numbers[i] = numbers[length - 1 - i];
-            numbers[length - 1 - i] = number;
+            numbers[i] = numbers[length];
+            numbers[length] = number;
         }
-
         System.out.print("Значения после реверса: ");
         System.out.println(Arrays.toString(numbers));
     }
 
-    private static void multiplyArrayCells() {
+    private static void multiplyFactors() {
         int[] factors = new int[10];
-        for (int i = 0; i < 10; i++) {
+        int length = factors.length;
+        for (int i = 0; i < length; i++) {
             factors[i] = i;
         }
 
         int multiplication = 1;
-        for (int factor : factors) {
-            String output = (factor <= 0 || factor >= 9) ? "" : (factor == 8 ? factor + " = " : 
-                    factor + " * ");
+        for (int i = 0; i < length; i++) {
+            String output = (i == 0 || i >= length - 1) ? "" : (i == length - 1 ? factors[i] + " = " : 
+                    factors[i] + " * ");
             System.out.print(output);
-            multiplication = (factor > 0 && factor < 9) ? multiplication * factor : multiplication;
+            multiplication = (i == 0 || i == 9) ? multiplication : multiplication * factors[i];
         }
         System.out.println(multiplication);
     }
@@ -62,31 +63,30 @@ public class ArraysTheme {
         }
 
         System.out.print("Массив до изменения: ");
-        for (int i = 0; i < length; i++) {
-            if (i % 8 == 0) {
-                 System.out.println();
-            }
-            System.out.printf("%.3f  ", randomNumbers[i]);
-        }
+        displayArray(randomNumbers);
         System.out.println("\n");
 
-        double mediumCellValue = randomNumbers[length / 2];
-        int nullifiedCells = 0;
+        double centralCellValue = randomNumbers[length / 2];
+        int deletedCells = 0;
         for (int i = 0; i < length; i++) {
-            if (randomNumbers[i] > mediumCellValue) {
+            if (randomNumbers[i] > centralCellValue) {
                 randomNumbers[i] = 0.0;
-                nullifiedCells++;
+                deletedCells++;
             }
         }
 
         System.out.print("Массив после изменения: ");
-        for (int i = 0; i < length; i++) {
+        displayArray(randomNumbers);
+        System.out.println("\n\nКоличество обнулённых элементов: " + deletedCells);
+    }
+
+    private static void displayArray(double[] array) {
+        for (int i = 0; i < array.length; i++) {
             if (i % 8 == 0) {
                  System.out.println();
             }
-            System.out.printf("%.3f  ", randomNumbers[i]);
+            System.out.printf("%.3f  ", array[i]);
         }
-        System.out.println("\n\nКоличество обнулённых элементов: " + nullifiedCells);
     }
 
     private static void outputAlphabet() {
