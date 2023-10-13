@@ -8,25 +8,19 @@ class Calculator {
         int num2 = Integer.parseInt(expression[2]);
 
         switch (mathSign) {
-            case '+': 
-                return num1 + num2;
-            case '-': 
-                return num1 - num2;
-            case '*':
-                return num1 * num2;
-            case '^': 
-                return Math.pow(num1, num2);
+            case '+':  return num1 + num2;
+            case '-': return num1 - num2;
+            case '*': return num1 * num2;
+            case '^': return Math.pow(num1, num2);
             case '/':
                 if (num2 != 0) {
                     return num1 / num2;
                 }
-                return Double.MIN_VALUE;
-            case '%':
-                return num1 % num2;
-            default:
-                System.out.println("Ошибка: знак " + "'" + mathSign + "'" + " не поддерживается.");
+                return Double.NEGATIVE_INFINITY;
+            case '%': return num1 % num2;
+            default: System.out.println("Ошибка: знак " + "'" + mathSign + "'" + " не поддерживается.");
         }
 
-        return Double.MIN_VALUE;
+        return Double.NEGATIVE_INFINITY;
     }
 }

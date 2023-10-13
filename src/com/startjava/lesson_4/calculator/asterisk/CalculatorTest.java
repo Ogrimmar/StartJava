@@ -1,6 +1,7 @@
 package com.startjava.lesson_4.calculator.asterisk;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class CalculatorTest {
 
@@ -9,11 +10,9 @@ public class CalculatorTest {
     public static void main(String[] args) {
         System.out.println("1. Модифицируйте программу \"Калькулятор\" (задание с *).");
 
-        String answer = "";
-        do {
-            String[] splittedExpression = CalculatorTest.enterExpression();
-
-            double result = 0.0;
+        String[] splittedExpression = CalculatorTest.enterExpression();
+        while (isExpressionRight(splittedExpression)) {
+            double result = Double.NEGATIVE_INFINITY;
             try {
                 result = Calculator.calculate(splittedExpression);
             } catch (RuntimeException ex) {
@@ -21,23 +20,10 @@ public class CalculatorTest {
             }
 
             if (result > Double.NEGATIVE_INFINITY) {
-                if (result == (int) result) {
-                    System.out.printf("Результат: %d\n", (int) result);
-                } else {
-                    System.out.printf("Результат: %.3f\n", result);
-                }
+                displayResult(result, splittedExpression);
             }
-
-            System.out.print("\nХотите продолжить вычисления? [yes / no]: ");
-            answer = scanner.next().toLowerCase();
-            scanner.nextLine();
-            if (!answer.equals("yes") && !answer.equals("no")) {
-                System.out.print("Введите корректный ответ [yes / no]: ");
-                answer = scanner.next().toLowerCase();
-                scanner.nextLine();
-            }
-            System.out.println();
-        } while (answer.equals("yes"));
+            splittedExpression = CalculatorTest.enterExpression();
+        }
     }
 
     private static String[] enterExpression() {
@@ -55,5 +41,29 @@ public class CalculatorTest {
         System.out.println("Длина математического выражения: " + length);
 
         return splittedExpression;
+    }
+
+    private static void displayResult(double result, String[] expression) {
+        int num1 = Integer.parseInt(expression[0]);
+        char mathSign = (expression[1].toCharArray())[0];
+        int num2 = Integer.parseInt(expression[2]);
+        if (result == (int) result) {
+            System.out.printf("%d %c %d = %d\n", num1, mathSign, num2, (int) result);
+        } else {
+            System.out.printf("%d %c %d = %.3f\n", num1, mathSign, num2, result);
+        }
+        System.out.println();
+    }
+
+    private static boolean isExpressionRight(String[] splittedExpression) {
+        String expression = "";
+        for (int i = 0; i < splittedExpression.length; i++) {
+            expression += splittedExpression[i];
+        }
+        
+        String regularExpression = "\\d{1,10}[+-/^*%]\\d{1,10}";
+        Pattern pattern = Pattern.compile(regularExpression);
+        
+        return pattern.matches(regularExpression, expression);
     }
 }

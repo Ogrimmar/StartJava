@@ -1,6 +1,7 @@
 package com.startjava.lesson_4.calculator.common;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class CalculatorTest {
 
@@ -9,36 +10,46 @@ public class CalculatorTest {
     public static void main(String[] args) {
         System.out.println("1. Модифицируйте программу \"Калькулятор\".");
 
-        String answer;
-        do {
-            String[] expression = CalculatorTest.enterExpression();
-            Calculator calculator = new Calculator();
-            double result = calculator.calculate(expression);
+        Calculator calculator = new Calculator();
+        String[] expressionParts = CalculatorTest.enterExpression();
+        while (isExpressionRight(expressionParts)) {
+            double result = calculator.calculate(expressionParts);
             if (result > Double.NEGATIVE_INFINITY) {
-                if (result == (int) result) {
-                    System.out.printf("Результат: %d\n", (int) result);
-                } else {
-                    System.out.printf("Результат: %.3f\n", result);
-                }
+                displayResult(result, expressionParts);
             }
-
-            System.out.print("\nХотите продолжить вычисления? [yes / no]: ");
-            answer = scanner.next().toLowerCase();
-            scanner.nextLine();
-            if (!answer.equals("yes") && !answer.equals("no")) {
-                System.out.print("Введите корректный ответ [yes / no]: ");
-                answer = scanner.next().toLowerCase();
-                scanner.nextLine();
-            }
-            System.out.println();
-        } while (answer.equals("yes"));
+            expressionParts = CalculatorTest.enterExpression();
+        }
     }
 
     private static String[] enterExpression() {
         System.out.print("Введите математическое выражение: ");
-        String[] expression = new String[3];
-        expression = scanner.nextLine().split(" ");
+        String[] expressionParts = new String[3];
+        expressionParts = scanner.nextLine().split(" ");
 
-        return expression;
+        return expressionParts;
+    }
+
+    private static void displayResult(double result, String[] expressionParts) {
+        int num1 = Integer.parseInt(expressionParts[0]);
+        char mathSign = (expressionParts[1].toCharArray())[0];
+        int num2 = Integer.parseInt(expressionParts[2]);
+        if (result == (int) result) {
+            System.out.printf("%d %c %d = %d\n", num1, mathSign, num2, (int) result);
+        } else {
+            System.out.printf("%d %c %d = %.3f\n", num1, mathSign, num2, result);
+        }
+        System.out.println();
+    }
+
+    private static boolean isExpressionRight(String[] expressionParts) {
+        String expression = "";
+        for (int i = 0; i < expressionParts.length; i++) {
+            expression += expressionParts[i];
+        }
+        
+        String regularExpression = "\\d{1,10}[+-/^*%]\\d{1,10}";
+        Pattern pattern = Pattern.compile(regularExpression);
+        
+        return pattern.matches(regularExpression, expression);
     }
 }
