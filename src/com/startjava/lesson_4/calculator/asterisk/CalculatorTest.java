@@ -61,7 +61,7 @@ public class CalculatorTest {
             expression += splittedExpression[i];
         }
         
-        String regularExpression = "\\d{1,10}[+-/^*%]\\d{1,10}";
+        String regularExpression = "\\d{1,19}[+-/^*%]\\d{1,19}";
         Pattern pattern = Pattern.compile(regularExpression);
         
         return pattern.matches(regularExpression, expression);
