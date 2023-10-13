@@ -2,34 +2,31 @@ package com.startjava.lesson_4.calculator.common;
 
 class Calculator {
 
-    public double calculate(int num1, char mathSign, int num2) {
-        double result = Double.MIN_VALUE;
+    public double calculate(String[] expression) {
+        int num1 = Integer.parseInt(expression[0]);
+        char mathSign = (expression[1].toCharArray())[0];
+        int num2 = Integer.parseInt(expression[2]);
 
         switch (mathSign) {
             case '+': 
-                result = num1 + num2;
-                break;
+                return num1 + num2;
             case '-': 
-                result = num1 - num2;
-                break;
+                return num1 - num2;
             case '*':
-                result = num1 * num2;
-                break;
+                return num1 * num2;
             case '^': 
-                result = Math.pow(num1, num2);
-                break;
+                return Math.pow(num1, num2);
             case '/':
                 if (num2 != 0) {
-                    result = num1 / num2;
+                    return num1 / num2;
                 }
-                break;
+                return Double.MIN_VALUE;
             case '%':
-                result = num1 % num2;
-                break; 
+                return num1 % num2;
             default:
                 System.out.println("Ошибка: знак " + "'" + mathSign + "'" + " не поддерживается.");
         }
 
-        return result;
+        return Double.MIN_VALUE;
     }
 }

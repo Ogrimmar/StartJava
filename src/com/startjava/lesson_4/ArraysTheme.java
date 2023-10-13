@@ -29,9 +29,8 @@ public class ArraysTheme {
 
         int length = numbers.length;
         for (int i = 0; i < length / 2; i++) {
-            length--;
             int number = numbers[i];
-            numbers[i] = numbers[length];
+            numbers[i] = numbers[--length];
             numbers[length] = number;
         }
         System.out.print("Значения после реверса: ");
@@ -46,13 +45,11 @@ public class ArraysTheme {
         }
 
         int multiplication = 1;
-        for (int i = 0; i < length; i++) {
-            String output = (i == 0 || i >= length - 1) ? "" : (i == length - 1 ? factors[i] + " = " : 
-                    factors[i] + " * ");
-            System.out.print(output);
-            multiplication = (i == 0 || i == 9) ? multiplication : multiplication * factors[i];
+        for (int i = 1; i < length - 1; i++) {
+            System.out.print(factors[i] + " * ");
+            multiplication *= factors[i];
         }
-        System.out.println(multiplication);
+        System.out.println(" = " + multiplication);
     }
 
     private static void deleteArrayCells() {
