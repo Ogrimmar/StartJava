@@ -43,11 +43,11 @@ public class BookshelfTest {
 
     public static void displayMenu() {
         System.out.println("""
-                1. Добавить книгу в шкаф.
-                2. Найти книгу в шкафу.
-                3. Убрать книгу из шкафа.
-                4. Освободить книжный шкаф.
-                5. Выйти из меню управления книжного шкафа.
+                I.   Добавить книгу в шкаф.
+                II.  Найти книгу в шкафу.
+                III. Убрать книгу из шкафа.
+                IV.  Освободить книжный шкаф.
+                V.   Выйти из меню управления книжного шкафа.
         """);
     }
 
@@ -67,8 +67,7 @@ public class BookshelfTest {
             case 4: 
                 BookshelfTest.freeBookshelf();
                 break;
-            case 5: 
-                { return ATTEMPTS; }
+            case 5: return ATTEMPTS;
             default: 
                 System.out.println("Команды с таким номером не существует. Введите номер с " + 
                         "командой от 1 до 4 включительно.");

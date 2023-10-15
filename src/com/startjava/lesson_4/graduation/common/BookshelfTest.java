@@ -34,8 +34,7 @@ public class BookshelfTest {
             Book[] books = bookshelf.getAllBooks();
             for (Book book : books) {
                 System.out.println("|" + book + "|");
-                System.out.println("|" + "-------------------------------------------" + "|");
-                System.out.println();
+                System.out.println("|" + "-------------------------------------------" + "|\n");
             }
             System.out.println();
         }
@@ -43,11 +42,11 @@ public class BookshelfTest {
 
     public static void displayMenu() {
         System.out.println("""
-                1. Добавить книгу в шкаф.
-                2. Найти книгу в шкафу.
-                3. Убрать книгу из шкафа.
-                4. Освободить книжный шкаф.
-                5. Выйти из меню управления книжного шкафа.
+                I.   Добавить книгу в шкаф.
+                II.  Найти книгу по названию в шкафу.
+                III. Убрать книгу по названию из шкафа.
+                IV.  Освободить книжный шкаф.
+                V.   Выйти из меню управления книжного шкафа.
         """);
     }
 
@@ -67,8 +66,7 @@ public class BookshelfTest {
             case 4: 
                 BookshelfTest.freeBookshelf();
                 break;
-            case 5: 
-                { return ATTEMPTS; }
+            case 5: return ATTEMPTS;
             default: 
                 System.out.println("Команды с таким номером не существует. Введите номер с " + 
                         "командой от 1 до 4 включительно.");
@@ -88,7 +86,7 @@ public class BookshelfTest {
         System.out.print("Введите год издания книги, которую Вы хотите положить в книжный шкаф: ");
         int publicationYear = Integer.parseInt(scanner.nextLine());
 
-        if (bookshelf.addBook(new Book(author, title, publicationYear)) {
+        if (bookshelf.addBook(new Book(author, title, publicationYear))) {
             System.out.println("Книга добавлена в шкаф.\n");
         } else {
             System.out.println("Книга не была добавлена в шкаф, поскольку в нём нет места.\n");
