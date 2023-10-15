@@ -4,9 +4,7 @@ import java.util.regex.Pattern;
 
 class Calculator {
 
-    public static double calculate(String expression) throws RuntimeException, 
-        ArithmeticException {
-
+    public static double calculate(String expression) throws RuntimeException {
         double result = Double.MIN_VALUE;
         if (isExpressionLegal(expression)) {
             String[] splittedExpression = expression.split(" ");
