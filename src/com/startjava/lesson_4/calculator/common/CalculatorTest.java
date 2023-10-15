@@ -14,7 +14,7 @@ public class CalculatorTest {
         while (answer.equals("yes")) {
             String expression = enterExpression();
             double result = calculator.calculate(expression);
-            if (result > Double.NEGATIVE_INFINITY) {
+            if (result != Double.MIN_VALUE) {
                 displayResult(result, expression);
             }
 

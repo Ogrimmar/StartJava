@@ -7,7 +7,7 @@ class Calculator {
     public static double calculate(String expression) throws RuntimeException, 
         ArithmeticException {
 
-        double result = Double.NEGATIVE_INFINITY;
+        double result = Double.MIN_VALUE;
         if (isExpressionLegal(expression)) {
             String[] splittedExpression = expression.split(" ");
             int num1 = Integer.parseInt(splittedExpression[0]);

@@ -19,13 +19,13 @@ class Calculator {
                     if (num2 != 0) {
                         return num1 / num2;
                     }
-                    return Double.NEGATIVE_INFINITY;
+                    return Double.MIN_VALUE;
                 case '%': return num1 % num2;
                 default: System.out.println("Ошибка: знак " + "'" + mathSign + "'" + " не поддерживается.\n");
             }
         }
 
-        return Double.NEGATIVE_INFINITY;
+        return Double.MIN_VALUE;
     }
 
     private boolean isExpressionLegal(String expression) {

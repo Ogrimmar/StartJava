@@ -12,14 +12,14 @@ public class CalculatorTest {
         String answer = "yes";
         while (answer.equals("yes")) {
             String expression = enterExpression();
-            double result = Double.NEGATIVE_INFINITY;
+            double result = Double.MIN_VALUE;
             try {
                 result = Calculator.calculate(expression);
             } catch (RuntimeException ex) {
-                System.out.println(ex.getClass().getName());
+                System.out.println(ex.getClass().getName() + "\n");
             }
 
-            if (result > Double.NEGATIVE_INFINITY) {
+            if (result > Double.MIN_VALUE) {
                 displayResult(result, expression);
             }
 
