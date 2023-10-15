@@ -19,7 +19,7 @@ public class CalculatorTest {
                 System.out.println(ex.getClass().getName() + "\n");
             }
 
-            if (result > Double.MIN_VALUE) {
+            if (result != Double.MIN_VALUE) {
                 displayResult(result, expression);
             }
 
