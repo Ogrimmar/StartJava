@@ -1,7 +1,6 @@
 package com.startjava.lesson_4.calculator.asterisk;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class CalculatorTest {
 
@@ -10,43 +9,43 @@ public class CalculatorTest {
     public static void main(String[] args) {
         System.out.println("1. Модифицируйте программу \"Калькулятор\" (задание с *).");
 
-        String[] splittedExpression = CalculatorTest.enterExpression();
-        while (isExpressionRight(splittedExpression)) {
+        String answer = "yes";
+        while (answer.equals("yes")) {
+            String expression = enterExpression();
             double result = Double.NEGATIVE_INFINITY;
             try {
-                result = Calculator.calculate(splittedExpression);
+                result = Calculator.calculate(expression);
             } catch (RuntimeException ex) {
                 System.out.println(ex.getClass().getName());
             }
 
             if (result > Double.NEGATIVE_INFINITY) {
-                displayResult(result, splittedExpression);
+                displayResult(result, expression);
             }
-            splittedExpression = CalculatorTest.enterExpression();
+
+            answer = giveAnswer();
         }
     }
 
-    private static String[] enterExpression() {
+    private static String enterExpression() {
+        int num1, num2;
         String expression = "";
-        int length = 0;
-        String[] splittedExpression = new String[3];
         do {
-            System.out.println("Нужно вводить натуральные числа.");
-            System.out.print("Введите математическое выражение: ");
-            expression = scanner.nextLine();
-            length = expression.length();
-            splittedExpression = expression.split(" ");
-        } while (Integer.parseInt(splittedExpression[0]) <= 0 || 
-                        Integer.parseInt(splittedExpression[2]) <= 0);
-        System.out.println("Длина математического выражения: " + length);
+            System.out.print("Введите корректное математическое выражение: ");
+            expression = scanner.nextLine().trim().toLowerCase();
+            String[] splittedExpression = expression.split(" ");
+            num1 = Integer.parseInt(splittedExpression[0]);
+            num2 = Integer.parseInt(splittedExpression[2]);
+        } while (num1 <= 0 || num2 <= 0);
 
-        return splittedExpression;
+        return expression;
     }
 
-    private static void displayResult(double result, String[] expression) {
-        int num1 = Integer.parseInt(expression[0]);
-        char mathSign = (expression[1].toCharArray())[0];
-        int num2 = Integer.parseInt(expression[2]);
+    private static void displayResult(double result, String expression) {
+        String[] splittedExpression = expression.split(" ");
+        int num1 = Integer.parseInt(splittedExpression[0]);
+        char mathSign = (splittedExpression[1].toCharArray())[0];
+        int num2 = Integer.parseInt(splittedExpression[2]);
         if (result == (int) result) {
             System.out.printf("%d %c %d = %d\n", num1, mathSign, num2, (int) result);
         } else {
@@ -55,15 +54,10 @@ public class CalculatorTest {
         System.out.println();
     }
 
-    private static boolean isExpressionRight(String[] splittedExpression) {
-        String expression = "";
-        for (int i = 0; i < splittedExpression.length; i++) {
-            expression += splittedExpression[i];
-        }
-        
-        String regularExpression = "\\d{1,19}[+-/^*%]\\d{1,19}";
-        Pattern pattern = Pattern.compile(regularExpression);
-        
-        return pattern.matches(regularExpression, expression);
+    private static String giveAnswer() {
+        System.out.print("Хотите продолжить игру [yes / any amount of symbols]: ");
+        String answer = scanner.nextLine().trim().toLowerCase();
+        System.out.println();
+        return answer;
     }
 }
