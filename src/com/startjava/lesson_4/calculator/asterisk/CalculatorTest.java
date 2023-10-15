@@ -16,7 +16,8 @@ public class CalculatorTest {
             try {
                 result = Calculator.calculate(expression);
             } catch (RuntimeException ex) {
-                System.out.println(ex.getClass().getName() + "\n");
+                System.out.println(ex.getClass().getName());
+                System.out.println(ex.getMessage() + "\n");
             }
 
             if (result != Double.MIN_VALUE) {

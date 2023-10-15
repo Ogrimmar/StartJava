@@ -12,19 +12,19 @@ class Calculator {
             char mathSign = (splittedExpression[1].toCharArray())[0];
             int num2 = Integer.parseInt(splittedExpression[2]);
             result = switch (mathSign) {
-            case '+' -> num1 + num2;
-            case '-' -> num1 - num2;
-            case '*' -> num1 * num2;
-            case '^' -> Math.pow(num1, num2);
-            case '/' -> {
-                if (num2 == 0) {
-                    throw new ArithmeticException("Unable to divide by zero.");
+                case '+' -> num1 + num2;
+                case '-' -> num1 - num2;
+                case '*' -> num1 * num2;
+                case '^' -> Math.pow(num1, num2);
+                case '/' -> {
+                    if (num2 == 0) {
+                        throw new ArithmeticException("Делить на 0 нельзя!");
+                    }
+                    yield num1 / num2;
                 }
-                yield num1 / num2;
-            }
-            case '%' -> num1 % num2;
-            default -> throw new RuntimeException("Ошибка: знак " + "'" + mathSign + "'" + 
-                             " не поддерживается.\n");
+                case '%' -> num1 % num2;
+                default -> throw new RuntimeException("Ошибка: знак " + "'" + mathSign + "'" + 
+                        " не поддерживается.");
             };
         }
 
