@@ -12,14 +12,12 @@ public class CalculatorTest {
 
         String answer = "yes";
         while (answer.equals("yes")) {
-            String expression = enterExpression();
-            double result = 0.0;
             try {
-                result = Calculator.calculate(expression);
+                String expression = enterExpression();
+                double result = Calculator.calculate(expression);
                 displayResult(result, expression);
             } catch (RuntimeException ex) {
-                System.out.println(ex.getClass().getName());
-                System.out.println(ex.getMessage() + "\n");
+                System.out.println(ex.getMessage());
             }
             answer = enterAnswer();
         }
@@ -49,7 +47,7 @@ public class CalculatorTest {
             } else {
                 System.out.printf("%s = %.3f\n", expression, result);
             }
-            System.out.println();            
+            System.out.println();
         }
     }
 
