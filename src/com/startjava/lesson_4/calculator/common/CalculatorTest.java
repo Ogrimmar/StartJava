@@ -18,32 +18,26 @@ public class CalculatorTest {
                 displayResult(result, expression);
             }
 
-            answer = giveAnswer();
+            answer = enterAnswer();
         }
     }
 
     private static String enterExpression() {
         System.out.print("Введите математическое выражение: ");
-        String expression = scanner.nextLine().trim().toLowerCase();
-
-        return expression;
+        return scanner.nextLine().trim().toLowerCase();
     }
 
     private static void displayResult(double result, String expression) {
-        String[] spilltedExpression = expression.split(" ");
-        int num1 = Integer.parseInt(spilltedExpression[0]);
-        char mathSign = (spilltedExpression[1].toCharArray())[0];
-        int num2 = Integer.parseInt(spilltedExpression[2]);
         if (result == (int) result) {
-            System.out.printf("%d %c %d = %d\n", num1, mathSign, num2, (int) result);
+            System.out.printf("%s = %d\n", expression, (int) result);
         } else {
-            System.out.printf("%d %c %d = %.3f\n", num1, mathSign, num2, result);
+            System.out.printf("%s = %.3f\n", expression, result);
         }
         System.out.println();
     }
 
-    private static String giveAnswer() {
-        System.out.print("Хотите продолжить игру [yes / any amount of symbols]: ");
+    private static String enterAnswer() {
+        System.out.print("Хотите продолжить игру [yes / any answer, besides \"yes\"]: ");
         return scanner.nextLine().trim().toLowerCase();
     }
 }

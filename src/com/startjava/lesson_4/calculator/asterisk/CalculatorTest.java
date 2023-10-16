@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class CalculatorTest {
 
+    private static final int EXPRESSION_LENGTH = 3;                 // число операндов и число знаков в выражении
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -12,53 +13,48 @@ public class CalculatorTest {
         String answer = "yes";
         while (answer.equals("yes")) {
             String expression = enterExpression();
-            double result = Double.MIN_VALUE;
+            double result = 0.0;
             try {
                 result = Calculator.calculate(expression);
+                displayResult(result, expression);
             } catch (RuntimeException ex) {
                 System.out.println(ex.getClass().getName());
                 System.out.println(ex.getMessage() + "\n");
             }
-
-            if (result != Double.MIN_VALUE) {
-                displayResult(result, expression);
-            }
-
-            answer = giveAnswer();
+            answer = enterAnswer();
         }
     }
 
     private static String enterExpression() {
-        int num1, num2;
+        int num1, num2, length = 0;
         String expression = "";
         do {
-            System.out.print("Введите корректное математическое выражение: ");
+            System.out.print("Введите математическое выражение с натуральными числами: ");
             expression = scanner.nextLine().trim().toLowerCase();
             String[] splittedExpression = expression.split(" ");
+            length = splittedExpression.length;
             num1 = Integer.parseInt(splittedExpression[0]);
             num2 = Integer.parseInt(splittedExpression[2]);
-        } while (num1 <= 0 || num2 <= 0);
+        } while (length != EXPRESSION_LENGTH && (num1 <= 0 || num2 <= 0));
 
         return expression;
     }
 
     private static void displayResult(double result, String expression) {
-        String[] splittedExpression = expression.split(" ");
-        int num1 = Integer.parseInt(splittedExpression[0]);
-        char mathSign = (splittedExpression[1].toCharArray())[0];
-        int num2 = Integer.parseInt(splittedExpression[2]);
-        if (result == (int) result) {
-            System.out.printf("%d %c %d = %d\n", num1, mathSign, num2, (int) result);
+        if (result == Double.MIN_VALUE) {
+            throw new RuntimeException("Результат: " + result);
         } else {
-            System.out.printf("%d %c %d = %.3f\n", num1, mathSign, num2, result);
+            if (result == (int) result) {
+                System.out.printf("%s = %d\n", expression, (int) result);
+            } else {
+                System.out.printf("%s = %.3f\n", expression, result);
+            }
+            System.out.println();            
         }
-        System.out.println();
     }
 
-    private static String giveAnswer() {
-        System.out.print("Хотите продолжить игру [yes / any amount of symbols]: ");
-        String answer = scanner.nextLine().trim().toLowerCase();
-        System.out.println();
-        return answer;
+    private static String enterAnswer() {
+        System.out.print("Хотите продолжить игру [yes / any answer, besides \"yes\"]: ");
+        return scanner.nextLine().trim().toLowerCase();
     }
 }

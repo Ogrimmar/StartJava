@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 class Calculator {
 
     public double calculate(String expression) {
-        if (isExpressionLegal(expression)) {
+        if (isValid(expression)) {
             String[] spilltedExpression = expression.split(" ");
             int num1 = Integer.parseInt(spilltedExpression[0]);
             char mathSign = (spilltedExpression[1].toCharArray())[0];
@@ -19,7 +19,7 @@ class Calculator {
                     if (num2 != 0) {
                         return num1 / num2;
                     }
-                    return Double.MIN_VALUE;
+                    break;
                 case '%': return num1 % num2;
                 default: System.out.println("Ошибка: знак " + "'" + mathSign + "'" + " не поддерживается.\n");
             }
@@ -28,7 +28,7 @@ class Calculator {
         return Double.MIN_VALUE;
     }
 
-    private boolean isExpressionLegal(String expression) {
+    private boolean isValid(String expression) {
         String regularExpression = "\\d{1,19}\\s.\\s\\d{1,19}";
         Pattern pattern = Pattern.compile(regularExpression);
         return pattern.matches(regularExpression, expression);
