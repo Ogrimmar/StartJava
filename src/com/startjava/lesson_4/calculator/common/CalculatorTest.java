@@ -29,15 +29,14 @@ public class CalculatorTest {
 
     private static void displayResult(double result, String expression) {
         if (result == (int) result) {
-            System.out.printf("%s = %d\n", expression, (int) result);
+            System.out.printf("%s = %.0f\n", expression, result);
         } else {
             System.out.printf("%s = %.3f\n", expression, result);
         }
-        System.out.println();
     }
 
     private static String enterAnswer() {
-        System.out.print("Хотите продолжить игру [yes / any answer, besides \"yes\"]: ");
+        System.out.print("Хотите продолжить игру [yes / no]: ");
         return scanner.nextLine().trim().toLowerCase();
     }
 }
