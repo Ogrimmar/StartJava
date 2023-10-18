@@ -6,10 +6,10 @@ class Calculator {
 
     public double calculate(String expression) {
         if (isValid(expression)) {
-            String[] spilltedExpression = expression.split(" ");
-            int num1 = Integer.parseInt(spilltedExpression[0]);
-            char mathSign = (spilltedExpression[1].toCharArray())[0];
-            int num2 = Integer.parseInt(spilltedExpression[2]);
+            String[] elements = expression.split(" ");
+            int num1 = Integer.parseInt(elements[0]);
+            char mathSign = elements[1].charAt(0);
+            int num2 = Integer.parseInt(elements[2]);
             switch (mathSign) {
                 case '+': return num1 + num2;
                 case '-': return num1 - num2;
