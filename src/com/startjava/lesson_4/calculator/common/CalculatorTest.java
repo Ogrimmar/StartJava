@@ -37,6 +37,10 @@ public class CalculatorTest {
 
     private static String enterAnswer() {
         System.out.print("Хотите продолжить игру [yes / no]: ");
-        return scanner.nextLine().trim().toLowerCase();
+        String answer = scanner.nextLine().trim().toLowerCase();
+        while (!answer.equals("yes") && !answer.equals("no")) {
+            answer = scanner.nextLine().trim().toLowerCase();
+        }
+        return answer;
     }
 }
