@@ -28,9 +28,11 @@ public class CalculatorTest {
 
             System.out.print("Хотите продолжить вычисления? [yes / no]: ");
             answer = scanner.next().trim().toLowerCase();
+            scanner.nextLine();
             while (!answer.equals("yes") && !answer.equals("no")) {
                 System.out.print("Введите корректный ответ [yes / no]: ");
                 answer = scanner.next().trim().toLowerCase();
+                scanner.nextLine();
             }
             System.out.println();
         } while (answer.equals("yes"));

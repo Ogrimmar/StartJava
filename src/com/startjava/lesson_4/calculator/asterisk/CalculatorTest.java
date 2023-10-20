@@ -9,17 +9,12 @@ public class CalculatorTest {
     public static void main(String[] args) {
         System.out.println("1. Модифицируйте программу \"Калькулятор\" (задание с *).");
 
-        String answer = "yes";
-        while (answer.equals("yes")) {
-            String expression = enterExpression();
-            try {
-                double result = Calculator.calculate(expression);
-                displayResult(result, expression);
-            } catch (RuntimeException ex) {
-                System.out.println(ex.getMessage());
-            }
-
-            answer = enterAnswer();
+        String expression = enterExpression();
+        try {
+            double result = Calculator.calculate(expression);
+            displayResult(result, expression);
+        } catch (RuntimeException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 
@@ -34,14 +29,5 @@ public class CalculatorTest {
         } else {
             System.out.printf("%s = %.3f\n", expression, result);
         }
-    }
-
-    private static String enterAnswer() {
-        System.out.print("Хотите продолжить игру [yes / no]: ");
-        String answer = scanner.nextLine().trim().toLowerCase();
-        while (!answer.equals("yes") && !answer.equals("no")) {
-            answer = scanner.nextLine().trim().toLowerCase();
-        }
-        return answer;
     }
 }

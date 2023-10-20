@@ -10,15 +10,10 @@ public class CalculatorTest {
         System.out.println("1. Модифицируйте программу \"Калькулятор\".");
 
         Calculator calculator = new Calculator();
-        String answer = "yes";
-        while (answer.equals("yes")) {
-            String expression = enterExpression();
-            double result = calculator.calculate(expression);
-            if (result != Double.MIN_VALUE) {
-                displayResult(result, expression);
-            }
-
-            answer = enterAnswer();
+        String expression = enterExpression();
+        double result = calculator.calculate(expression);
+        if (result != Double.MIN_VALUE) {
+            displayResult(result, expression);
         }
     }
 
@@ -33,14 +28,5 @@ public class CalculatorTest {
         } else {
             System.out.printf("%s = %.3f\n", expression, result);
         }
-    }
-
-    private static String enterAnswer() {
-        System.out.print("Хотите продолжить игру [yes / no]: ");
-        String answer = scanner.nextLine().trim().toLowerCase();
-        while (!answer.equals("yes") && !answer.equals("no")) {
-            answer = scanner.nextLine().trim().toLowerCase();
-        }
-        return answer;
     }
 }

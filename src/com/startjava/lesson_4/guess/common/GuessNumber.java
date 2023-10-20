@@ -24,12 +24,12 @@ class GuessNumber {
         int generatedNumber = MIN + new Random().nextInt(MAX);
         do {
             if (isGuessed(player1, generatedNumber)) {
-                player1.setAttempt(0);
+                player1.declareVictory();
                 break;
             }
 
             if (isGuessed(player2, generatedNumber)) {
-                player2.setAttempt(0);
+                player2.declareVictory();
                 break;
             }
         } while (player1.getAttempt() <= ATTEMPTS);
@@ -40,9 +40,8 @@ class GuessNumber {
 
     private boolean isGuessed(Player player, int generatedNumber) {
         System.out.print("Игрок " + player.getName() + " загадывает число: ");
-        player.setNumber(scanner.nextInt());
-        player.increaseAttempt();
 
+        player.addNumber(scanner.nextInt());
         int playerAttempt = player.getAttempt();
         if (playerAttempt > ATTEMPTS) {
             System.out.println("У игрока " + player.getName() + " закончились попытки.");
@@ -75,14 +74,14 @@ class GuessNumber {
         System.out.print("Числа, названные игроком " + player.getName() + ": ");
 
         int length = player.getAttempt();
-        int[] pronouncedNumbers = player.getPronouncedNumbers();
+        int[] enteredNumbers = player.getEnteredNumbers();
 
         System.out.print("[");
         for (int i = 0; i < length; i++) {
             if (i < length - 1) {
-                System.out.print(pronouncedNumbers[i] + ", ");
+                System.out.print(enteredNumbers[i] + ", ");
             } else {
-                System.out.print(pronouncedNumbers[i]);
+                System.out.print(enteredNumbers[i]);
             }
         }
         System.out.print("]\n");

@@ -29,8 +29,8 @@ class Calculator {
     }
 
     private boolean isValid(String expression) {
-        String regularExpression = "\\d{1,19}\\s.\\s\\d{1,19}";
-        Pattern pattern = Pattern.compile(regularExpression);
-        return pattern.matches(regularExpression, expression);
+        String regexp = "\\d{1,19}\\s.\\s\\d{1,19}";
+        Pattern pattern = Pattern.compile(regexp);
+        return pattern.matches(regexp, expression);
     }
 }

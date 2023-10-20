@@ -28,12 +28,12 @@ class Calculator {
     }
 
     private static boolean isValid(String expression) {
-        String regExp = "\\d{1,19}\\s.\\s\\d{1,19}";
-        boolean validView = Pattern.compile(regExp).matches(regExp, expression);
+        String regexp = "\\d{1,19}\\s.\\s\\d{1,19}";
+        boolean validView = Pattern.compile(regexp).matches(regexp, expression);
         if (validView) {
             return validView;
-        } else {
-            throw new RuntimeException("Математическое " + "выражение введено некорректно.");
-        }
+        } 
+
+        throw new RuntimeException("Математическое выражение введено некорректно.");
     }
 }

@@ -2,16 +2,16 @@ package com.startjava.lesson_4.guess.asterisk;
 
 import java.util.Arrays;
 
-public class Player {
+class Player {
 
     private static final int ATTEMPTS = 10;
     private String name;
-    private int[] pronouncedNumbers;
+    private int[] enteredNumbers;
     private int attempt;
 
     Player(String name) {
         this.name = name;
-        pronouncedNumbers = new int[ATTEMPTS];
+        enteredNumbers = new int[ATTEMPTS];
     }
 
     public String getName() {
@@ -19,28 +19,25 @@ public class Player {
     }
 
     public int getNumber(int attempt) {
-        return pronouncedNumbers[attempt];
+        return enteredNumbers[attempt];
     }
 
-    public void setNumber(int number) {
-        pronouncedNumbers[attempt - 1] = number;
-    }
-
-    public int[] getPronouncedNumbers() {
-        int[] pronouncedNumbersCopy = Arrays.copyOfRange(pronouncedNumbers, 0, attempt);
-        Arrays.fill(pronouncedNumbers, 0, attempt, 0);
-        return pronouncedNumbersCopy;
+    public int[] getEnteredNumbers() {
+        int[] enteredNumbersCopy = Arrays.copyOfRange(enteredNumbers, 0, attempt);
+        Arrays.fill(enteredNumbers, 0, attempt, 0);
+        return enteredNumbersCopy;
     }
 
     public int getAttempt() {
         return attempt;
     }
 
-    public void setAttempt(int attempt) {
-        this.attempt = attempt;
+    public void addNumber(int number) {
+        enterNumbers[attempt++] = number;
     }
 
-    public void increaseAttempt() {
-        attempt++;
+    public void declareVictory() {
+        attempt = 0;
+        enteredNumbers = null;
     }
 }

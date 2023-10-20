@@ -28,20 +28,24 @@ class GuessNumber {
         int[] playersAttempt = new int[] {0, 0, 0};
         int[] playersTurns = new int[] {1, 2, 3};
         playersTurns = defineLot(playersTurns);
+
+        Player player1 = players[0];
+        Player player2 = players[1];
+        Player player3 = players[2];
         System.out.println("Жребий игроков такой: " + Arrays.toString(playersTurns) + "\n");
         do {
-            if (isGuessed(players[0], generatedNumber)) {
-                players[0].setAttempt(0);
+            if (isGuessed(player1, generatedNumber)) {
+                player1.declareVictory();
                 break;
             }
 
-            if (isGuessed(players[1], generatedNumber)) {
-                players[1].setAttempt(0);
+            if (isGuessed(player2, generatedNumber)) {
+                player2.declareVictory();
                 break;
             }
 
-            if (isGuessed(players[2], generatedNumber)) {
-                players[2].setAttempt(0);
+            if (isGuessed(player3, generatedNumber)) {
+                player3.declareVictory();
                 break;
             }
         } while (players[playersTurns[0]].getAttempt() <= ATTEMPTS);
@@ -61,9 +65,7 @@ class GuessNumber {
             playerGeneratedNumber = scanner.nextInt();
         } while (playerGeneratedNumber <= 0 || playerGeneratedNumber > 100);
 
-        player.setNumber(playerGeneratedNumber);
-        player.increaseAttempt();
-
+        player.addNumber(playerGeneratedNumber);
         int playerAttempt = player.getAttempt();
         if (playerAttempt > ATTEMPTS) {
             System.out.println("У игрока " + player.getName() + " закончились попытки.");
@@ -90,13 +92,13 @@ class GuessNumber {
     private void displayNumbers(Player player) {
         System.out.print("Числа, названные игроком " + player.getName() + ": ");
         int length = player.getAttempt();
-        int[] pronouncedNumbers = player.getPronouncedNumbers();
+        int[] enteredNumbers = player.getEnteredNumbers();
         System.out.print("[");
         for (int i = 0; i < length; i++) {
             if (i < length - 1) {
-                System.out.print(pronouncedNumbers[i] + ", ");
+                System.out.print(enteredNumbers[i] + ", ");
             } else {
-                System.out.print(pronouncedNumbers[i]);
+                System.out.print(enteredNumbers[i]);
             }
         }
         System.out.print("]\n");
