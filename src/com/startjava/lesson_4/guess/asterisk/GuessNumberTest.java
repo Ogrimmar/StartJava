@@ -27,7 +27,7 @@ public class GuessNumberTest {
             System.out.print("Хотите продолжить игру? [yes / no]: ");
             answer = scanner.nextLine().trim().toLowerCase();
             while (!answer.equals("yes") && !answer.equals("no")) {
-                System.out.print("Введите корректный ответ: ");
+                System.out.print("Введите корректный ответ [yes / no]: ");
                 answer = scanner.nextLine().trim().toLowerCase();
             }
 

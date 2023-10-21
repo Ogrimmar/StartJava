@@ -57,16 +57,12 @@ class GuessNumber {
     }
 
     private boolean isGuessed(Player player, int generatedNumber) {
-        String playerName = player.getName();
-        System.out.println("Игрок " + playerName + " загадывает число. ");
-        enterNumber(player);
-
-        int playerAttempt = player.getAttempt();
-        if (playerAttempt > player.getAttemptsAmount()) {
-            System.out.println("У игрока " + playerName + " закончились попытки.");
+        if (!enterNumber(player)) {
             return false;
         }
 
+        String playerName = player.getName();
+        int playerAttempt = player.getAttempt();
         int playerNumber = player.getNumber(playerAttempt - 1);
         String s = (playerNumber == generatedNumber) ? "Игрок %s угадал число %d.\n"
                 : (playerNumber > generatedNumber) ? "Игрок %s " +  "загадал " + 
@@ -85,14 +81,21 @@ class GuessNumber {
         return false;
     }
 
-    private void enterNumber(Player player) {
+    private boolean enterNumber(Player player) {
         int playerNumber = 0;
         do {
-            System.out.print("Введите целое число, которое загадывает " + player.getName() + 
-                    " на отрезке [1; 100]: ");
+            System.out.print("Введите целое число, которое загадывает игрок " + player.getName() + 
+                    " на отрезке [1, 100]: ");
             playerNumber = scanner.nextInt();
         } while (playerNumber <= 0 || playerNumber > 100);
         player.addNumber(playerNumber);
+
+        if (player.getAttempt() > player.getAttemptsAmount()) {
+            System.out.println("У игрока " + player.getName() + " закончились попытки.");
+            return false;
+        }
+
+        return true;
     }
 
     private void displayNumbers(Player player) {

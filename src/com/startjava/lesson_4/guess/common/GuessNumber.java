@@ -41,13 +41,11 @@ class GuessNumber {
     }
 
     private boolean isGuessed(Player player, int targetNumber) {
-        String playerName = player.getName();
-        System.out.print("Игрок " + playerName + " загадывает число: ");
-
         if (!enterNumber(player)) {
             return false;
         }
 
+        String playerName = player.getName();
         int playerAttempt = player.getCurrentAttempt();
         if (playerAttempt > player.getAttemptsAmount()) {
             System.out.println("У игрока " + playerName + " закончились попытки.");
@@ -76,8 +74,7 @@ class GuessNumber {
 
     private boolean enterNumber(Player player) {
         player.addNumber(scanner.nextInt());
-        int playerAttempt = player.getCurrentAttempt();
-        if (playerAttempt > player.getAttemptsAmount()) {
+        if (player.getCurrentAttempt() > player.getAttemptsAmount()) {
             System.out.println("У игрока " + player.getName() + " закончились попытки.");
             return false;
         }
