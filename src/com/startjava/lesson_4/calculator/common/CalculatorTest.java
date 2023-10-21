@@ -10,10 +10,26 @@ public class CalculatorTest {
         System.out.println("1. Модифицируйте программу \"Калькулятор\".");
 
         Calculator calculator = new Calculator();
-        String expression = enterExpression();
-        double result = calculator.calculate(expression);
-        if (result != Double.MIN_VALUE) {
-            displayResult(result, expression);
+        String answer = "yes";
+        while (answer.equals("yes")) {
+            String expression = enterExpression();
+            double result = calculator.calculate(expression);
+            if (result != Double.MIN_VALUE) {
+                displayResult(result, expression);
+            }
+
+            System.out.print("Хотите продолжить игру? [yes / no]: ");
+            answer = scanner.nextLine().trim().toLowerCase();
+            while (!answer.equals("yes") && !answer.equals("no")) {
+                System.out.print("Введите корректный ответ [yes / no]: ");
+                answer = scanner.nextLine().trim().toLowerCase();
+            }
+
+            if (answer.equals("no")) {
+                break;
+            }
+
+            System.out.println();
         }
     }
 

@@ -20,10 +20,9 @@ public class GuessNumberTest {
 
         System.out.println();
 
-        String answer = "";
-        do {
-            GuessNumber game = new GuessNumber(name1, name2, name3);
-            game.start();
+        String answer = "yes";
+        while (answer.equals("yes")) {
+            new GuessNumber(name1, name2, name3).start();
 
             System.out.print("Хотите продолжить игру? [yes / no]: ");
             answer = scanner.nextLine().trim().toLowerCase();
@@ -31,7 +30,12 @@ public class GuessNumberTest {
                 System.out.print("Введите корректный ответ: ");
                 answer = scanner.nextLine().trim().toLowerCase();
             }
+
+            if (answer.equals("no")) {
+                break;
+            }
+
             System.out.println();
-        } while (answer.equals("yes"));
+        }
     }
 }

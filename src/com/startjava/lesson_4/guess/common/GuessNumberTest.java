@@ -17,17 +17,22 @@ public class GuessNumberTest {
 
         System.out.println();
 
-        String answer = "";
-        do {
+        String answer = "yes";
+        while (answer.equals("yes")) {
             new GuessNumber(name1, name2).start();
 
             System.out.print("Хотите продолжить игру? [yes / no]: ");
             answer = scanner.nextLine().trim().toLowerCase();
             while (!answer.equals("yes") && !answer.equals("no")) {
-                System.out.print("Введите корректный ответ: ");
+                System.out.print("Введите корректный ответ [yes / no]: ");
                 answer = scanner.nextLine().trim().toLowerCase();
             }
+
+            if (answer.equals("no")) {
+                break;
+            }
+
             System.out.println();
-        } while (answer.equals("yes"));
+        }
     }
 }

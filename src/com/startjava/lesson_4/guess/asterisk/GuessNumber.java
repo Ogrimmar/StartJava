@@ -8,7 +8,6 @@ class GuessNumber {
 
     private static final int MIN = 1;
     private static final int MAX = 100;
-    private static final int ATTEMPTS = 10;
     private final Scanner scanner = new Scanner(System.in);
     private Player[] players;
 
@@ -20,88 +19,85 @@ class GuessNumber {
     }
 
     public void start() {
-        System.out.println("Игра началась! У каждого игрока по " + ATTEMPTS + " попыток.");
+        int attemptAmount = players[0].getAttemptsAmount();
+        System.out.println("Игра началась! У каждого игрока по " + attemptAmount + " попыток.");
 
-        System.out.println("Компьютер \"загадал\" число!\n");
+        System.out.println("Компьютер \"загадал\" число!");
         int generatedNumber = MIN + new Random().nextInt(MAX);
 
         int[] playersAttempt = new int[] {0, 0, 0};
         int[] playersTurns = new int[] {1, 2, 3};
         playersTurns = defineLot(playersTurns);
-
-        Player player1 = players[0];
-        Player player2 = players[1];
-        Player player3 = players[2];
-        System.out.println("Жребий игроков такой: " + Arrays.toString(playersTurns) + "\n");
+        Player player1 = players[playersTurns[0] - 1];
+        Player player2 = players[playersTurns[1] - 1];
+        Player player3 = players[playersTurns[2] - 1];
+        System.out.println("Жребий игроков такой: " + Arrays.toString(playersTurns));
         do {
             if (isGuessed(player1, generatedNumber)) {
-                player1.declareVictory();
                 break;
             }
 
             if (isGuessed(player2, generatedNumber)) {
-                player2.declareVictory();
                 break;
             }
 
             if (isGuessed(player3, generatedNumber)) {
-                player3.declareVictory();
                 break;
             }
-        } while (players[playersTurns[0]].getAttempt() <= ATTEMPTS);
+        } while (players[playersTurns[0] - 1].getAttempt() <= attemptAmount);
 
-        displayNumbers(players[0]);
-        displayNumbers(players[1]);
-        displayNumbers(players[2]);
+        displayNumbers(player1);
+        displayNumbers(player2);
+        displayNumbers(player3);
+        System.out.println();
+
+        player1.nullifyElements();
+        player2.nullifyElements();
+        player3.nullifyElements();
     }
 
     private boolean isGuessed(Player player, int generatedNumber) {
-        System.out.print("Игрок " + player.getName() + " загадывает число: ");
+        String playerName = player.getName();
+        System.out.println("Игрок " + playerName + " загадывает число. ");
+        enterNumber(player);
 
-        int playerGeneratedNumber = 0;
-        do {
-            System.out.println("Введите целое число, генерируемое " + player.getName() + 
-                    ", от 1 до 100 включительно.");
-            playerGeneratedNumber = scanner.nextInt();
-        } while (playerGeneratedNumber <= 0 || playerGeneratedNumber > 100);
-
-        player.addNumber(playerGeneratedNumber);
         int playerAttempt = player.getAttempt();
-        if (playerAttempt > ATTEMPTS) {
-            System.out.println("У игрока " + player.getName() + " закончились попытки.");
-            return false;
-        } else {
-            String s = (playerGeneratedNumber == generatedNumber) ? "Игрок %s угадал число %d с " + 
-                    "%d попытки.\n" : (playerGeneratedNumber > generatedNumber) ? "Игрок %s "+ 
-                    "загадал " + "число %d с попытки %d, которое больше того, что " + "загадал " + 
-                    "компьютер.\n" : (playerGeneratedNumber < generatedNumber) ? "Игрок %s "+ 
-                    "загадал число %d с попытки " + "%d, " + "которое меньше того, что загадал " + 
-                    "компьютер.\n" : "";
-
-            System.out.printf(s, player.getName(), player.getNumber(playerAttempt - 1), 
-                    playerAttempt);
-
-            if (playerGeneratedNumber == generatedNumber) {
-                return true;
-            }
-
+        if (playerAttempt > player.getAttemptsAmount()) {
+            System.out.println("У игрока " + playerName + " закончились попытки.");
             return false;
         }
+
+        int playerNumber = player.getNumber(playerAttempt - 1);
+        String s = (playerNumber == generatedNumber) ? "Игрок %s угадал число %d.\n"
+                : (playerNumber > generatedNumber) ? "Игрок %s " +  "загадал " + 
+                "число %d, которое больше того, что " + "загадал компьютер.\n" : 
+                (playerNumber < generatedNumber) ? "Игрок %s "+ "загадал число %d, которое " + 
+                "меньше того, что загадал компьютер.\n" : "";
+
+        if (!s.equals("")) {
+            System.out.printf(s, playerName, playerNumber, playerAttempt);
+        }
+
+        if (playerNumber == generatedNumber) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private void enterNumber(Player player) {
+        int playerNumber = 0;
+        do {
+            System.out.print("Введите целое число, которое загадывает " + player.getName() + 
+                    " на отрезке [1; 100]: ");
+            playerNumber = scanner.nextInt();
+        } while (playerNumber <= 0 || playerNumber > 100);
+        player.addNumber(playerNumber);
     }
 
     private void displayNumbers(Player player) {
         System.out.print("Числа, названные игроком " + player.getName() + ": ");
-        int length = player.getAttempt();
-        int[] enteredNumbers = player.getEnteredNumbers();
-        System.out.print("[");
-        for (int i = 0; i < length; i++) {
-            if (i < length - 1) {
-                System.out.print(enteredNumbers[i] + ", ");
-            } else {
-                System.out.print(enteredNumbers[i]);
-            }
-        }
-        System.out.print("]\n");
+        System.out.println(Arrays.toString(player.getEnteredNumbers()));
     }
 
     private int[] defineLot(int[] playersTurns) {

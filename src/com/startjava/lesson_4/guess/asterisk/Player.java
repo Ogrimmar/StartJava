@@ -14,6 +14,10 @@ class Player {
         enteredNumbers = new int[ATTEMPTS];
     }
 
+    public int getAttemptsAmount() {
+        return ATTEMPTS;
+    }
+
     public String getName() {
         return name;
     }
@@ -22,22 +26,19 @@ class Player {
         return enteredNumbers[attempt];
     }
 
+    public void addNumber(int number) {
+        enteredNumbers[attempt++] = number;
+    }
+
     public int[] getEnteredNumbers() {
-        int[] enteredNumbersCopy = Arrays.copyOfRange(enteredNumbers, 0, attempt);
-        Arrays.fill(enteredNumbers, 0, attempt, 0);
-        return enteredNumbersCopy;
+        return Arrays.copyOf(enteredNumbers, attempt);
     }
 
     public int getAttempt() {
         return attempt;
     }
 
-    public void addNumber(int number) {
-        enterNumbers[attempt++] = number;
-    }
-
-    public void declareVictory() {
-        attempt = 0;
-        enteredNumbers = null;
+    public void nullifyElements() {
+        Arrays.fill(enteredNumbers, 0, attempt, 0);
     }
 }

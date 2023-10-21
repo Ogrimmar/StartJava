@@ -29,7 +29,7 @@ class Calculator {
     }
 
     private boolean isValid(String expression) {
-        String regexp = "\\d{1,19}\\s.\\s\\d{1,19}";
+        String regexp = "\\d{1,10}\\s.\\s\\d{1,10}";
         Pattern pattern = Pattern.compile(regexp);
         return pattern.matches(regexp, expression);
     }
