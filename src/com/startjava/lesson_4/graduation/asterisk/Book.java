@@ -4,26 +4,18 @@ class Book {
 
     private String author;
     private String title;
-    private int publicationYear;
+    private String publicationYear;
     private int length;
 
-    public Book(String author, String title, int publicationYear) {
+    public Book(String author, String title, String publicationYear) {
         this.author = author;
         this.title = title;
         this.publicationYear = publicationYear;
-        length = toString().length();
-    }
-
-    private String getAuthor() {
-        return author;
+        length = author.length() + title.length() + publicationYear.length();
     }
 
     public String getTitle() {
         return title;
-    }
-
-    private int getPublicationYear() {
-        return publicationYear;
     }
 
     public int getLength() {
@@ -31,6 +23,14 @@ class Book {
     }
 
     public String toString() {
-        return getAuthor() + ", " + getTitle() + ", " + getPublicationYear();
+        return getAuthor() + ", " + getTitle() + ", " + getPublicationYear() + ", " + getLength();
+    }
+
+    private String getAuthor() {
+        return author;
+    }
+
+    private String getPublicationYear() {
+        return publicationYear;
     }
 }
