@@ -64,14 +64,14 @@ class GuessNumber {
         String playerName = player.getName();
         int playerAttempt = player.getCurrentAttempt();
         int playerNumber = player.getNumber();
-        String s = (playerNumber == generatedNumber) ? "Игрок %s угадал число %d.\n"
+        String sout = (playerNumber == generatedNumber) ? "Игрок %s угадал число %d.\n"
                 : (playerNumber > generatedNumber) ? "Игрок %s " +  "загадал " + 
                 "число %d, которое больше того, что " + "загадал компьютер.\n" : 
                 (playerNumber < generatedNumber) ? "Игрок %s "+ "загадал число %d, которое " + 
                 "меньше того, что загадал компьютер.\n" : "";
 
-        if (!s.equals("")) {
-            System.out.printf(s, playerName, playerNumber, playerAttempt);
+        if (!sout.equals("")) {
+            System.out.printf(sout, playerName, playerNumber, playerAttempt);
         }
 
         if (playerNumber == generatedNumber) {
