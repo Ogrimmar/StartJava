@@ -182,7 +182,7 @@ public class IfElseStatementTheme {
         int costEffectiveness = 4_000;
 
         int annualProfit = (goodsSales - costEffectiveness - hirePrice) * 12;
-        int annualProfitThousands = annualProfit / 1000;
+        int annualProfitThousands = annualProfit / 1_000;
 
         System.out.printf("Прибыль за год: %+d %03d руб.\n", annualProfitThousands, 0);
 
@@ -196,7 +196,8 @@ public class IfElseStatementTheme {
 
         int necessaryHundredBanknotes = (totalSum / 100);
         int necessaryFiveBanknotes = (totalSum - 100 * necessaryHundredBanknotes) / 5;
-        int necessarySingleBanknotes = (totalSum - 100 * (totalSum / 100) - 5 * necessaryFiveBanknotes) % 10;
+        int necessarySingleBanknotes = (totalSum - 100 * (totalSum / 100) - 
+                5 * necessaryFiveBanknotes) % 10;
         int necessaryBanknotes = necessaryHundredBanknotes + necessaryFiveBanknotes + 
                 necessarySingleBanknotes;
         System.out.println("Имеются 3 номинала банкнот - 1$, 5$ и 100$.");

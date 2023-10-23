@@ -14,70 +14,71 @@ class Jaeger {
 
     }
 
-    public Jaeger(String _modelName, String _mark, String _origin, float _height, float _weight, int _strength, int _armor) {
-        modelName = _modelName;
-        mark = _mark;
-        origin = _origin;
-        height = _height;
-        weight = _weight;
-        strength = _strength;
-        armor = _armor;
+    public Jaeger(String modelName, String mark, String origin, float height, float weight, 
+            int strength, int armor) {
+        this.modelName = modelName;
+        this.mark = mark;
+        this.origin = origin;
+        this.height = height;
+        this.weight = weight;
+        this.strength = strength;
+        this.armor = armor;
     }
 
     public String getModelName() {
         return modelName;
     }
 
-    public void setModelName(String _modelName) {
-        modelName = _modelName;
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
     }
 
     public String getMark() {
         return mark;
     }
 
-    public void setMark(String _mark) {
-        mark = _mark;
+    public void setMark(String mark) {
+        this.mark = mark;
     }
 
     public String getOrigin() {
         return origin;
     }
 
-    public void setOrigin(String _origin) {
-        origin = _origin;
+    public void setOrigin(String origin) {
+        this.origin = origin;
     }
 
     public float getHeight() {
         return height;
     }
 
-    public void setHeight(float _height) {
-        height = _height;
+    public void setHeight(float height) {
+        this.height = height;
     }
 
     public float getWeight() {
         return weight;
     }
 
-    public void setWeight(float _weight) {
-        weight = _weight;
+    public void setWeight(float weight) {
+        this.weight = weight;
     }
 
     public int getStrength() {
         return strength;
     }
 
-    public void setStrength(int _strength) {
-        strength = _strength;
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 
     public int getArmor() {
         return armor;
     }
 
-    public void setArmor(int _armor) {
-        armor = _armor;
+    public void setArmor(int armor) {
+        this.armor = armor;
     }
 
     boolean drift() {

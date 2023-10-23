@@ -4,7 +4,7 @@ class Player {
 
     private String name;
     private int number;
-    private int attempt;
+    private int currentAttempt;
 
     Player(String name) {
         this.name = name;
@@ -20,17 +20,10 @@ class Player {
 
     public void setNumber(int number) {
         this.number = number;
+        currentAttempt++;
     }
 
-    public int getAttempt() {
-        return attempt;
-    }
-
-    public void setAttempt(int attempt) {
-        this.attempt = attempt;
-    }
-
-    public void increaseAttempt() {
-        attempt++;
+    public int getCurrentAttempt() {
+        return currentAttempt;
     }
 }

@@ -18,8 +18,6 @@ public class GuessNumberTest {
         System.out.print("Введите имя третьего игрока: ");
         String name3 = scanner.nextLine();
 
-        System.out.println();
-
         String answer = "yes";
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {

@@ -135,7 +135,7 @@ public class VariablesTheme {
 
         System.out.println("\n9. Вывод времени.");
 
-        int timeInSeconds = 86399;
+        int timeInSeconds = 86_399;
         int hours = (timeInSeconds / 3600) % 24;
         int minutes = (timeInSeconds / 60) % 60;
         int seconds = timeInSeconds % 60;
