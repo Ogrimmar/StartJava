@@ -25,8 +25,8 @@ class GuessNumber {
         System.out.println("Компьютер \"загадал\" число!");
         int generatedNumber = MIN + new Random().nextInt(MAX);
 
-        int[] playersAttempt = new int[] {0, 0, 0};
-        int[] playersTurns = new int[] {1, 2, 3};
+        int[] playersAttempt = {0, 0, 0};
+        int[] playersTurns = {1, 2, 3};
         playersTurns = defineLot(playersTurns);
         Player player1 = players[playersTurns[0] - 1];
         Player player2 = players[playersTurns[1] - 1];
@@ -44,7 +44,7 @@ class GuessNumber {
             if (isGuessed(player3, generatedNumber)) {
                 break;
             }
-        } while (players[playersTurns[0] - 1].getAttempt() <= attemptAmount);
+        } while (players[playersTurns[0] - 1].getCurrentAttempt() <= attemptAmount);
 
         displayNumbers(player1);
         displayNumbers(player2);
@@ -62,8 +62,8 @@ class GuessNumber {
         }
 
         String playerName = player.getName();
-        int playerAttempt = player.getAttempt();
-        int playerNumber = player.getNumber(playerAttempt - 1);
+        int playerAttempt = player.getCurrentAttempt();
+        int playerNumber = player.getNumber();
         String s = (playerNumber == generatedNumber) ? "Игрок %s угадал число %d.\n"
                 : (playerNumber > generatedNumber) ? "Игрок %s " +  "загадал " + 
                 "число %d, которое больше того, что " + "загадал компьютер.\n" : 
@@ -84,18 +84,12 @@ class GuessNumber {
     private boolean enterNumber(Player player) {
         int playerNumber = 0;
         do {
-            System.out.print("Введите целое число, которое загадывает игрок " + player.getName() + 
-                    " на отрезке [1, 100]: ");
+            System.out.print("Игрок " + player.getName() + 
+                    " загадывает натуральное число на отрезке [1, 100]: ");
             playerNumber = scanner.nextInt();
         } while (playerNumber <= 0 || playerNumber > 100);
-        player.addNumber(playerNumber);
 
-        if (player.getAttempt() > player.getAttemptsAmount()) {
-            System.out.println("У игрока " + player.getName() + " закончились попытки.");
-            return false;
-        }
-
-        return true;
+        return player.addNumber(playerNumber);
     }
 
     private void displayNumbers(Player player) {

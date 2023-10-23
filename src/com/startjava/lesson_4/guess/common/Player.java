@@ -7,7 +7,7 @@ class Player {
     private static final int ATTEMPTS = 10;
     private String name;
     private int[] enteredNumbers;
-    private int currAttempt;
+    private int currentAttempt;
 
     Player(String name) {
         this.name = name;
@@ -22,23 +22,28 @@ class Player {
         return name;
     }
 
-    public int getNumber(int attempt) {
-        return enteredNumbers[attempt];
+    public int getNumber() {
+        return enteredNumbers[currentAttempt - 1];
     }
 
-    public void addNumber(int number) {
-        enteredNumbers[currAttempt++] = number;
+    public boolean addNumber(int number) {
+        if (currentAttempt > ATTEMPTS) {
+            System.out.println("У игрока " + name + " закончились попытки.");
+            return false;
+        }
+        enteredNumbers[currentAttempt++] = number;
+        return true;
     }
 
     public int[] getEnteredNumbers() {
-        return Arrays.copyOf(enteredNumbers, currAttempt);
+        return Arrays.copyOf(enteredNumbers, currentAttempt);
     }
 
     public int getCurrentAttempt() {
-        return currAttempt;
+        return currentAttempt;
     }
 
     public void nullifyElements() {
-        Arrays.fill(enteredNumbers, 0, currAttempt, 0);
+        Arrays.fill(enteredNumbers, 0, currentAttempt, 0);
     }
 }

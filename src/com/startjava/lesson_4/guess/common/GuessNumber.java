@@ -9,7 +9,8 @@ class GuessNumber {
     private static final int MIN = 1;
     private static final int MAX = 100;
     private final Scanner scanner = new Scanner(System.in);
-    private Player player1, player2;
+    private Player player1;
+    private Player player2;
 
     GuessNumber(String name1, String name2) {
         player1 = new Player(name1);
@@ -21,7 +22,7 @@ class GuessNumber {
         System.out.println("Игра началась! У каждого игрока по " + attemptAmount + " попыток.");
 
         int targetNumber = MIN + new Random().nextInt(MAX);
-        System.out.println("Компьютер \"загадал\" число!\n");
+        System.out.println("Компьютер \"загадал\" число!");
         do {
             if (isGuessed(player1, targetNumber)) {
                 break;
@@ -47,15 +48,9 @@ class GuessNumber {
 
         String playerName = player.getName();
         int playerAttempt = player.getCurrentAttempt();
-        if (playerAttempt > player.getAttemptsAmount()) {
-            System.out.println("У игрока " + playerName + " закончились попытки.");
-            return false;
-        }
-
-        int playerNumber = player.getNumber(playerAttempt - 1);
+        int playerNumber = player.getNumber();
         if (playerNumber == targetNumber) {
-            System.out.println("Игрок " + playerName + " угадал число " + playerNumber + " с " 
-                    + playerAttempt + " попытки.\n");
+            System.out.println("Игрок " + playerName + " угадал число " + playerNumber);
             return true;
         } 
 
@@ -73,17 +68,27 @@ class GuessNumber {
     }
 
     private boolean enterNumber(Player player) {
-        player.addNumber(scanner.nextInt());
-        if (player.getCurrentAttempt() > player.getAttemptsAmount()) {
-            System.out.println("У игрока " + player.getName() + " закончились попытки.");
-            return false;
+        System.out.print("Игрок " + player.getName() + " загадывает натуральное число "+ 
+                " на отрезке [1, 100]: ");
+        if (player.addNumber(scanner.nextInt())) {
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     private void displayNumbers(Player player) {
         System.out.print("Числа, названные игроком " + player.getName() + ": ");
-        System.out.println(Arrays.toString(player.getEnteredNumbers()));
+
+        int length = player.getCurrentAttempt();
+        int[] enteredNumbers = player.getEnteredNumbers();
+        for (int i = 0; i < length; i++) {
+            if (i < length - 1) {
+                System.out.print(enteredNumbers[i] + " ");
+            } else {
+                System.out.print(enteredNumbers[i]);
+            }
+        }
+        System.out.println();
     }
 }
