@@ -9,7 +9,7 @@ public class BookcaseTest {
     private static int actionNumber = 0;
 
     public static void main(String[] args) {
-        System.out.println("Выпускной проект StartJava.");
+        System.out.println("Выпускной проект StartJava.\n");
 
         do {
             displayBookshelf();
@@ -34,7 +34,7 @@ public class BookcaseTest {
         }
     }
 
-    public static void displayMenu() {
+    private static void displayMenu() {
         System.out.println("Меню управления книжным шкафом:");
         System.out.println("1. Добавить книгу в шкаф.");
         System.out.println("2. Найти книгу в шкафу.");
