@@ -98,9 +98,9 @@ public class BookcaseTest {
         System.out.print("Введите название книги, которую Вы хотите найти в шкафу: ");
         String title = scanner.nextLine().trim();
         if (bookcase.findBook(title)) {
-            System.out.println("Книга найдена.\n");
+            System.out.println("Книга найдена.");
         } else {
-            System.out.println("Книга не найдена.\n");
+            System.out.println("Книга не найдена.");
         }
     }
 
