@@ -9,7 +9,7 @@ public class BookcaseTest {
     private static int actionNumber = 0;
 
     public static void main(String[] args) {
-        System.out.println("Выпускной проект StartJava.\n");
+        System.out.println("Выпускной проект курса StartJava.\n");
 
         do {
             displayBookshelf();

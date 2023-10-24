@@ -4,13 +4,13 @@ import java.util.Arrays;
 
 class Bookcase {
 
-    private static final int DEFAULT_CAPACITY = 10;
+    private static final int MAX_CAPACITY = 10;
     private Book[] books;
     private int currentAmount;                          // Число книг в шкафу
     private int bookcaseLength;                         // Длина шкафа, зависящая динамически
 
     public Bookcase() {
-        books = new Book[DEFAULT_CAPACITY];
+        books = new Book[MAX_CAPACITY];
     }
 
     public int getCurrentAmount() {
@@ -26,8 +26,7 @@ class Bookcase {
     }
 
     public boolean addBook(Book book) {
-        updateBookshelf();
-        if (currentAmount >= books.length) {
+        if (currentAmount >= MAX_CAPACITY) {
             return false;
         }
 
@@ -52,12 +51,9 @@ class Bookcase {
     public boolean discardBook(String title) {
         for (int i = 0; i <= currentAmount; i++) {
             if (books[i].getTitle().equals(title)) {
-                int bookLength = books[i].getLength();
-
                 System.arraycopy(books, i + 1, books, i, currentAmount - 1);
                 books[currentAmount--] = null;
-
-                if (bookcaseLength < bookLength) {
+                if (bookcaseLength < books[i].getLength()) {
                     bookcaseLength = findMaxLength();
                 }
 
@@ -86,15 +82,5 @@ class Bookcase {
         }
 
         return maxLength;
-    }
-
-    private void updateBookshelf() {
-        if (bookcaseLength > books.length) {
-            Book[] newBooks = new Book[bookcaseLength];
-            for (int i = 0; i < newBooks.length; i++) {
-                newBooks[i] = books[i];
-            }
-            books = newBooks;
-        }
     }
 }
