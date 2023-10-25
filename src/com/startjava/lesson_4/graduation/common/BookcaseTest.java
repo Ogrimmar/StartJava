@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BookcaseTest {
 
-    private static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in, "cp866");
     private static Bookcase bookcase = new Bookcase();
     private static int actionNumber = 0;
 
@@ -20,7 +20,7 @@ public class BookcaseTest {
     }
 
     private static void displayBookshelf() {
-        if (bookcase.getCurrentAmount() == 0) {
+        if (bookcase.isBookcaseEmpty()) {
             System.out.println("Шкаф пуст.\n");
         } else {
             System.out.println("В шкафу книг - " + bookcase.getCurrentAmount() + 

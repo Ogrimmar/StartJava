@@ -25,6 +25,8 @@ class Calculator {
                         " не поддерживается.\n");
             };
         }
+
+        throw new RuntimeException("Некорректно введено математическое выражение.");
     }
 
     private static boolean isValid(String expression) {

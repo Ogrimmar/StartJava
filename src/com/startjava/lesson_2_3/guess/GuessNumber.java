@@ -8,7 +8,7 @@ class GuessNumber {
     private static final int MIN = 1;
     private static final int MAX = 100;
     private static final int ATTEMPTS = 10;
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in, "cp866");
     private Player player1;
     private Player player2;
 
@@ -30,30 +30,26 @@ class GuessNumber {
             if (isGuessed(player2, generatedNumber)) {
                 break;
             }
-        } while (player1.getCurrentAttempt() <= ATTEMPTS);
+        } while (player2.getCurrentAttempt() <= ATTEMPTS);
     }
 
     private boolean isGuessed(Player player, int generatedNumber) {
-        String playerName = player.getName();
-        System.out.print("Игрок " + playerName + " загадывает число: ");
+        String name = player.getName();
+        System.out.print("Игрок " + name + " загадывает число: ");
 
-        player.setNumber(scanner.nextInt());
+        player.addNumber(scanner.nextInt());
 
         int playerNumber = player.getNumber();
         if (playerNumber == generatedNumber) {
-            System.out.println("Игрок " + playerName + " угадал загаданное компьютером " + 
+            System.out.println("Игрок " + name + " угадал загаданное компьютером " + 
                     "число.\n");
             return true;
-        }
-
-        if (playerNumber < generatedNumber) {
+        } else if (playerNumber < generatedNumber) {
             System.out.println("Число " + playerNumber + ", загаданное игроком " +
-                    playerName + ", меньше того, что загадал компьютер.");
-        } 
-
-        if (playerNumber > generatedNumber) {
+                    name + ", меньше того, что загадал компьютер.");
+        } else {
             System.out.println("Число " + playerNumber + ", загаданное игроком " +
-                    playerName + ", больше того, что загадал компьютер.");
+                    name + ", больше того, что загадал компьютер.");
         }
 
         return false;

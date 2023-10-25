@@ -19,32 +19,24 @@ class GuessNumber {
     }
 
     public void start() {
-        int attemptAmount = players[0].getAttemptsAmount();
-        System.out.println("Игра началась! У каждого игрока по " + attemptAmount + " попыток.");
+        System.out.println("Игра началась! У каждого игрока по " + Player.ATTEMPTS + " попыток.");
 
         System.out.println("Компьютер \"загадал\" число!");
         int generatedNumber = MIN + new Random().nextInt(MAX);
 
-        int[] playersAttempt = {0, 0, 0};
         int[] playersTurns = {1, 2, 3};
         playersTurns = defineLot(playersTurns);
+        System.out.println("Жребий игроков такой: " + Arrays.toString(playersTurns));
+
         Player player1 = players[playersTurns[0] - 1];
         Player player2 = players[playersTurns[1] - 1];
         Player player3 = players[playersTurns[2] - 1];
-        System.out.println("Жребий игроков такой: " + Arrays.toString(playersTurns));
-        do {
-            if (isGuessed(player1, generatedNumber)) {
+        while (player3.getCurrentAttempt() < Player.ATTEMPTS) {
+            if (isGuessed(player1, generatedNumber) || isGuessed(player2, generatedNumber)
+                    || isGuessed(player3, generatedNumber)) {
                 break;
             }
-
-            if (isGuessed(player2, generatedNumber)) {
-                break;
-            }
-
-            if (isGuessed(player3, generatedNumber)) {
-                break;
-            }
-        } while (players[playersTurns[0] - 1].getCurrentAttempt() <= attemptAmount);
+        }
 
         displayNumbers(player1);
         displayNumbers(player2);
@@ -61,8 +53,6 @@ class GuessNumber {
             return false;
         }
 
-        String playerName = player.getName();
-        int playerAttempt = player.getCurrentAttempt();
         int playerNumber = player.getNumber();
         String sout = (playerNumber == generatedNumber) ? "Игрок %s угадал число %d.\n"
                 : (playerNumber > generatedNumber) ? "Игрок %s " +  "загадал " + 
@@ -71,7 +61,7 @@ class GuessNumber {
                 "меньше того, что загадал компьютер.\n" : "";
 
         if (!sout.equals("")) {
-            System.out.printf(sout, playerName, playerNumber, playerAttempt);
+            System.out.printf(sout, player.getName(), playerNumber, player.getCurrentAttempt());
         }
 
         if (playerNumber == generatedNumber) {
@@ -87,7 +77,7 @@ class GuessNumber {
             System.out.print("Игрок " + player.getName() + 
                     " загадывает натуральное число на отрезке [1, 100]: ");
             playerNumber = scanner.nextInt();
-        } while (playerNumber <= 0 || playerNumber > 100);
+        } while (playerNumber < 1 || playerNumber > 100);
 
         return player.addNumber(playerNumber);
     }

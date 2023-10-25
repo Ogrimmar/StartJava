@@ -59,4 +59,8 @@ class Bookcase {
         Arrays.fill(books, 0, currentAmount, null);
         currentAmount = 0;
     }
+
+    public boolean isBookcaseEmpty() {
+        return currentAmount == 0;
+    }
 }

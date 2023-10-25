@@ -7,7 +7,7 @@ public class GuessNumberTest {
     public static void main(String[] args) {
         System.out.println("2. Модифицируйте программу \"Угадай число\".");
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, "cp866");
 
         System.out.print("Введите имя первого игрока: ");
         String name1 = scanner.nextLine();

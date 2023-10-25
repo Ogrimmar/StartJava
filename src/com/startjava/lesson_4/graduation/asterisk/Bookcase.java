@@ -73,6 +73,10 @@ class Bookcase {
         currentAmount = 0;
     }
 
+    public boolean isBookcaseEmpty() {
+        return currentAmount == 0;
+    }
+
     private int findMaxLength() {
         int maxLength = books[0].getLength();
         for (int i = 1; i <= currentAmount; i++) {

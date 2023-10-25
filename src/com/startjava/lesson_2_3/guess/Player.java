@@ -18,7 +18,7 @@ class Player {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void addNumber(int number) {
         this.number = number;
         currentAttempt++;
     }

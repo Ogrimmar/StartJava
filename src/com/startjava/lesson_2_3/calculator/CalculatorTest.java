@@ -9,7 +9,7 @@ public class CalculatorTest {
 
         int result = 0;
         Calculator calculator = new Calculator();
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, "cp866");
         String answer = "yes";
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {

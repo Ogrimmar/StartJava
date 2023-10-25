@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class CalculatorTest {
 
-    private static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in, "cp866");
 
     public static void main(String[] args) {
         System.out.println("1. Модифицируйте программу \"Калькулятор\" (задание с *).");

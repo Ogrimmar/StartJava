@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 class Player {
 
-    private static final int ATTEMPTS = 10;
+    public static final int ATTEMPTS = 10;
     private String name;
     private int[] enteredNumbers;
     private int currentAttempt;
@@ -12,10 +12,6 @@ class Player {
     Player(String name) {
         this.name = name;
         enteredNumbers = new int[ATTEMPTS];
-    }
-
-    public int getAttemptsAmount() {
-        return ATTEMPTS;
     }
 
     public String getName() {
@@ -27,11 +23,13 @@ class Player {
     }
 
     public boolean addNumber(int number) {
-        if (currentAttempt > ATTEMPTS) {
-            System.out.print("У игрока " + name + " закончились попытки.");
+        currentAttempt++;
+        enteredNumbers[currentAttempt - 1] = number;
+        if (currentAttempt == ATTEMPTS) {
+            System.out.println("У игрока " + name + " закончились попытки.");
             return false;
         }
-        enteredNumbers[currentAttempt++] = number;
+
         return true;
     }
 
