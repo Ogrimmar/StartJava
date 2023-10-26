@@ -30,7 +30,7 @@ class Calculator {
     }
 
     private static boolean isValid(String expression) {
-        String regexp = "\\d{1,19}\\s.\\s\\d{1,19}";
+        String regexp = "\\d{1,10}\\s.\\s\\d{1,10}";
         boolean validView = Pattern.compile(regexp).matches(regexp, expression);
         if (validView) {
             return validView;
