@@ -10,26 +10,21 @@ public class CalculatorTest {
         System.out.println("1. Модифицируйте программу \"Калькулятор\" (задание с *).");
 
         String answer = "yes";
-        while (answer.equals("yes")) {
-            String expression = enterExpression();
-            try {
-                double result = Calculator.calculate(expression);
-                displayResult(result, expression);
-            } catch (RuntimeException ex) {
-                System.out.println(ex.getMessage());
-            }
-
-            System.out.print("Хотите продолжить игру? [yes / no]: ");
-            answer = scanner.nextLine().trim().toLowerCase();
-            while (!answer.equals("yes") && !answer.equals("no")) {
+        while (!answer.equals("no")) {
+            if (answer.equals("yes")) {
+                String expression = enterExpression();
+                try {
+                    double result = Calculator.calculate(expression);
+                    displayResult(result, expression);
+                } catch (RuntimeException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                System.out.print("Хотите продолжить игру? [yes / no]: ");
+            } else {
                 System.out.print("Введите корректный ответ [yes / no]: ");
-                answer = scanner.nextLine().trim().toLowerCase();
             }
 
-            if (answer.equals("no")) {
-                break;
-            }
-
+            answer = scanner.nextLine().trim().toLowerCase();
             System.out.println();
         }
     }
