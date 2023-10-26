@@ -55,9 +55,9 @@ class GuessNumber {
 
         int playerNumber = player.getNumber();
         String sout = (playerNumber == generatedNumber) ? "Игрок %s угадал число %d.\n"
-                : (playerNumber > generatedNumber) ? "Игрок %s " +  "загадал " + 
+                : (playerNumber > generatedNumber) ? "Игрок %s " + "загадал " + 
                 "число %d, которое больше того, что " + "загадал компьютер.\n" : 
-                (playerNumber < generatedNumber) ? "Игрок %s "+ "загадал число %d, которое " + 
+                (playerNumber < generatedNumber) ? "Игрок %s " + "загадал число %d, которое " + 
                 "меньше того, что загадал компьютер.\n" : "";
 
         if (!sout.equals("")) {
@@ -84,7 +84,12 @@ class GuessNumber {
 
     private void displayNumbers(Player player) {
         System.out.print("Числа, названные игроком " + player.getName() + ": ");
-        System.out.println(Arrays.toString(player.getEnteredNumbers()));
+
+        int[] enteredNumbers = player.getEnteredNumbers();
+        for (int number : enteredNumbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
     }
 
     private int[] defineLot(int[] playersTurns) {
