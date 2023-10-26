@@ -63,7 +63,7 @@ class GuessNumber {
     private boolean enterNumber(Player player) {
         System.out.print("Игрок " + player.getName() + " загадывает натуральное число " + 
                 " на отрезке [1, 100]: ");
-        return player.addNumber(scanner.nextInt()) ? true : false;
+        return player.addNumber(scanner.nextInt());
     }
 
     private void displayNumbers(Player player) {

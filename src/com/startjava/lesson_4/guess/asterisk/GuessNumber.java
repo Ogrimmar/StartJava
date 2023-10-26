@@ -8,7 +8,7 @@ class GuessNumber {
 
     private static final int MIN = 1;
     private static final int MAX = 100;
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in, "cp866");
     private Player[] players;
 
     GuessNumber(String name1, String name2, String name3) {

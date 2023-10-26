@@ -23,9 +23,9 @@ class Player {
     }
 
     public boolean addNumber(int number) {
+        enteredNumbers[currentAttempt] = number;
         currentAttempt++;
-        enteredNumbers[currentAttempt - 1] = number;
-        if (currentAttempt == ATTEMPTS) {
+        if (currentAttempt >= ATTEMPTS) {
             System.out.println("У игрока " + name + " закончились попытки.");
             return false;
         }
