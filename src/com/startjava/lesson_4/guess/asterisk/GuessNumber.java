@@ -55,7 +55,7 @@ class GuessNumber {
             System.out.println((i + 1) + " раунд завершён!\n");
         }
 
-        defineWinners(players);
+        defineWinner(players);
     }
 
     private void startRound() {
@@ -144,7 +144,7 @@ class GuessNumber {
         players[secondIndex] = player;
     }
 
-    private void defineWinners(Player[] players) {
+    private void defineWinner(Player[] players) {
         int winner = 0;
         int maxVictoriesAmount = 0;
         for (int i = 0; i < players.length; i++) {
