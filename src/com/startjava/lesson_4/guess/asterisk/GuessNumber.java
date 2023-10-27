@@ -145,7 +145,7 @@ class GuessNumber {
 
     private void defineWinners(Player[] players) {
         int winner = 0;
-        int maxVictoriesAmount = players[0].getVictoryAmount();
+        int maxVictoriesAmount = 0;
         for (int i = 0; i < players.length; i++) {
             if (maxVictoriesAmount < players[i].getVictoryAmount()) {
                 maxVictoriesAmount = players[i].getVictoryAmount();
