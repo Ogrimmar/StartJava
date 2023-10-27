@@ -22,7 +22,7 @@ class GuessNumber {
 
     public void start() {
         System.out.println("Игра началась! У каждого игрока по " + Player.ATTEMPTS + 
-                " попыток в каждом из " + GAME_ROUNDS + " рауднах.");
+                " попыток в каждом из " + GAME_ROUNDS + " рауднов.");
 
         for (int i = 0; i < GAME_ROUNDS; i++) {
             startRound();
