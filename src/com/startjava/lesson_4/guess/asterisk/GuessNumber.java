@@ -53,15 +53,17 @@ class GuessNumber {
             return false;
         }
 
+        int playerAttempt = player.getCurrentAttempt();
         int playerNumber = player.getNumber();
-        String sout = (playerNumber == generatedNumber) ? "Игрок %s угадал число %d.\n"
-                : (playerNumber > generatedNumber) ? "Игрок %s " + "загадал " + 
-                "число %d, которое больше того, что " + "загадал компьютер.\n" : 
-                (playerNumber < generatedNumber) ? "Игрок %s " + "загадал число %d, которое " + 
-                "меньше того, что загадал компьютер.\n" : "";
+        String sout = (playerNumber == generatedNumber) ? "Игрок %s угадал число %d c %d попытки.\n"
+                : (playerNumber > generatedNumber) ? "Игрок %s загадал " + 
+                "число %d с %d попытки, которое больше того, что загадал компьютер.\n" : 
+                (playerNumber < generatedNumber) ? "Игрок %s загадал число %d с %d попытки, " + 
+                "которое меньше того, что загадал компьютер.\n" : "";
 
         if (!sout.equals("")) {
-            System.out.printf(sout, player.getName(), playerNumber, player.getCurrentAttempt());
+            System.out.printf(sout, player.getName(), playerNumber, playerAttempt, 
+                    player.getCurrentAttempt());
         }
 
         if (playerNumber == generatedNumber) {
