@@ -8,6 +8,7 @@ class Player {
     private String name;
     private int[] enteredNumbers;
     private int currentAttempt;
+    private int victoryAmount;
 
     Player(String name) {
         this.name = name;
@@ -40,7 +41,16 @@ class Player {
         return currentAttempt;
     }
 
+    public int getVictoryAmount() {
+        return victoryAmount;
+    }
+
+    public void winRound() {
+        victoryAmount++;
+    }
+
     public void nullifyElements() {
         Arrays.fill(enteredNumbers, 0, currentAttempt, 0);
+        currentAttempt = 0;
     }
 }
