@@ -21,11 +21,12 @@ class GuessNumber {
     }
 
     public void start() {
-        System.out.println("Игра началась! У каждого игрока по " + Player.ATTEMPTS + " попыток.");
+        System.out.println("Игра началась! У каждого игрока по " + Player.ATTEMPTS + 
+                " попыток в каждом из " + GAME_ROUNDS + " рауднах.");
 
         for (int i = 0; i < GAME_ROUNDS; i++) {
-            System.out.println((i + 1) + " раунд начался!");
             startRound();
+            System.out.println((i + 1) + " раунд начался!");
 
             System.out.println("Компьютер \"загадал\" число!");
             int targetedNumber = MIN + new Random().nextInt(MAX);
