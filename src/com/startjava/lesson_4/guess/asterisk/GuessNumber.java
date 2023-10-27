@@ -127,8 +127,8 @@ class GuessNumber {
     }
 
     private void swap(Player[] players, int num1, int num2) {
-        int firstIndex = 0;
         int secondIndex = 0;
+        int firstIndex = 0;
         for (int i = 0; i < players.length; i++) {
             if (i == num1) {
                 firstIndex = i;
