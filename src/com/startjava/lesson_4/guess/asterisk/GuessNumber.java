@@ -50,6 +50,7 @@ class GuessNumber {
                     break;
                 }
             }
+
             finishRound();
             System.out.println((i + 1) + " раунд завершён!\n");
         }
