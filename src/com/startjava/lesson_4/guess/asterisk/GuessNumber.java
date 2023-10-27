@@ -97,11 +97,11 @@ class GuessNumber {
 
     private boolean enterNumber(Player player) {
         int playerNumber = 0;
-        do {
+        while (playerNumber < 1 || playerNumber > 100) {
             System.out.print("Игрок " + player.getName() + 
                     " загадывает натуральное число на отрезке [1, 100]: ");
             playerNumber = scanner.nextInt();
-        } while (playerNumber < 1 || playerNumber > 100);
+        }
 
         return player.addNumber(playerNumber);
     }
