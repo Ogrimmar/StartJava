@@ -24,9 +24,9 @@ class Bookcase {
         if (currentAmount < MAX_CAPACITY) {
             books[currentAmount++] = book;
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public boolean findBook(String title) {
