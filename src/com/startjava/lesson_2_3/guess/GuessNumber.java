@@ -22,15 +22,12 @@ class GuessNumber {
 
         System.out.println("Компьютер \"загадал\" число!\n");
         int generatedNumber = MIN + new Random().nextInt(MAX);
-        do {
-            if (isGuessed(player1, generatedNumber)) {
-                break;
-            }
 
-            if (isGuessed(player2, generatedNumber)) {
+        while (player2.getCurrentAttempt() < ATTEMPTS) {
+            if (isGuessed(player1, generatedNumber) || isGuessed(player2, generatedNumber)) {
                 break;
             }
-        } while (player2.getCurrentAttempt() <= ATTEMPTS);
+        }
     }
 
     private boolean isGuessed(Player player, int generatedNumber) {

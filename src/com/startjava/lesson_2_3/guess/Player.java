@@ -19,8 +19,8 @@ class Player {
     }
 
     public void addNumber(int number) {
-        this.number = number;
         currentAttempt++;
+        this.number = number;
     }
 
     public int getCurrentAttempt() {
