@@ -2,10 +2,10 @@ package com.startjava.lesson_4.graduation.asterisk;
 
 class Book {
 
-    private String author;
-    private String title;
-    private String publicationYear;
-    private int length;
+    private final String author;
+    private final String title;
+    private final String publicationYear;
+    private final int length;
 
     public Book(String author, String title, String publicationYear) {
         this.author = author;
