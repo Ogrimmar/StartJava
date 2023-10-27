@@ -172,9 +172,9 @@ public class CyclesTheme {
         int rightHalfFactor = 1;
         int leftHalfFactor = 10_000;
 
-        int num7RightHalf = num7 % 1_000;                      // 321
-        int num7MediumUnit = (num7 / 1000) % 10;               // 4
-        int num7LeftHalf = (num7 / 10_000) % 1_000;            // 123
+        int num7RightHalf = num7 % 1_000;                       // 321
+        int num7MediumUnit = (num7 / 1_000) % 10;               // 4
+        int num7LeftHalf = (num7 / 10_000) % 1_000;             // 123
         int reversedNum7 = 0;
         for (int i = 0; i < 3; i++) {
             reversedNum7 += (num7RightHalf % 10) * rightHalfFactor;
