@@ -155,6 +155,7 @@ class GuessNumber {
         }
 
         System.out.println("Победителем в " + GAME_ROUNDS + " раундах является игрок " + 
-                players[winner].getName());
+                players[winner].getName() + ", одержавший " + players[winner].getVictoryAmount() 
+                + " побед");
     }
 }
