@@ -31,6 +31,7 @@ class Bookcase {
         }
 
         books[currentAmount++] = book;
+
         if (book.getLength() > bookcaseLength) {
             bookcaseLength = book.getLength();
         }
