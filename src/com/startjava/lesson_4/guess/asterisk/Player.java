@@ -8,7 +8,7 @@ class Player {
     private String name;
     private int[] enteredNumbers;
     private int currentAttempt;
-    private int victoryAmount;
+    private int score;
 
     Player(String name) {
         this.name = name;
@@ -24,13 +24,17 @@ class Player {
     }
 
     public boolean addNumber(int number) {
-        enteredNumbers[currentAttempt++] = number;
-        if (currentAttempt >= ATTEMPTS) {
-            System.out.println("У игрока " + name + " закончились попытки.");
-            return false;
+        if (number > 0 && number <= 100) {
+            enteredNumbers[currentAttempt++] = number;
+            if (currentAttempt >= ATTEMPTS) {
+                System.out.println("У игрока " + name + " закончились попытки.");
+                return false;
+            }
+
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     public int[] getEnteredNumbers() {
@@ -41,16 +45,21 @@ class Player {
         return currentAttempt;
     }
 
-    public int getVictoryAmount() {
-        return victoryAmount;
+    public int getScore() {
+        return score;
     }
 
-    public void winRound() {
-        victoryAmount++;
+    public void increaseScore() {
+        score++;
     }
 
     public void nullifyElements() {
         Arrays.fill(enteredNumbers, 0, currentAttempt, 0);
         currentAttempt = 0;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

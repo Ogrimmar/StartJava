@@ -4,24 +4,18 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
 
+    private static final Scanner scanner = new Scanner(System.in, "cp866");
+
     public static void main(String[] args) {
         System.out.println("2. Модифицируйте программу \"Угадай число\" (задание с *).");
 
-        Scanner scanner = new Scanner(System.in, "cp866");
-
-        System.out.print("Введите имя первого игрока: ");
-        String name1 = scanner.nextLine();
-
-        System.out.print("Введите имя второго игрока: ");
-        String name2 = scanner.nextLine();
-
-        System.out.print("Введите имя третьего игрока: ");
-        String name3 = scanner.nextLine();
-
+        String name1 = enterName(1);
+        String name2 = enterName(2);
+        String name3 = enterName(3);
         String answer = "yes";
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
-                new GuessNumber(name1, name2, name3).start();
+               new GuessNumber(name1, name2, name3).start();
                 System.out.print("Хотите продолжить игру? [yes / no]: ");
             } else {
                 System.out.print("Введите корректный ответ [yes / no]: ");
@@ -29,5 +23,10 @@ public class GuessNumberTest {
             answer = scanner.nextLine().trim().toLowerCase();
             System.out.println();
         }
+    }
+
+    private static String enterName(int order) {
+        System.out.print("Введите имя " + order + " игрока: ");
+        return scanner.nextLine();
     }
 }
