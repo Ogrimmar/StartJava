@@ -18,6 +18,7 @@ class Book {
         return title;
     }
 
+    @Override
     public String toString() {
         return getAuthor() + ", " + getTitle() + ", " + getPublicationYear() + ", " + getLength();
     }

@@ -22,6 +22,7 @@ class Book {
         return length;
     }
 
+    @Override
     public String toString() {
         return getAuthor() + ", " + getTitle() + ", " + getPublicationYear() + ", " + getLength();
     }
