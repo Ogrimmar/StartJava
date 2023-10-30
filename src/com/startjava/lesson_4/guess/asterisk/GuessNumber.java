@@ -6,8 +6,8 @@ import java.util.Arrays;
 
 class GuessNumber {
 
-    private static final int MIN = 1;
-    private static final int MAX = 100;
+    public static final int MIN = 1;
+    public static final int MAX = 100;
     private static final int PLAYERS_AMMOUNT = 3;
     private static final int ROUNDS = 3;
     private final Scanner scanner = new Scanner(System.in, "cp866");
@@ -26,19 +26,20 @@ class GuessNumber {
 
         for (int i = 0; i < ROUNDS; i++) {
             System.out.println((i + 1) + " раунд начался!");
-            nullifyPlayersElements();
+            clear();
+            shufflePlayers();
 
             System.out.println("Компьютер \"загадал\" число!");
             int targetNumber = MIN + new Random().nextInt(MAX);
 
-            shufflePlayers();
             System.out.println("Жребий игроков такой: " + Arrays.toString(players));
 
-            label: for (int j = 0; j < Player.ATTEMPTS; j++) {
+            boolean flag = false;
+            for (int j = 0; j < Player.ATTEMPTS && !flag; j++) {
                 for (Player player : players) {
-                    if (isGuessed(player, targetNumber)) {
-                        player.increaseScore();
-                        break label;
+                    flag = isGuessed(player, targetNumber);
+                    if (flag) {
+                        break;
                     }
                 }
             }
@@ -50,13 +51,15 @@ class GuessNumber {
         defineWinner();
     }
 
-    private void nullifyPlayersElements() {
+    private void clear() {
         for (Player player : players) {
             player.nullifyElements();
         }
     }
 
     private boolean isGuessed(Player player, int targetNumber) {
+        player.increaseScore();
+
         if (!enterNumber(player)) {
             return false;
         }
@@ -71,9 +74,9 @@ class GuessNumber {
             return true;
         }
 
-        output = (playerNumber > targetNumber) ? "Игрок %s загадал число %d с %d попытки, " +
-                "которое больше того, что загадал компьютер.\n" : "Игрок %s загадал число %d" + 
-                " с %d попытки, которое меньше того, что загадал компьютер.\n";
+        output = "Игрок %s загадал число %d с %d попытки, " + "которое " + 
+                ((playerNumber > targetNumber) ? "больше " : "меньше ") + "того, что загадал " + 
+                "компьютер.\n";
         System.out.printf(output, name, playerNumber, playerAttempt);
 
         return false;
@@ -96,14 +99,8 @@ class GuessNumber {
 
     private void shufflePlayers() {
         int length = players.length;
-        boolean[] crossedNumbers = new boolean[length];
-        int randomNumber = 0;
         for (int i = 0; i < length; i++) {
-            do {
-                randomNumber = new Random().nextInt(length - i);
-            } while (crossedNumbers[i]);
-            crossedNumbers[i] = true;
-
+            int randomNumber = new Random().nextInt(length - i);
             Player player = players[i];
             players[i] = players[randomNumber];
             players[randomNumber] = player;

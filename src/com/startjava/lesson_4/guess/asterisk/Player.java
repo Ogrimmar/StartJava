@@ -24,13 +24,12 @@ class Player {
     }
 
     public boolean addNumber(int number) {
-        if (number > 0 && number <= 100) {
+        if (number >= GuessNumber.MIN && number <= GuessNumber.MAX) {
             enteredNumbers[currentAttempt++] = number;
             if (currentAttempt >= ATTEMPTS) {
                 System.out.println("У игрока " + name + " закончились попытки.");
                 return false;
             }
-
             return true;
         }
 
