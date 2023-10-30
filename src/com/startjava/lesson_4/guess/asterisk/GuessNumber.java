@@ -58,8 +58,6 @@ class GuessNumber {
     }
 
     private boolean isGuessed(Player player, int targetNumber) {
-        player.increaseScore();
-
         if (!enterNumber(player)) {
             return false;
         }
@@ -69,14 +67,15 @@ class GuessNumber {
         String output = "";
         int playerNumber = player.getNumber();
         if (playerNumber == targetNumber) {
+            player.increaseScore();
             output = "Игрок %s угадал число %d c %d попытки.\n";
             System.out.printf(output, name, playerNumber, playerAttempt);
             return true;
         }
 
-        output = "Игрок %s загадал число %d с %d попытки, " + "которое " + 
-                ((playerNumber > targetNumber) ? "больше " : "меньше ") + "того, что загадал " + 
-                "компьютер.\n";
+        output = "Игрок %s загадал число %d с %d попытки, которое ";
+        output +=  ((playerNumber > targetNumber) ? "больше " : "меньше ");
+        output += "того, что загадал компьютер.\n";
         System.out.printf(output, name, playerNumber, playerAttempt);
 
         return false;
