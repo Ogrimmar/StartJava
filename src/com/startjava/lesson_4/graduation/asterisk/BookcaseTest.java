@@ -105,7 +105,7 @@ public class BookcaseTest {
     }
 
     private static void delete() {
-        System.out.print("Введите название книги, которую Вы хотите убрать из книжного шкафа: ");
+        System.out.print("Введите название книги: ");
         String title = scanner.nextLine().trim();
         if (bookcase.delete(title)) {
             System.out.println("Книга убрана из шкафа.");

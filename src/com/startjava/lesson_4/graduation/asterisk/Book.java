@@ -22,10 +22,6 @@ class Book {
         return length;
     }
 
-    private String getPublicationYear() {
-        return publicationYear;
-    }
-
     @Override
     public String toString() {
         return author + ", " + title + ", " + publicationYear + ", " + length;
