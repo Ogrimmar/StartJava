@@ -6,42 +6,42 @@ class Bookcase {
 
     private static final int MAX_CAPACITY = 10;
     private Book[] books;
-    private int currentAmount;                          // Число книг в шкафу
-    private int bookcaseLength;                         // Длина шкафа, зависящая динамически
+    private int countBooks;
+    private int maxLength;
 
     public Bookcase() {
         books = new Book[MAX_CAPACITY];
     }
 
-    public int getCurrentAmount() {
-        return currentAmount;
+    public int getCount() {
+        return countBooks;
     }
 
-    public int getBookcaseLength() {
-        return bookcaseLength;
+    public int getMaxLength() {
+        return maxLength;
     }
 
-    public int getFreeShelvesAmount() {                  // Число свободных полок в шкафу
-        return books.length - currentAmount;
+    public int getFreeShelvesAmount() {
+        return MAX_CAPACITY - countBooks;
     }
 
-    public boolean addBook(Book book) {
-        if (currentAmount >= MAX_CAPACITY) {
+    public boolean add(Book book) {
+        if (countBooks >= MAX_CAPACITY) {
             return false;
         }
 
-        books[currentAmount++] = book;
+        books[countBooks++] = book;
 
-        if (book.getLength() > bookcaseLength) {
-            bookcaseLength = book.getLength();
+        if (book.getLength() > maxLength) {
+            maxLength = book.getLength();
         }
 
         return true;
     }
 
-    public boolean findBook(String title) {
-        for (Book book : books) {
-            if (book.getTitle().equals(title)) {
+    public boolean find(String title) {
+        for (int i = 0; i <= countBooks; i++) {
+            if (books[i].getTitle().equals(title)) {
                 return true;
             }
         }
@@ -49,13 +49,13 @@ class Bookcase {
         return false;
     }
 
-    public boolean discardBook(String title) {
-        for (int i = 0; i <= currentAmount; i++) {
+    public boolean delete(String title) {
+        for (int i = 0; i <= countBooks; i++) {
             if (books[i].getTitle().equals(title)) {
-                System.arraycopy(books, i + 1, books, i, currentAmount - 1);
-                books[currentAmount--] = null;
-                if (bookcaseLength < books[i].getLength()) {
-                    bookcaseLength = findMaxLength();
+                System.arraycopy(books, i + 1, books, i, countBooks - 1);
+                books[countBooks--] = null;
+                if (maxLength < books[i].getLength()) {
+                    maxLength = findMaxLength();
                 }
 
                 return true;
@@ -66,21 +66,21 @@ class Bookcase {
     }
 
     public Book[] getBooks() {
-        return Arrays.copyOf(books, currentAmount);
+        return Arrays.copyOf(books, countBooks);
     }
 
-    public void freeBookcase() {
-        Arrays.fill(books, 0, currentAmount, null);
-        currentAmount = 0;
+    public void free() {
+        Arrays.fill(books, 0, countBooks, null);
+        countBooks = 0;
     }
 
-    public boolean isBookcaseEmpty() {
-        return currentAmount == 0;
+    public boolean hasBooks() {
+        return countBooks == 0;
     }
 
     private int findMaxLength() {
         int maxLength = books[0].getLength();
-        for (int i = 1; i <= currentAmount; i++) {
+        for (int i = 1; i <= countBooks; i++) {
             if (maxLength < books[i].getLength()) {
                 maxLength = books[i].getLength();
             }

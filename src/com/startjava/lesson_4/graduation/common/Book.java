@@ -11,7 +11,7 @@ class Book {
         this.author = author;
         this.title = title;
         this.publicationYear = publicationYear;
-        length = author.length() + title.length() + publicationYear.length();
+        length = (author + title + publicationYear).length();
     }
 
     public String getTitle() {
@@ -20,18 +20,6 @@ class Book {
 
     @Override
     public String toString() {
-        return getAuthor() + ", " + getTitle() + ", " + getPublicationYear() + ", " + getLength();
-    }
-
-    private String getAuthor() {
-        return author;
-    }
-
-    private String getPublicationYear() {
-        return publicationYear;
-    }
-
-    private int getLength() {
-        return length;
+        return author + ", " + title + ", " + publicationYear + ", " + length;
     }
 }
