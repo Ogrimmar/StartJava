@@ -40,7 +40,7 @@ class Bookcase {
     }
 
     public boolean find(String title) {
-        for (int i = 0; i <= countBooks; i++) {
+        for (int i = 0; i < countBooks; i++) {
             if (books[i].getTitle().equals(title)) {
                 return true;
             }
@@ -87,7 +87,7 @@ class Bookcase {
 
     private int findMaxLength() {
         int maxLength = books[0].getLength();
-        for (int i = 1; i <= countBooks; i++) {
+        for (int i = 1; i < countBooks; i++) {
             if (maxLength < books[i].getLength()) {
                 maxLength = books[i].getLength();
             }

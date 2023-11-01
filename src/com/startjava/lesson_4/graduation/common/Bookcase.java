@@ -29,7 +29,7 @@ class Bookcase {
     }
 
     public boolean find(String title) {
-        for (int i = 0; i <= countBooks; i++) {
+        for (int i = 0; i < countBooks; i++) {
             if (books[i].getTitle().equals(title)) {
                 return true;
             }
