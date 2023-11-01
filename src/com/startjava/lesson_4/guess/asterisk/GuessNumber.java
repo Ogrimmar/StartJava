@@ -74,7 +74,7 @@ class GuessNumber {
         }
 
         output = "Игрок %s загадал число %d с %d попытки, которое ";
-        output +=  ((playerNumber > targetNumber) ? "больше " : "меньше ");
+        output +=  (playerNumber > targetNumber) ? "больше " : "меньше ";
         output += "того, что загадал компьютер.\n";
         System.out.printf(output, name, playerNumber, playerAttempt);
 
@@ -100,6 +100,10 @@ class GuessNumber {
         int length = players.length;
         for (int i = 0; i < length; i++) {
             int randomNumber = new Random().nextInt(length - i);
+            if (randomNumber == i) {
+                continue;
+            }
+
             Player player = players[i];
             players[i] = players[randomNumber];
             players[randomNumber] = player;
