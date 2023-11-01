@@ -37,7 +37,7 @@ public class BookcaseTest {
         }
     }
 
-    public static void displayMenu() {
+    private static void displayMenu() {
         System.out.println("""
                            Меню управления книжныи шкафом:
                            1. Добавить книгу в шкаф.
