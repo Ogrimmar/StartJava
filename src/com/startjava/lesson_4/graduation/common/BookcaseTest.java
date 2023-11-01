@@ -14,7 +14,7 @@ public class BookcaseTest {
         displayBookshelf();
         do {
             displayMenu();
-            actionNumber = choseActions();
+            actionNumber = choseAction();
             System.out.println("Для продолжения нажмите \"Enter\": ");
             scanner.nextLine();
             displayBookshelf();
@@ -48,7 +48,7 @@ public class BookcaseTest {
                            """);
     }
 
-    private static int choseActions() {
+    private static int choseAction() {
         int counter = 0;
         while (counter < 1 && counter > Integer.MIN_VALUE) {
             System.out.print("Введите номер команды: ");
