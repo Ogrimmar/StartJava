@@ -21,13 +21,14 @@ public class BookcaseTest {
     }
 
     private static void displayBookshelf() {
-        if (bookcase.hasBooks()) {
+        if (!bookcase.hasBooks()) {
             System.out.println("Шкаф пуст.\n");
         } else {
-            System.out.println("В шкафу книг - " + bookcase.getCount() + 
-                    ", свободно полок - " + bookcase.getFreeShelvesAmount() + "\n");
+            int booksAmount = bookcase.getCount();
+            System.out.println("В шкафу книг - " + booksAmount + ", свободно полок - " + 
+                    bookcase.getFreeShelvesAmount() + "\n");
             Book[] books = bookcase.getBooks();
-            for (int i = 0; i < bookcase.getCount(); i++) {
+            for (int i = 0; i < booksAmount; i++) {
                 System.out.println("|" + books[i] + "|");
                 System.out.println("|" + "-".repeat(books[i].toString().length()) + "|");
             }

@@ -75,7 +75,7 @@ class Bookcase {
     }
 
     public boolean hasBooks() {
-        return countBooks == 0;
+        return countBooks > 0;
     }
 
     private int findMaxLength() {
