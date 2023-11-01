@@ -84,14 +84,9 @@ public class BookcaseTest {
     }
 
     private static void add() {
-        System.out.print("Введите автора книги: ");
-        String author = scanner.nextLine().trim();
-
+        String author = enterAuthor();
         String title = enterTitle();
-
-        System.out.print("Введите год издания книги: ");
-        String publicationYear = scanner.nextLine().trim();
-
+        String publicationYear = enterPublicationYear();
         if (bookcase.add(new Book(author, title, publicationYear))) {
             System.out.println("Книга добавлена в шкаф.");
         } else {
@@ -118,8 +113,18 @@ public class BookcaseTest {
         System.out.println("Книжный шкаф освобождён.");
     }
 
+    private static String enterAuthor() {
+        System.out.print("Введите автора книги: ");
+        return scanner.nextLine().trim();
+    }
+
     private static String enterTitle() {
         System.out.print("Введите название книги: ");
+        return scanner.nextLine().trim();
+    }
+
+    private static String enterPublicationYear() {
+        System.out.print("Введите год издания книги: ");
         return scanner.nextLine().trim();
     }
 }
