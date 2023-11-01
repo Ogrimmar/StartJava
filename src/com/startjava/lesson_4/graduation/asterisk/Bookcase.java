@@ -32,8 +32,9 @@ class Bookcase {
 
         books[countBooks++] = book;
 
-        if (book.getLength() > maxLength) {
-            maxLength = book.getLength();
+        int bookLength = book.getLength();
+        if (bookLength > maxLength) {
+            maxLength = bookLength;
         }
 
         return true;
@@ -88,8 +89,9 @@ class Bookcase {
     private int findMaxLength() {
         int maxLength = books[0].getLength();
         for (int i = 1; i < countBooks; i++) {
-            if (maxLength < books[i].getLength()) {
-                maxLength = books[i].getLength();
+            int bookLength = books[i].getLength();
+            if (maxLength < bookLength) {
+                maxLength = bookLength;
             }
         }
 
