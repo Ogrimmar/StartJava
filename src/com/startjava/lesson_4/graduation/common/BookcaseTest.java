@@ -11,12 +11,13 @@ public class BookcaseTest {
     public static void main(String[] args) {
         System.out.println("Выпускной проект курса StartJava.\n");
 
+        displayBookshelf();
         do {
-            displayBookshelf();
             displayMenu();
             actionNumber = choseActions();
             System.out.println("Для продолжения нажмите \"Enter\": ");
             scanner.nextLine();
+            displayBookshelf();
         } while (actionNumber != Integer.MIN_VALUE);
     }
 
@@ -24,55 +25,59 @@ public class BookcaseTest {
         if (!bookcase.hasBooks()) {
             System.out.println("Шкаф пуст.\n");
         } else {
-            int booksAmount = bookcase.getCount();
-            System.out.println("В шкафу книг - " + booksAmount + ", свободно полок - " + 
+            int countBooks = bookcase.getCount();
+            System.out.println("В шкафу книг - " + countBooks + ", свободно полок - " + 
                     bookcase.getFreeShelvesAmount() + "\n");
             Book[] books = bookcase.getBooks();
-            for (int i = 0; i < booksAmount; i++) {
+            for (int i = 0; i < countBooks; i++) {
                 System.out.println("|" + books[i] + "|");
-                System.out.println("|" + "-".repeat(books[i].toString().length()) + "|");
+                System.out.println("|" + "-".repeat(books[i].getLength()) + "|\n");
             }
             System.out.println();
         }
     }
 
     private static void displayMenu() {
-        System.out.println("Меню управления книжным шкафом:");
-        System.out.println("1. Добавить книгу в шкаф.");
-        System.out.println("2. Найти книгу в шкафу.");
-        System.out.println("3. Убрать книгу из шкафа.");
-        System.out.println("4. Освободить шкаф.");
-        System.out.println("5. Выйти из меню управления шкафа.\n");
+        System.out.println("""
+                           Меню управления книжныи шкафом:
+                           1. Добавить книгу в шкаф.
+                           2. Найти книгу в шкафу.
+                           3. Убрать книгу из шкафа.
+                           4. Освободить шкаф.
+                           5. Выйти из меню управления шкафа.
+                           """);
     }
 
     private static int choseActions() {
         int counter = 0;
-        while (counter <= 0 && counter > Integer.MIN_VALUE) {
+        while (counter < 1 && counter > Integer.MIN_VALUE) {
             System.out.print("Введите номер команды: ");
-            int commandNumber = Integer.parseInt(scanner.nextLine());
-            switch (commandNumber) {
-                case 1:
+            int menuItem = Integer.parseInt(scanner.nextLine());
+            counter = switch (menuItem) {
+                case 1 -> {
                     add();
-                    counter = 1;
-                    break;
-                case 2:
+                    yield 1;
+                }
+                case 2 -> {
                     find();
-                    counter = 2;
-                    break;
-                case 3:
+                    yield 2;
+                }
+                case 3 -> {
                     delete();
-                    counter = 3;
-                    break;
-                case 4:
+                    yield 3;
+                }
+                case 4 -> {
                     free();
-                    counter = 4;
-                    break;
-                case 5:
-                    counter = Integer.MIN_VALUE;
-                    break;
-                default:
+                    yield 4;
+                }
+                case 5 -> {
+                    yield Integer.MIN_VALUE;
+                }
+                default -> {
                     System.out.println("Команды с таким номером не существует.");
-            }
+                    yield 0;
+                }
+            };
         }
 
         return counter;
@@ -82,8 +87,7 @@ public class BookcaseTest {
         System.out.print("Введите автора книги: ");
         String author = scanner.nextLine().trim();
 
-        System.out.print("Введите название книги: ");
-        String title = scanner.nextLine().trim();
+        String title = enterTitle();
 
         System.out.print("Введите год издания книги: ");
         String publicationYear = scanner.nextLine().trim();
@@ -96,8 +100,7 @@ public class BookcaseTest {
     }
 
     private static void find() {
-        System.out.print("Введите название книги: ");
-        String title = scanner.nextLine().trim();
+        String title = enterTitle();
         if (bookcase.find(title)) {
             System.out.println("Книга найдена.");
         } else {
@@ -106,15 +109,17 @@ public class BookcaseTest {
     }
 
     private static void delete() {
-        System.out.print("Введите название книги: ");
-        String title = scanner.nextLine().trim();
-        if (bookcase.delete(title)) {
-            System.out.println("Книга убрана из шкафа.");
-        }
+        String title = enterTitle();
+        bookcase.delete(title);
     }
 
     private static void free() {
         bookcase.free();
         System.out.println("Книжный шкаф освобождён.");
+    }
+
+    private static String enterTitle() {
+        System.out.print("Введите название книги: ");
+        return scanner.nextLine().trim();
     }
 }

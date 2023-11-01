@@ -38,16 +38,24 @@ class Bookcase {
         return false;
     }
 
-    public boolean delete(String title) {
-        for (int i = 0; i <= countBooks; i++) {
-            if (books[i].getTitle().equals(title)) {
-                System.arraycopy(books, i + 1, books, i, countBooks - 1);
-                books[countBooks--] = null;
-                return true;
+    public void delete(String title) {
+        if (!hasBooks()) {
+            System.out.println("Шкаф пуст - удалять нечего.");
+        } else {
+            boolean isBookFound = false;
+            for (int i = 0; i < countBooks; i++) {
+                if (books[i].getTitle().equals(title)) {
+                    isBookFound = true;
+                    System.arraycopy(books, i + 1, books, i, countBooks - 1);
+                    books[countBooks--] = null;
+                    System.out.println("Книга \"" + books[i] + "\" убрана из шкафа.");
+                }
+            }
+
+            if (!isBookFound) {
+                System.out.println("Книга с автором \"" + title + "\" не найдена.");
             }
         }
-
-        return false;
     }
 
     public Book[] getBooks() {
