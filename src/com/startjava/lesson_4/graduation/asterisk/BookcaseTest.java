@@ -11,7 +11,7 @@ public class BookcaseTest {
         System.out.println("Выпускной проект курса StartJava (задание с *).\n");
 
         while (true) {
-            displayBookshelf();
+            displayBookcase();
             displayMenu();
             if (choseAction() == Integer.MIN_VALUE) {
                 break;
@@ -25,8 +25,7 @@ public class BookcaseTest {
         if (!bookcase.hasBooks()) {
             System.out.println("Шкаф пуст.\n");
         } else {
-            int countBooks = bookcase.getCount();
-            System.out.println("В шкафу книг - " + countBooks + ", свободно полок - " + 
+            System.out.println("В шкафу книг - " + bookcase.getCount() + ", свободно полок - " + 
                     bookcase.getFreeShelvesAmount() + "\n");
             for (Book book : bookcase.getBooks()) {
                 System.out.println("|" + book + "|");
