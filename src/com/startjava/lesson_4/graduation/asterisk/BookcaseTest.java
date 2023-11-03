@@ -96,7 +96,7 @@ public class BookcaseTest {
         String title = enterTitle();
         Book foundBook = bookcase.find(title);
         String output = "Книга ";
-        output += (foundBook == null) ? "не " : output;
+        output += (foundBook == null) ? "не " : "";
         output += foundBook + " найдена.";
         System.out.println(output);
     }
