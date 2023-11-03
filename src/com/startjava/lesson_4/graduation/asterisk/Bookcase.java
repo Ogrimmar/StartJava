@@ -41,15 +41,13 @@ class Bookcase {
     }
 
     public Book find(String title) {
-        Book foundBook = null;
-        for (Book book : books) {
-            if (book.getTitle().equals(title)) {
-                foundBook = book;
-                break;
+        for (int i = 0; i < countBooks; i++) {
+            if (books[i].getTitle().equals(title)) {
+                return books[i];
             }
         }
 
-        return foundBook;
+        return null;
     }
 
     public void delete(String title) {

@@ -23,7 +23,7 @@ public class BookcaseTest {
 
     private static void displayBookcase() {
         if (!bookcase.hasBooks()) {
-            System.out.println("Шкаф пуст.\n");
+            System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.\n");
         } else {
             System.out.println("В шкафу книг - " + bookcase.getCount() + ", свободно полок - " + 
                     bookcase.getFreeShelvesAmount() + "\n");

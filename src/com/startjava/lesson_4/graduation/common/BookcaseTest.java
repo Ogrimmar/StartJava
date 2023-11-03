@@ -11,25 +11,25 @@ public class BookcaseTest {
         System.out.println("Выпускной проект курса StartJava.\n");
 
         while (true) {
+            System.out.println("Для продолжения нажмите \"Enter\": ");
+            scanner.nextLine();
             displayBookcase();
             displayMenu();
             if (choseAction() == Integer.MIN_VALUE) {
                 break;
             }
-            System.out.println("Для продолжения нажмите \"Enter\": ");
-            scanner.nextLine();
         }
     }
 
     private static void displayBookcase() {
         if (!bookcase.hasBooks()) {
-            System.out.println("Шкаф пуст.\n");
+            System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.\n");
         } else {
             System.out.println("В шкафу книг - " + bookcase.getCount() + ", свободно полок - " + 
                     bookcase.getFreeShelvesAmount() + "\n");
             for (Book book : bookcase.getBooks()) {
                 System.out.println("|" + book + "|");
-                System.out.println("|" + "-".repeat(book.getLength()) + "|");
+                System.out.println("|" + "-".repeat(Book.LENGTH) + "|");
             }
             System.out.println();
         }
