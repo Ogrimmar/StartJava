@@ -40,14 +40,16 @@ class Bookcase {
         return true;
     }
 
-    public boolean find(String title) {
-        for (int i = 0; i < countBooks; i++) {
-            if (books[i].getTitle().equals(title)) {
-                return true;
+    public Book find(String title) {
+        Book foundBook = null;
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
+                foundBook = book;
+                break;
             }
         }
 
-        return false;
+        return foundBook;
     }
 
     public void delete(String title) {
@@ -58,9 +60,9 @@ class Bookcase {
             for (int i = 0; i < countBooks; i++) {
                 if (books[i].getTitle().equals(title)) {
                     isBookFound = true;
-                    System.arraycopy(books, i + 1, books, i, countBooks - 1);
-                    books[countBooks--] = null;
-                    System.out.println("Книга \"" + books[i] + "\" убрана из шкафа.");
+                    System.arraycopy(books, i + 1, books, i, countBooks - i - 1);
+                    books[--countBooks] = null;
+                    System.out.println("Книга с названием \"" + title + "\" убрана из шкафа.");
                     if (maxLength < books[i].getLength()) {
                         maxLength = findMaxLength();
                     }
@@ -68,7 +70,7 @@ class Bookcase {
             }
 
             if (!isBookFound) {
-                System.out.println("Книга с автором \"" + title + "\" не найдена.");
+                System.out.println("Книга с названием \"" + title + "\" не найдена.");
             }
         }
     }

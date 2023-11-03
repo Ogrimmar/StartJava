@@ -6,32 +6,30 @@ public class BookcaseTest {
 
     private static Scanner scanner = new Scanner(System.in, "cp866");
     private static Bookcase bookcase = new Bookcase();
-    private static int actionNumber = 0;
 
     public static void main(String[] args) {
         System.out.println("Выпускной проект курса StartJava.\n");
 
-        displayBookshelf();
-        do {
+        while (true) {
+            displayBookshelf();
             displayMenu();
-            actionNumber = choseAction();
+            if (choseAction() == Integer.MIN_VALUE) {
+                break;
+            }
             System.out.println("Для продолжения нажмите \"Enter\": ");
             scanner.nextLine();
-            displayBookshelf();
-        } while (actionNumber != Integer.MIN_VALUE);
+        }
     }
 
     private static void displayBookshelf() {
         if (!bookcase.hasBooks()) {
             System.out.println("Шкаф пуст.\n");
         } else {
-            int countBooks = bookcase.getCount();
-            System.out.println("В шкафу книг - " + countBooks + ", свободно полок - " + 
+            System.out.println("В шкафу книг - " + bookcase.getCount() + ", свободно полок - " + 
                     bookcase.getFreeShelvesAmount() + "\n");
-            Book[] books = bookcase.getBooks();
-            for (int i = 0; i < countBooks; i++) {
-                System.out.println("|" + books[i] + "|");
-                System.out.println("|" + "-".repeat(books[i].getLength()) + "|\n");
+            for (Book book : bookcase.getBooks()) {
+                System.out.println("|" + book + "|");
+                System.out.println("|" + "-".repeat(book.getLength()) + "|");
             }
             System.out.println();
         }
@@ -39,7 +37,7 @@ public class BookcaseTest {
 
     private static void displayMenu() {
         System.out.println("""
-                           Меню управления книжныи шкафом:
+                           Меню управления книжным шкафом:
                            1. Добавить книгу в шкаф.
                            2. Найти книгу в шкафу.
                            3. Убрать книгу из шкафа.
@@ -96,11 +94,11 @@ public class BookcaseTest {
 
     private static void find() {
         String title = enterTitle();
-        if (bookcase.find(title)) {
-            System.out.println("Книга найдена.");
-        } else {
-            System.out.println("Книга не найдена.");
-        }
+        Book foundBook = bookcase.find(title);
+        String output = "Книга ";
+        output += (foundBook == null) ? "не " : output;
+        output += foundBook + " найдена.";
+        System.out.println(output);
     }
 
     private static void delete() {
