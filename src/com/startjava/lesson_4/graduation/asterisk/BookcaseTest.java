@@ -11,13 +11,13 @@ public class BookcaseTest {
         System.out.println("Выпускной проект курса StartJava (задание с *).\n");
 
         while (true) {
+            System.out.println("Для продолжения нажмите \"Enter\": ");
+            scanner.nextLine();
             displayBookcase();
             displayMenu();
             if (choseAction() == Integer.MIN_VALUE) {
                 break;
             }
-            System.out.println("Для продолжения нажмите \"Enter\": ");
-            scanner.nextLine();
         }
     }
 
