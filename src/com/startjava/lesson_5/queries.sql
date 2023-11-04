@@ -35,7 +35,7 @@ SELECT *
 					       FROM jaegers);
 
 \echo отобразите средний вес роботов, округлив его до трёх знаков после запятой		
-SELECT ROUND(AVG(weight), 3) AS avg_weight
+SELECT ROUND(CAST(AVG(weight) AS dec(12, 6)), 3) AS avg_weight
   FROM jaegers;
 
 \echo увеличить на единицу количество уничтоженных kaiju у роботов, которые до сих пор не разрушены, а затем отобразить таблицу
