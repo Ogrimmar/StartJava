@@ -9,8 +9,8 @@ CREATE TABLE jaegers (
     height      REAL,
     weight      NUMERIC,
     status      VARCHAR(20),
-    origin		VARCHAR(20),
-    launch		DATE,
+    origin      VARCHAR(20),
+    launch      DATE,
     kaiju_kill  INT
 );
 
