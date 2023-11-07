@@ -25,14 +25,14 @@ SELECT *
 \echo вывести информацию о самом старом роботе
 SELECT *
   FROM jaegers
- WHERE launch = (SELECT MIN(launch) 
-				   FROM jaegers);
-						
+ WHERE launch = (SELECT MIN(launch)
+                   FROM jaegers);
+
 \echo вывести информацию о роботах, которые уничтожили больше всех kaiju
 SELECT *
   FROM jaegers
  WHERE kaiju_kill = (SELECT MAX(kaiju_kill)
-					   FROM jaegers);
+                       FROM jaegers);
 
 \echo отобразите средний вес роботов, округлив его до трёх знаков после запятой		
 SELECT ROUND(AVG(weight), 3) AS avg_weight
@@ -41,7 +41,7 @@ SELECT ROUND(AVG(weight), 3) AS avg_weight
 \echo увеличить на единицу количество уничтоженных kaiju у роботов, которые до сих пор не разрушены, а затем отобразить таблицу
 SELECT *
   FROM jaegers;
-  
+
 UPDATE jaegers
    SET kaiju_kill = kaiju_kill + 1
  WHERE status <> 'Destroyed';
