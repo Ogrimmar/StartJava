@@ -23,10 +23,10 @@ SELECT *
     WHERE mark NOT IN ('Mark-1', 'Mark-4')
     ORDER BY model_name ASC;
 
-\echo отсортируйте таблицу по именам роботов в алфавитном порядке
+\echo отсортируйте таблицу по убыванию по столбцу mark
 SELECT *
     FROM jaegers
-    ORDER BY mark ASC;
+    ORDER BY mark DESC;
 
 \echo вывести информацию о самом старом роботе
 SELECT *
