@@ -45,7 +45,7 @@ SELECT *
 \echo отобразите средний вес роботов, округлив его до трёх знаков после запятой		
 SELECT ROUND(AVG(weight), 3) AS avg_weight
     FROM     jaegers
-	GROUP BY model_name
+    GROUP BY model_name
     ORDER BY model_name ASC;
 
 \echo увеличить на единицу количество уничтоженных kaiju у роботов, которые до сих пор не разрушены, а затем отобразить таблицу
