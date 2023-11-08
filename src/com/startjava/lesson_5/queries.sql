@@ -68,4 +68,4 @@ DELETE
 
 SELECT *
     FROM jaegers
-	ORDER BY model_name ASC;
+    ORDER BY model_name ASC;
